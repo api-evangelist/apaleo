@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: apaleo
+providerId: apaleo
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Hospitality
+- PMS
+- Property Management
+- Hotels
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  apaleo applies rate limiting to its REST APIs to protect platform
+  stability. Clients that exceed the allowed request rate receive an
+  HTTP 429 Too Many Requests response and should back off and retry.
+  Specific per-client, per-endpoint request thresholds and windows are
+  not publicly published as fixed numbers and are not reconciled in
+  this artifact.
+notes: >-
+  Confirm current thresholds, headers, and retry guidance against the
+  apaleo developer documentation and Swagger reference during
+  reconciliation; limits may differ by endpoint and integration type.
+sources:
+- https://apaleo.dev/guides/api/overview.html
+- https://apaleo.dev/guides/webhook/best-practices.html
+- https://api.apaleo.com/swagger/index.html
+responseCodes:
+  throttled: 429
+limits:
+- name: API Requests
+  scope: client
+  metric: requests
+  limit: see provider documentation
+  notes: REST request rate limiting across the apaleo APIs; exceeding it returns 429.
+- name: Bulk / Batch Operations
+  scope: client
+  metric: requests
+  limit: see provider documentation
+  notes: Bulk endpoints (e.g. units/bulk, maintenances/bulk) reduce per-call overhead for high-volume writes.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter on HTTP 429 responses and retry.
+- name: Pagination
+  description: Use pageNumber/pageSize and $count endpoints to page large result sets and avoid oversized requests.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

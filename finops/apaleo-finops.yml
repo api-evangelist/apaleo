@@ -1,0 +1,88 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: apaleo
+providerId: apaleo
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Hospitality
+- PMS
+- Property Management
+- Hotels
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of apaleo platform spend. apaleo bills a per-room monthly
+  subscription that includes the Open PMS, all APIs, the apaleo Store, and
+  support, subject to a monthly minimum. apaleo Pay is billed separately as
+  a percentage of online transaction volume. Costs scale primarily with the
+  number of rooms under management rather than with API call volume.
+notes: >-
+  Per-room rate, monthly minimum, and payment percentages are subject to
+  change and negotiation; verify against the apaleo pricing page during
+  reconciliation.
+sources:
+- https://apaleo.com/pricing
+- https://apaleo.com/open-pms
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: apaleo
+serviceCategory: Hospitality and Property Management
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: EUR
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: apaleo PMS
+  ServiceCategory: Hospitality and Property Management
+  ProviderName: apaleo
+  PublisherName: apaleo
+  InvoiceIssuerName: apaleo
+  BillingCurrency: EUR
+  ChargeCategory: Usage
+  PricingCategory: Subscription-Based
+meters:
+- name: rooms_under_management
+  description: Number of rooms under management, billed per room per month.
+  unit: rooms
+  aggregation: sum
+  dimensions:
+  - account
+  - property
+- name: subscription_minimum
+  description: Monthly subscription minimum applied per account.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+- name: payment_transaction_volume
+  description: Online transaction volume processed via apaleo Pay, billed as a percentage.
+  unit: currency
+  aggregation: sum
+  dimensions:
+  - account
+  - property
+principles:
+- name: Visibility
+  description: Track rooms under management per property and reconcile against the monthly subscription invoice.
+- name: Allocation
+  description: Map per-property room counts and payment volume to internal cost centers and brands.
+- name: Optimization
+  description: Right-size active properties and rooms; use included APIs and the apaleo Store rather than paid custom integrations; consolidate to stay above the monthly minimum efficiently.
+- name: Accountability
+  description: Assign owners per property; review per-room spend and apaleo Pay fees monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

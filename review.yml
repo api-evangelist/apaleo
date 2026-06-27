@@ -1,0 +1,83 @@
+aid: apaleo
+name: apaleo
+review:
+  question: Does apaleo expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. apaleo's event-driven surface is
+    delivered via HTTP webhooks (apps register subscriptions and receive
+    HTTP POST callbacks), not via a streaming WebSocket or Server-Sent
+    Events transport. Webhook callback delivery is an outbound HTTP push
+    and is modeled here through the Webhooks API rather than AsyncAPI.
+findings:
+  summary: |
+    apaleo does not publish a documented public WebSocket API. The apaleo
+    platform is an OAuth 2.0-secured set of REST (HTTPS) APIs under
+    https://api.apaleo.com (booking, inventory, rateplan, finance,
+    availability, settings, operations) plus separate hosts for identity
+    (identity.apaleo.com), payments (payment.apaleo.com), distribution
+    (distribution.apaleo.com), and webhooks (webhook.apaleo.com). Real-time
+    integration is achieved through webhook subscriptions that deliver
+    events as outbound HTTP POST callbacks. No realtime, bidirectional
+    WebSocket (ws:// or wss://) endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.apaleo.com
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      note: Outbound HTTP POST event callbacks configured via POST https://webhook.apaleo.com/v1/subscriptions. Not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in apaleo's Swagger references or developer documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.apaleo.com/booking/v1/bookings
+    - GET  https://api.apaleo.com/booking/v1/reservations
+    - GET  https://api.apaleo.com/booking/v1/reservations/{id}
+    - PUT  https://api.apaleo.com/booking/v1/reservation-actions/{id}/checkin
+    - PUT  https://api.apaleo.com/booking/v1/reservation-actions/{id}/checkout
+    - GET  https://api.apaleo.com/booking/v1/offers
+    - GET  https://api.apaleo.com/inventory/v1/properties
+    - GET  https://api.apaleo.com/inventory/v1/units
+    - GET  https://api.apaleo.com/inventory/v1/unit-groups
+    - GET  https://api.apaleo.com/rateplan/v1/rate-plans
+    - GET  https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates
+    - GET  https://api.apaleo.com/finance/v1/folios
+    - POST https://api.apaleo.com/finance/v1/folio-actions/{folioId}/charges
+    - GET  https://api.apaleo.com/availability/v1/units
+    - GET  https://api.apaleo.com/availability/v1/unit-groups
+    - GET  https://api.apaleo.com/settings/v1/market-segments
+    - POST https://webhook.apaleo.com/v1/subscriptions
+  oauth:
+    flow: OAuth 2.0 (authorization code, client credentials, refresh token)
+    authorizationUrl: https://identity.apaleo.com/connect/authorize
+    tokenUrl: https://identity.apaleo.com/connect/token
+    discovery: https://identity.apaleo.com/.well-known/openid-configuration
+sources:
+  - url: https://apaleo.dev/guides/api/overview.html
+    type: Documentation
+    note: Lists REST base URL https://api.apaleo.com and OAuth 2.0 grant flows; no WebSocket mentioned.
+  - url: https://api.apaleo.com/swagger/index.html
+    type: APIReference
+    note: All documented apaleo API operations are HTTPS REST described as Swagger/OpenAPI documents.
+  - url: https://apaleo.dev/guides/webhook/configuration.html
+    type: Documentation
+    note: Real-time events are delivered via webhook subscriptions (outbound HTTP POST), not WebSocket.
+  - url: https://apaleo.dev/guides/oauth-connection/authentication.html
+    type: Documentation
+    note: OAuth 2.0 token endpoint is https://identity.apaleo.com/connect/token.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. apaleo's only event-driven
+    transport is outbound HTTP webhook callbacks, which are modeled as the
+    Webhooks API in apis.yml. No AsyncAPI document was authored because the
+    webhook delivery mechanism is a plain HTTP push rather than a streaming
+    SSE or WebSocket channel.

@@ -1,0 +1,108 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: apaleo
+providerId: apaleo
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Hospitality
+- PMS
+- Property Management
+- Hotels
+- Plans
+description: >-
+  apaleo uses a transparent per-room subscription model. The Open PMS,
+  all APIs, the apaleo Store marketplace, support, and the knowledge base
+  are included in a single base subscription with no setup, license,
+  maintenance, or integration fees. The platform is billed per room per
+  month with a published monthly minimum. apaleo Pay (integrated payments)
+  is billed separately as a percentage of transaction volume.
+notes: >-
+  Per-room and minimum figures are taken from the public apaleo pricing
+  page and are subject to change and to negotiation for larger estates;
+  verify on the pricing page during reconciliation.
+sources:
+- https://apaleo.com/pricing
+- https://apaleo.com/open-pms
+- https://apaleo.com/open-apis
+plans:
+- id: apaleo-pms
+  name: apaleo PMS Subscription
+  type: subscription
+  description: >-
+    Per-room monthly subscription including the Open PMS, all APIs,
+    apaleo Store access, support, and the knowledge base, with a
+    published monthly minimum.
+  entries:
+  - label: Per Room
+    name: per_room
+    type: usage
+    metric: rooms
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from EUR 8 per room per month
+    userMultiplied: true
+  - label: Monthly Minimum
+    name: monthly_minimum
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from EUR 400 per month
+    userMultiplied: false
+  elements:
+  - name: Open PMS
+  - name: All APIs Included
+  - name: apaleo Store
+  - name: Support
+  - name: Knowledge Base
+  - name: No Setup / License / Maintenance / Integration Fees
+- id: apaleo-pay
+  name: apaleo Pay
+  type: usage
+  description: >-
+    Integrated payment processing billed as a percentage of online
+    transaction volume.
+  entries:
+  - label: Online Transaction Fee
+    name: online_transactions
+    type: usage
+    metric: transaction_volume
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from 0.6% per transaction
+    userMultiplied: false
+  elements:
+  - name: Online Payments
+  - name: Merchant Account
+- id: apaleo-trial
+  name: Free Trial
+  type: free
+  description: >-
+    A free trial of the apaleo platform is available for evaluation
+    before committing to a subscription.
+  entries:
+  - label: Free Trial
+    name: free_trial
+    type: free
+    metric: trial
+    limit: -1
+    timeFrame: trial
+    geo: global
+    unit: 1
+    price: free
+    userMultiplied: false
+  elements:
+  - name: Sandbox / Test Property
+  - name: Full API Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

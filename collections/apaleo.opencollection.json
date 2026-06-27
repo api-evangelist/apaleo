@@ -1,0 +1,2769 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "apaleo Platform API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a link to a payment form that allows guests to complete the authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/authorizations/by-link"
+          },
+          "docs": "Creates a link to a payment form that allows guests to complete the authorization"
+        },
+        {
+          "info": {
+            "name": "Creates the authorization by using the terminal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/authorizations/by-terminal"
+          },
+          "docs": "Creates the authorization by using the terminal"
+        },
+        {
+          "info": {
+            "name": "Creates authorization by using a previously created payment account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/authorizations/by-payment-account"
+          },
+          "docs": "Creates authorization by using a previously created payment account"
+        },
+        {
+          "info": {
+            "name": "Creates the authorization based on an existing pre-authorization created prior directly with the payment service provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/authorizations/by-authorization"
+          },
+          "docs": "Creates the authorization based on an existing pre-authorization created prior directly with the payment service provider"
+        },
+        {
+          "info": {
+            "name": "Returns a single authorization by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/authorizations/{id}"
+          },
+          "docs": "Returns a single authorization by ID"
+        },
+        {
+          "info": {
+            "name": "Returns a list of authorizations based on the query parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/authorizations"
+          },
+          "docs": "Returns a list of authorizations based on the query parameters"
+        },
+        {
+          "info": {
+            "name": "Cancels the authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/authorization-actions/{authorizationId}/cancel"
+          },
+          "docs": "Cancels the authorization"
+        },
+        {
+          "info": {
+            "name": "Updates the requested amount and extends the expiry date of the authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/authorization-actions/{authorizationId}/refresh"
+          },
+          "docs": "Updates the requested amount and extends the expiry date of the authorization"
+        },
+        {
+          "info": {
+            "name": "Expires the pending payment link with the payment provider and updates the status to Expired",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/authorization-actions/{authorizationId}/expire-payment-link"
+          },
+          "docs": "Expires the pending payment link with the payment provider and updates the status to Expired"
+        },
+        {
+          "info": {
+            "name": "Creates a block",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/blocks"
+          },
+          "docs": "Creates a block"
+        },
+        {
+          "info": {
+            "name": "Returns a list of blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/blocks"
+          },
+          "docs": "Returns a list of blocks"
+        },
+        {
+          "info": {
+            "name": "Returns number of blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/blocks/$count"
+          },
+          "docs": "Returns number of blocks"
+        },
+        {
+          "info": {
+            "name": "Returns a specific block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/blocks/{id}"
+          },
+          "docs": "Returns a specific block."
+        },
+        {
+          "info": {
+            "name": "Delete a specific block",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/booking/v1/blocks/{id}"
+          },
+          "docs": "Delete a specific block"
+        },
+        {
+          "info": {
+            "name": "Confirm a block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/confirm"
+          },
+          "docs": "Confirm a block."
+        },
+        {
+          "info": {
+            "name": "Set a block to optional.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/set-to-optional"
+          },
+          "docs": "Set a block to optional."
+        },
+        {
+          "info": {
+            "name": "Edit the optional fields of a block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/set-optional-fields"
+          },
+          "docs": "Edit the optional fields of a block."
+        },
+        {
+          "info": {
+            "name": "Release a block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/release"
+          },
+          "docs": "Release a block."
+        },
+        {
+          "info": {
+            "name": "Cancel a block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/cancel"
+          },
+          "docs": "Cancel a block."
+        },
+        {
+          "info": {
+            "name": "Wash a block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/wash"
+          },
+          "docs": "Wash a block."
+        },
+        {
+          "info": {
+            "name": "Allow to modify a block",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/block-actions/{id}/amend"
+          },
+          "docs": "Allow to modify a block"
+        },
+        {
+          "info": {
+            "name": "Creates a booking for one or more reservations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/bookings"
+          },
+          "docs": "Creates a booking for one or more reservations."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all bookings, filtered by the specified parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/bookings"
+          },
+          "docs": "Returns a list of all bookings, filtered by the specified parameters."
+        },
+        {
+          "info": {
+            "name": "Creates a booking for one or more reservations regardless of availability or restrictions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/bookings/$force"
+          },
+          "docs": "Creates a booking for one or more reservations regardless of availability or restrictions."
+        },
+        {
+          "info": {
+            "name": "Add one or multiple reservations to an existing booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/bookings/{id}/reservations"
+          },
+          "docs": "Add one or multiple reservations to an existing booking."
+        },
+        {
+          "info": {
+            "name": "Add one or multiple reservations to an existing booking regardless of availability or restrictions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/bookings/{id}/reservations/$force"
+          },
+          "docs": "Add one or multiple reservations to an existing booking regardless of availability or restrictions."
+        },
+        {
+          "info": {
+            "name": "Returns a specific booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/bookings/{id}"
+          },
+          "docs": "Returns a specific booking."
+        },
+        {
+          "info": {
+            "name": "Allows to modify certain booking properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/booking/v1/bookings/{id}"
+          },
+          "docs": "Allows to modify certain booking properties"
+        },
+        {
+          "info": {
+            "name": "Creates a group booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/groups"
+          },
+          "docs": "Creates a group booking."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all group bookings, filtered by the specified parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/groups"
+          },
+          "docs": "Returns a list of all group bookings, filtered by the specified parameters."
+        },
+        {
+          "info": {
+            "name": "Returns a specific group booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/groups/{id}"
+          },
+          "docs": "Returns a specific group booking."
+        },
+        {
+          "info": {
+            "name": "Allows to modify certain group booking properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/booking/v1/groups/{id}"
+          },
+          "docs": "Allows to modify certain group booking properties"
+        },
+        {
+          "info": {
+            "name": "Delete a certain group booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/booking/v1/groups/{id}"
+          },
+          "docs": "Delete a certain group booking"
+        },
+        {
+          "info": {
+            "name": "Returns number of group bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/groups/$count"
+          },
+          "docs": "Returns number of group bookings"
+        },
+        {
+          "info": {
+            "name": "Add one or multiple reservations to an existing group booking using blocked inventory.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/groups/{id}/reservations"
+          },
+          "docs": "Add one or multiple reservations to an existing group booking using blocked inventory."
+        },
+        {
+          "info": {
+            "name": "Returns offers for one specific stay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/offers"
+          },
+          "docs": "Returns offers for one specific stay."
+        },
+        {
+          "info": {
+            "name": "Returns offers for a specific rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/rate-plan-offers"
+          },
+          "docs": "Returns offers for a specific rate plan."
+        },
+        {
+          "info": {
+            "name": "Returns service offers for one specific stay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/service-offers"
+          },
+          "docs": "Returns service offers for one specific stay."
+        },
+        {
+          "info": {
+            "name": "Returns offers with rates and availabilities for the specified range.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/offer-index"
+          },
+          "docs": "Returns offers with rates and availabilities for the specified range."
+        },
+        {
+          "info": {
+            "name": "Creates payment account by using the terminal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts/by-terminal"
+          },
+          "docs": "Creates payment account by using the terminal"
+        },
+        {
+          "info": {
+            "name": "Creates a link to a payment form that allows guests to complete the payment account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts/by-link"
+          },
+          "docs": "Creates a link to a payment form that allows guests to complete the payment account"
+        },
+        {
+          "info": {
+            "name": "Creates payment account based on an existing authorization created prior externally with the Payment Service Provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts/by-authorization"
+          },
+          "docs": "Creates payment account based on an existing authorization created prior externally with the Payment Service Provider"
+        },
+        {
+          "info": {
+            "name": "Creates payment account based on an existing authorization created prior externally with the Payment Service Provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts/by-stored-payment-method"
+          },
+          "docs": "Creates payment account based on an existing authorization created prior externally with the Payment Service Provider"
+        },
+        {
+          "info": {
+            "name": "Returns a single payment account by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts/{id}"
+          },
+          "docs": "Returns a single payment account by ID"
+        },
+        {
+          "info": {
+            "name": "Returns a list of payment accounts based on the query parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/payment-accounts"
+          },
+          "docs": "Returns a list of payment accounts based on the query parameters"
+        },
+        {
+          "info": {
+            "name": "Sets payment account status to Canceled",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/payment-account-actions/{paymentAccountId}/cancel"
+          },
+          "docs": "Sets payment account status to Canceled"
+        },
+        {
+          "info": {
+            "name": "Expires the pending payment link with the payment provider and updates the status to Expired",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/payment-account-actions/{paymentAccountId}/expire-payment-link"
+          },
+          "docs": "Expires the pending payment link with the payment provider and updates the status to Expired"
+        },
+        {
+          "info": {
+            "name": "Returns a list of all reservations, filtered by the specified parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations"
+          },
+          "docs": "Returns a list of all reservations, filtered by the specified parameters."
+        },
+        {
+          "info": {
+            "name": "Returns the number of reservations fulfilling the criteria specified in the parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations/$count"
+          },
+          "docs": "Returns the number of reservations fulfilling the criteria specified in the parameters."
+        },
+        {
+          "info": {
+            "name": "Returns a specific reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}"
+          },
+          "docs": "Returns a specific reservation."
+        },
+        {
+          "info": {
+            "name": "Allows to modify certain reservation properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}"
+          },
+          "docs": "Allows to modify certain reservation properties"
+        },
+        {
+          "info": {
+            "name": "Returns offers for one specific reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}/offers"
+          },
+          "docs": "Returns offers for one specific reservation."
+        },
+        {
+          "info": {
+            "name": "Returns service offers for one specific reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}/service-offers"
+          },
+          "docs": "Returns service offers for one specific reservation."
+        },
+        {
+          "info": {
+            "name": "Returns the services booked for a specific reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}/services"
+          },
+          "docs": "Returns the services booked for a specific reservation."
+        },
+        {
+          "info": {
+            "name": "Removes a service from a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/booking/v1/reservations/{id}/services"
+          },
+          "docs": "Removes a service from a reservation."
+        },
+        {
+          "info": {
+            "name": "Assign a unit to a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/assign-unit"
+          },
+          "docs": "Assign a unit to a reservation."
+        },
+        {
+          "info": {
+            "name": "Assign a specific unit to a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/assign-unit/{unitId}"
+          },
+          "docs": "Assign a specific unit to a reservation."
+        },
+        {
+          "info": {
+            "name": "Unassign units from a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/unassign-units"
+          },
+          "docs": "Unassign units from a reservation."
+        },
+        {
+          "info": {
+            "name": "Check-in of a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/checkin"
+          },
+          "docs": "Check-in of a reservation."
+        },
+        {
+          "info": {
+            "name": "Reverses the check-in of a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/revert-checkin"
+          },
+          "docs": "Reverses the check-in of a reservation."
+        },
+        {
+          "info": {
+            "name": "Check-out of a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/checkout"
+          },
+          "docs": "Check-out of a reservation."
+        },
+        {
+          "info": {
+            "name": "Cancel a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/cancel"
+          },
+          "docs": "Cancel a reservation."
+        },
+        {
+          "info": {
+            "name": "Set a reservation to No-show.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/noshow"
+          },
+          "docs": "Set a reservation to No-show."
+        },
+        {
+          "info": {
+            "name": "Allows you to amend the stay details of a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/amend"
+          },
+          "docs": "Allows you to amend the stay details of a reservation"
+        },
+        {
+          "info": {
+            "name": "Allows you to amend the stay details of a reservation regardless of availability or restrictions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/amend/$force"
+          },
+          "docs": "Allows you to amend the stay details of a reservation regardless of availability or restrictions."
+        },
+        {
+          "info": {
+            "name": "Book the service for a specific reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/book-service"
+          },
+          "docs": "Book the service for a specific reservation."
+        },
+        {
+          "info": {
+            "name": "Book the service for a specific reservation regardless of availability.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/book-service/$force"
+          },
+          "docs": "Book the service for a specific reservation regardless of availability."
+        },
+        {
+          "info": {
+            "name": "Removes the city tax from a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/remove-city-tax"
+          },
+          "docs": "Removes the city tax from a reservation."
+        },
+        {
+          "info": {
+            "name": "Adds the city tax to a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/add-city-tax"
+          },
+          "docs": "Adds the city tax to a reservation."
+        },
+        {
+          "info": {
+            "name": "Lock unit assignment for a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/lock-unit"
+          },
+          "docs": "Lock unit assignment for a reservation."
+        },
+        {
+          "info": {
+            "name": "Unlock unit assignment for a reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/booking/v1/reservation-actions/{id}/unlock-unit"
+          },
+          "docs": "Unlock unit assignment for a reservation."
+        },
+        {
+          "info": {
+            "name": "Returns a list of supported sources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/types/sources"
+          },
+          "docs": "Returns a list of supported sources."
+        },
+        {
+          "info": {
+            "name": "Returns a list of values that a field of the specified type can take in the specified country.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/booking/v1/types/{type}/allowed-values"
+          },
+          "docs": "Returns a list of values that a field of the specified type can take in the specified country."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a properties list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/properties"
+          },
+          "docs": "Get a properties list"
+        },
+        {
+          "info": {
+            "name": "Creates a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/properties"
+          },
+          "docs": "Creates a property"
+        },
+        {
+          "info": {
+            "name": "Return total count of properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/properties/$count"
+          },
+          "docs": "Return total count of properties"
+        },
+        {
+          "info": {
+            "name": "Get a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/properties/{id}"
+          },
+          "docs": "Get a property"
+        },
+        {
+          "info": {
+            "name": "Allows to modify property",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/inventory/v1/properties/{id}"
+          },
+          "docs": "Allows to modify property"
+        },
+        {
+          "info": {
+            "name": "Deletes a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/inventory/v1/properties/{id}"
+          },
+          "docs": "Deletes a property"
+        },
+        {
+          "info": {
+            "name": "Clones a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/property-actions/{id}/clone"
+          },
+          "docs": "Clones a property"
+        },
+        {
+          "info": {
+            "name": "Archive a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/inventory/v1/property-actions/{id}/archive"
+          },
+          "docs": "Archive a property"
+        },
+        {
+          "info": {
+            "name": "Move property to live",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/inventory/v1/property-actions/{id}/set-live"
+          },
+          "docs": "Move property to live"
+        },
+        {
+          "info": {
+            "name": "Reset a test property and delete all transactional data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/inventory/v1/property-actions/{id}/reset"
+          },
+          "docs": "Reset a test property and delete all transactional data"
+        },
+        {
+          "info": {
+            "name": "Returns a list of supported countries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/types/countries"
+          },
+          "docs": "Returns a list of supported countries."
+        },
+        {
+          "info": {
+            "name": "Allows to patch unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/inventory/v1/units/{id}"
+          },
+          "docs": "Allows to patch unit"
+        },
+        {
+          "info": {
+            "name": "Get a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/units/{id}"
+          },
+          "docs": "Get a unit"
+        },
+        {
+          "info": {
+            "name": "Delete a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/inventory/v1/units/{id}"
+          },
+          "docs": "Delete a unit"
+        },
+        {
+          "info": {
+            "name": "Allows to patch one or more units",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/inventory/v1/units"
+          },
+          "docs": "Allows to patch one or more units"
+        },
+        {
+          "info": {
+            "name": "Get a units list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/units"
+          },
+          "docs": "Get a units list"
+        },
+        {
+          "info": {
+            "name": "Create a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/units"
+          },
+          "docs": "Create a unit"
+        },
+        {
+          "info": {
+            "name": "Returns number of units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/units/$count"
+          },
+          "docs": "Returns number of units"
+        },
+        {
+          "info": {
+            "name": "Create multiple units",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/units/bulk"
+          },
+          "docs": "Create multiple units"
+        },
+        {
+          "info": {
+            "name": "Archive a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/inventory/v1/unit-actions/{id}/archive"
+          },
+          "docs": "Archive a unit"
+        },
+        {
+          "info": {
+            "name": "Get unit attribute by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-attributes/{id}"
+          },
+          "docs": "Get unit attribute by id"
+        },
+        {
+          "info": {
+            "name": "Allows to modify unit attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/inventory/v1/unit-attributes/{id}"
+          },
+          "docs": "Allows to modify unit attribute"
+        },
+        {
+          "info": {
+            "name": "Deletes unit attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/inventory/v1/unit-attributes/{id}"
+          },
+          "docs": "Deletes unit attribute"
+        },
+        {
+          "info": {
+            "name": "Get unit attribute list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-attributes"
+          },
+          "docs": "Get unit attribute list"
+        },
+        {
+          "info": {
+            "name": "Create a unit attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/unit-attributes"
+          },
+          "docs": "Create a unit attribute"
+        },
+        {
+          "info": {
+            "name": "Create a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups"
+          },
+          "docs": "Create a unit group"
+        },
+        {
+          "info": {
+            "name": "Get all unit groups, or all unit groups for a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups"
+          },
+          "docs": "Get all unit groups, or all unit groups for a property"
+        },
+        {
+          "info": {
+            "name": "Returns number of unit groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups/$count"
+          },
+          "docs": "Returns number of unit groups"
+        },
+        {
+          "info": {
+            "name": "Get a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups/{id}"
+          },
+          "docs": "Get a unit group"
+        },
+        {
+          "info": {
+            "name": "Replace a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups/{id}"
+          },
+          "docs": "Replace a unit group"
+        },
+        {
+          "info": {
+            "name": "Delete a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups/{id}"
+          },
+          "docs": "Delete a unit group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rate Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cancellation policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/cancellation-policies"
+          },
+          "docs": "Create a cancellation policy."
+        },
+        {
+          "info": {
+            "name": "Get all cancellation policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/cancellation-policies"
+          },
+          "docs": "Get all cancellation policies."
+        },
+        {
+          "info": {
+            "name": "Get a specific cancellation policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/cancellation-policies/{id}"
+          },
+          "docs": "Get a specific cancellation policy."
+        },
+        {
+          "info": {
+            "name": "Allows to modify properties of a cancellation policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/cancellation-policies/{id}"
+          },
+          "docs": "Allows to modify properties of a cancellation policy"
+        },
+        {
+          "info": {
+            "name": "Delete a cancellation policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/cancellation-policies/{id}"
+          },
+          "docs": "Delete a cancellation policy"
+        },
+        {
+          "info": {
+            "name": "Create a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/companies"
+          },
+          "docs": "Create a company"
+        },
+        {
+          "info": {
+            "name": "Get a list of companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/companies"
+          },
+          "docs": "Get a list of companies"
+        },
+        {
+          "info": {
+            "name": "Get a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/companies/{id}"
+          },
+          "docs": "Get a company"
+        },
+        {
+          "info": {
+            "name": "Modify a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/companies/{id}"
+          },
+          "docs": "Modify a company"
+        },
+        {
+          "info": {
+            "name": "Delete a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/companies/{id}"
+          },
+          "docs": "Delete a company"
+        },
+        {
+          "info": {
+            "name": "Returns a list of corporate codes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/corporate-codes/codes"
+          },
+          "docs": "Returns a list of corporate codes."
+        },
+        {
+          "info": {
+            "name": "Create a no-show policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/no-show-policies"
+          },
+          "docs": "Create a no-show policy."
+        },
+        {
+          "info": {
+            "name": "Get all no-show policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/no-show-policies"
+          },
+          "docs": "Get all no-show policies."
+        },
+        {
+          "info": {
+            "name": "Get a specific no-show policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/no-show-policies/{id}"
+          },
+          "docs": "Get a specific no-show policy."
+        },
+        {
+          "info": {
+            "name": "Allows to modify properties of a no-show policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/no-show-policies/{id}"
+          },
+          "docs": "Allows to modify properties of a no-show policy"
+        },
+        {
+          "info": {
+            "name": "Delete a no-show policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/no-show-policies/{id}"
+          },
+          "docs": "Delete a no-show policy"
+        },
+        {
+          "info": {
+            "name": "Returns a list of promo codes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/promo-codes/codes"
+          },
+          "docs": "Returns a list of promo codes."
+        },
+        {
+          "info": {
+            "name": "Returns a list of rates.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates"
+          },
+          "docs": "Returns a list of rates."
+        },
+        {
+          "info": {
+            "name": "Initializes and changes the rates for the rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates"
+          },
+          "docs": "Initializes and changes the rates for the rate plan."
+        },
+        {
+          "info": {
+            "name": "Allows to patch multiple rates of a single rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates"
+          },
+          "docs": "Allows to patch multiple rates of a single rate plan."
+        },
+        {
+          "info": {
+            "name": "Deletes the rates for the rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates"
+          },
+          "docs": "Deletes the rates for the rate plan"
+        },
+        {
+          "info": {
+            "name": "Returns the number of rates for a specific rate plan within the specifed time range.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}/rates/$count"
+          },
+          "docs": "Returns the number of rates for a specific rate plan within the specifed time range."
+        },
+        {
+          "info": {
+            "name": "Allows to patch the rates of multiple rate plans.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/rates"
+          },
+          "docs": "Allows to patch the rates of multiple rate plans."
+        },
+        {
+          "info": {
+            "name": "Get a rate plan list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans"
+          },
+          "docs": "Get a rate plan list"
+        },
+        {
+          "info": {
+            "name": "Create a rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans"
+          },
+          "docs": "Create a rate plan"
+        },
+        {
+          "info": {
+            "name": "Allows to patch one or more rate plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans"
+          },
+          "docs": "Allows to patch one or more rate plans"
+        },
+        {
+          "info": {
+            "name": "Delete multiple rate plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans"
+          },
+          "docs": "Delete multiple rate plans"
+        },
+        {
+          "info": {
+            "name": "Returns number of rate plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/$count"
+          },
+          "docs": "Returns number of rate plans"
+        },
+        {
+          "info": {
+            "name": "Get a rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}"
+          },
+          "docs": "Get a rate plan"
+        },
+        {
+          "info": {
+            "name": "Replace a rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}"
+          },
+          "docs": "Replace a rate plan"
+        },
+        {
+          "info": {
+            "name": "Delete a rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/{id}"
+          },
+          "docs": "Delete a rate plan"
+        },
+        {
+          "info": {
+            "name": "Archive a rate plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plan-actions/{id}/archive"
+          },
+          "docs": "Archive a rate plan"
+        },
+        {
+          "info": {
+            "name": "Create a service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/services"
+          },
+          "docs": "Create a service."
+        },
+        {
+          "info": {
+            "name": "Get all services.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/services"
+          },
+          "docs": "Get all services."
+        },
+        {
+          "info": {
+            "name": "Modify a service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/services/{id}"
+          },
+          "docs": "Modify a service."
+        },
+        {
+          "info": {
+            "name": "Get a specific service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/services/{id}"
+          },
+          "docs": "Get a specific service."
+        },
+        {
+          "info": {
+            "name": "Delete a service",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/rateplan/v1/services/{id}"
+          },
+          "docs": "Delete a service"
+        },
+        {
+          "info": {
+            "name": "Returns number of services.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/services/$count"
+          },
+          "docs": "Returns number of services."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Availability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all available units in a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/availability/v1/units"
+          },
+          "docs": "Get a list of all available units in a property"
+        },
+        {
+          "info": {
+            "name": "Get a list of all available unit groups in a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/availability/v1/unit-groups"
+          },
+          "docs": "Get a list of all available unit groups in a property"
+        },
+        {
+          "info": {
+            "name": "Allows to modify the unit group availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/availability/v1/unit-groups/{id}"
+          },
+          "docs": "Allows to modify the unit group availability"
+        },
+        {
+          "info": {
+            "name": "Get a list of all available services in a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/availability/v1/services"
+          },
+          "docs": "Get a list of all available services in a property"
+        },
+        {
+          "info": {
+            "name": "Allows to modify availability of a given property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/availability/v1/properties/{id}"
+          },
+          "docs": "Allows to modify availability of a given property."
+        },
+        {
+          "info": {
+            "name": "Get house-level overbooking for a given property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/availability/v1/properties/{id}"
+          },
+          "docs": "Get house-level overbooking for a given property."
+        },
+        {
+          "info": {
+            "name": "Get a list of all available units for a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/availability/v1/reservations/{id}/units"
+          },
+          "docs": "Get a list of all available units for a reservation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Finance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of all folios.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios"
+          },
+          "docs": "Returns a list of all folios."
+        },
+        {
+          "info": {
+            "name": "Create additional folios for a reservation, or new external folios",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios"
+          },
+          "docs": "Create additional folios for a reservation, or new external folios"
+        },
+        {
+          "info": {
+            "name": "Returns number of folios.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/$count"
+          },
+          "docs": "Returns number of folios."
+        },
+        {
+          "info": {
+            "name": "Returns one folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/{id}"
+          },
+          "docs": "Returns one folio."
+        },
+        {
+          "info": {
+            "name": "Allows to modify certain properties of a folio",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/finance/v1/folios/{id}"
+          },
+          "docs": "Allows to modify certain properties of a folio"
+        },
+        {
+          "info": {
+            "name": "Deletes a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/finance/v1/folios/{id}"
+          },
+          "docs": "Deletes a folio."
+        },
+        {
+          "info": {
+            "name": "Adds and directly posts a charge to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/charges"
+          },
+          "docs": "Adds and directly posts a charge to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added."
+        },
+        {
+          "info": {
+            "name": "Adds and directly posts a transitory charge to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/transitory-charges"
+          },
+          "docs": "Adds and directly posts a transitory charge to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added."
+        },
+        {
+          "info": {
+            "name": "Adds and directly posts a cancellation fee to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\nIf a routing instruction is defined for the cancellation fee service type, the fee will be moved to the destination folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/cancellation-fee"
+          },
+          "docs": "Adds and directly posts a cancellation fee to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\nIf a routing instruction is defined for the cancellation fee service type, the fee will be moved to the destination folio."
+        },
+        {
+          "info": {
+            "name": "Adds and directly posts a no-show fee to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\nIf a routing instruction is defined for the no-show fee service type, the fee will be moved to the destination folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/no-show-fee"
+          },
+          "docs": "Adds and directly posts a no-show fee to the folio.\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\nIf a routing instruction is defined for the no-show fee service type, the fee will be moved to the destination folio."
+        },
+        {
+          "info": {
+            "name": "Closes a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/close"
+          },
+          "docs": "Closes a folio."
+        },
+        {
+          "info": {
+            "name": "Reopens a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/reopen"
+          },
+          "docs": "Reopens a folio."
+        },
+        {
+          "info": {
+            "name": "Move multiple charges, allowances and transitory charges from one folio to another.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/move-charges"
+          },
+          "docs": "Move multiple charges, allowances and transitory charges from one folio to another."
+        },
+        {
+          "info": {
+            "name": "Move multiple charges from one folio to another. Multiple source folios and multiple target folios can be specified.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/bulk-move"
+          },
+          "docs": "Move multiple charges from one folio to another. Multiple source folios and multiple target folios can be specified."
+        },
+        {
+          "info": {
+            "name": "Move all charges and transitory charges from one folio to another.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/move-all-charges"
+          },
+          "docs": "Move all charges and transitory charges from one folio to another."
+        },
+        {
+          "info": {
+            "name": "Posts an allowance for a charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/charges/{chargeId}/allowances"
+          },
+          "docs": "Posts an allowance for a charge"
+        },
+        {
+          "info": {
+            "name": "Posts an allowance for a folio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/allowances"
+          },
+          "docs": "Posts an allowance for a folio"
+        },
+        {
+          "info": {
+            "name": "Posts allowances for a folio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/bulk-allowances"
+          },
+          "docs": "Posts allowances for a folio"
+        },
+        {
+          "info": {
+            "name": "Posts all unposted charges for the whole length of stay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/post-charges"
+          },
+          "docs": "Posts all unposted charges for the whole length of stay."
+        },
+        {
+          "info": {
+            "name": "Move multiple payments from one guest/booking folio to another.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/move-payments"
+          },
+          "docs": "Move multiple payments from one guest/booking folio to another."
+        },
+        {
+          "info": {
+            "name": "Corrects a folio by moving some charges.\nThis operation creates a new folio with the charges from the request.\nThe payment, equal to the sum of charges, is also split to this new folio so that both folios will have 0 balance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/correct"
+          },
+          "docs": "Corrects a folio by moving some charges.\nThis operation creates a new folio with the charges from the request.\nThe payment, equal to the sum of charges, is also split to this new folio so that both folios will have 0 balance."
+        },
+        {
+          "info": {
+            "name": "Splits a charge into two using the percent or amount provided\nCreates an allowance and two new charges.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/charges/{chargeId}/split"
+          },
+          "docs": "Splits a charge into two using the percent or amount provided\nCreates an allowance and two new charges."
+        },
+        {
+          "info": {
+            "name": "Splits a payment into two using the percent or amount provided\nCreates a refund and two new payments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/{folioId}/payments/{paymentId}/split"
+          },
+          "docs": "Splits a payment into two using the percent or amount provided\nCreates a refund and two new payments."
+        },
+        {
+          "info": {
+            "name": "Get a list of payments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments"
+          },
+          "docs": "Get a list of payments."
+        },
+        {
+          "info": {
+            "name": "Trigger a custom payment for the folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments"
+          },
+          "docs": "Trigger a custom payment for the folio."
+        },
+        {
+          "info": {
+            "name": "Get a payment by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/{paymentId}"
+          },
+          "docs": "Get a payment by ID."
+        },
+        {
+          "info": {
+            "name": "Trigger a payment on a card terminal for the folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/by-terminal"
+          },
+          "docs": "Trigger a payment on a card terminal for the folio."
+        },
+        {
+          "info": {
+            "name": "Captures a specific amount from a pre-authorization and posts it to the folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/by-authorization"
+          },
+          "docs": "Captures a specific amount from a pre-authorization and posts it to the folio."
+        },
+        {
+          "info": {
+            "name": "Trigger a payment using the payment account stored on the reservation or booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/by-payment-account"
+          },
+          "docs": "Trigger a payment using the payment account stored on the reservation or booking."
+        },
+        {
+          "info": {
+            "name": "Creates a link to a payment form where guests can pay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/by-link"
+          },
+          "docs": "Creates a link to a payment form where guests can pay."
+        },
+        {
+          "info": {
+            "name": "Cancels a pending payment link.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/{paymentId}/cancel"
+          },
+          "docs": "Cancels a pending payment link."
+        },
+        {
+          "info": {
+            "name": "Get a list of refunds.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/refunds"
+          },
+          "docs": "Get a list of refunds."
+        },
+        {
+          "info": {
+            "name": "Trigger a refund for the folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/refunds"
+          },
+          "docs": "Trigger a refund for the folio."
+        },
+        {
+          "info": {
+            "name": "Get a refund by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/refunds/{refundId}"
+          },
+          "docs": "Get a refund by ID."
+        },
+        {
+          "info": {
+            "name": "Trigger a refund for a specific payment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/{folioId}/payments/{paymentId}/refunds"
+          },
+          "docs": "Trigger a refund for a specific payment."
+        },
+        {
+          "info": {
+            "name": "Gets a preview invoice PDF for one specific folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices/preview-pdf"
+          },
+          "docs": "Gets a preview invoice PDF for one specific folio."
+        },
+        {
+          "info": {
+            "name": "Gets an invoice preview for one specific folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices/preview"
+          },
+          "docs": "Gets an invoice preview for one specific folio."
+        },
+        {
+          "info": {
+            "name": "Gets the list of all invoices (the metadata only, not the files).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices"
+          },
+          "docs": "Gets the list of all invoices (the metadata only, not the files)."
+        },
+        {
+          "info": {
+            "name": "Creates an invoice for one specific folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/invoices"
+          },
+          "docs": "Creates an invoice for one specific folio."
+        },
+        {
+          "info": {
+            "name": "Gets an invoice PDF file.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices/{id}/pdf"
+          },
+          "docs": "Gets an invoice PDF file."
+        },
+        {
+          "info": {
+            "name": "Gets invoice data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices/{id}"
+          },
+          "docs": "Gets invoice data."
+        },
+        {
+          "info": {
+            "name": "Marks an invoice as paid.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/invoice-actions/{id}/pay"
+          },
+          "docs": "Marks an invoice as paid."
+        },
+        {
+          "info": {
+            "name": "Cancels an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/finance/v1/invoice-actions/{id}/cancel"
+          },
+          "docs": "Cancels an invoice"
+        },
+        {
+          "info": {
+            "name": "Create a routing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/routings"
+          },
+          "docs": "Create a routing."
+        },
+        {
+          "info": {
+            "name": "Get all routings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/routings"
+          },
+          "docs": "Get all routings."
+        },
+        {
+          "info": {
+            "name": "Get a specific routing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/routings/{id}"
+          },
+          "docs": "Get a specific routing."
+        },
+        {
+          "info": {
+            "name": "Modify a routing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/finance/v1/routings/{id}"
+          },
+          "docs": "Modify a routing."
+        },
+        {
+          "info": {
+            "name": "Delete a routing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/finance/v1/routings/{id}"
+          },
+          "docs": "Delete a routing."
+        },
+        {
+          "info": {
+            "name": "Aggregates transactions pairs by date (business day) for all accounts and a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/aggregate-pairs-daily"
+          },
+          "docs": "Aggregates transactions pairs by date (business day) for all accounts and a given period."
+        },
+        {
+          "info": {
+            "name": "Aggregates transactions by date (business day) for all accounts and a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/aggregate-daily"
+          },
+          "docs": "Aggregates transactions by date (business day) for all accounts and a given period."
+        },
+        {
+          "info": {
+            "name": "Aggregates transactions by timestamp for all accounts and a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/aggregate"
+          },
+          "docs": "Aggregates transactions by timestamp for all accounts and a given period."
+        },
+        {
+          "info": {
+            "name": "Returns transactions filtered by timestamp for a property for a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/export"
+          },
+          "docs": "Returns transactions filtered by timestamp for a property for a given period."
+        },
+        {
+          "info": {
+            "name": "Returns transactions filtered by date (business day) for a property for a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/export-daily"
+          },
+          "docs": "Returns transactions filtered by date (business day) for a property for a given period."
+        },
+        {
+          "info": {
+            "name": "Returns gross transactions filtered by date (business day) for a property for a given period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/accounts/export-gross-daily"
+          },
+          "docs": "Returns gross transactions filtered by date (business day) for a property for a given period."
+        },
+        {
+          "info": {
+            "name": "Returns the chart of accounts of the subledger.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/accounts/schema"
+          },
+          "docs": "Returns the chart of accounts of the subledger."
+        },
+        {
+          "info": {
+            "name": "Returns a list of global accounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/global-accounts"
+          },
+          "docs": "Returns a list of global accounts."
+        },
+        {
+          "info": {
+            "name": "Returns a list of guest accounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/guest-accounts"
+          },
+          "docs": "Returns a list of guest accounts."
+        },
+        {
+          "info": {
+            "name": "Returns a list of external accounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/external-accounts"
+          },
+          "docs": "Returns a list of external accounts."
+        },
+        {
+          "info": {
+            "name": "Returns one account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/accounts/{number}"
+          },
+          "docs": "Returns one account."
+        },
+        {
+          "info": {
+            "name": "Returns a list of child accounts for a specified parent account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/accounts/child-accounts"
+          },
+          "docs": "Returns a list of child accounts for a specified parent account."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all currencies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/types/currencies"
+          },
+          "docs": "Returns a list of all currencies."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all supported payment methods.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/types/payment-methods"
+          },
+          "docs": "Returns a list of all supported payment methods."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all supported service types.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/types/service-types"
+          },
+          "docs": "Returns a list of all supported service types."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all VAT types.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/types/vat"
+          },
+          "docs": "Returns a list of all VAT types."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all capture policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/capture-policies"
+          },
+          "docs": "Get all capture policies."
+        },
+        {
+          "info": {
+            "name": "Get a specific capture policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/capture-policies/{id}"
+          },
+          "docs": "Get a specific capture policy."
+        },
+        {
+          "info": {
+            "name": "Allows to modify properties of a capture policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/capture-policies/{id}"
+          },
+          "docs": "Allows to modify properties of a capture policy."
+        },
+        {
+          "info": {
+            "name": "Create a city tax.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/city-tax"
+          },
+          "docs": "Create a city tax."
+        },
+        {
+          "info": {
+            "name": "Get all city taxes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/city-tax"
+          },
+          "docs": "Get all city taxes."
+        },
+        {
+          "info": {
+            "name": "Get a specific city tax.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/city-tax/{id}"
+          },
+          "docs": "Get a specific city tax."
+        },
+        {
+          "info": {
+            "name": "Allows to modify city tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/city-tax/{id}"
+          },
+          "docs": "Allows to modify city tax"
+        },
+        {
+          "info": {
+            "name": "Delete a city tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/settings/v1/city-tax/{id}"
+          },
+          "docs": "Delete a city tax"
+        },
+        {
+          "info": {
+            "name": "Returns a list of all sub-accounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts"
+          },
+          "docs": "Returns a list of all sub-accounts."
+        },
+        {
+          "info": {
+            "name": "Create a sub-account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts"
+          },
+          "docs": "Create a sub-account."
+        },
+        {
+          "info": {
+            "name": "Returns number of sub-accounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts/$count"
+          },
+          "docs": "Returns number of sub-accounts."
+        },
+        {
+          "info": {
+            "name": "Returns one sub-account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts/{id}"
+          },
+          "docs": "Returns one sub-account."
+        },
+        {
+          "info": {
+            "name": "Allows to modify the name of the sub-account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts/{id}"
+          },
+          "docs": "Allows to modify the name of the sub-account."
+        },
+        {
+          "info": {
+            "name": "Delete a custom sub-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/settings/v1/sub-accounts/{id}"
+          },
+          "docs": "Delete a custom sub-account"
+        },
+        {
+          "info": {
+            "name": "Get feature settings for a property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/features/{propertyId}"
+          },
+          "docs": "Get feature settings for a property."
+        },
+        {
+          "info": {
+            "name": "Allows to modify feature settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/features/{propertyId}"
+          },
+          "docs": "Allows to modify feature settings"
+        },
+        {
+          "info": {
+            "name": "Get invoice addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/invoice-address"
+          },
+          "docs": "Get invoice addresses"
+        },
+        {
+          "info": {
+            "name": "Create or update invoice addresses for one or more properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/settings/v1/invoice-address"
+          },
+          "docs": "Create or update invoice addresses for one or more properties."
+        },
+        {
+          "info": {
+            "name": "Change fields in the invoice address of one or more properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/invoice-address"
+          },
+          "docs": "Change fields in the invoice address of one or more properties."
+        },
+        {
+          "info": {
+            "name": "Get the language settings for the account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/languages"
+          },
+          "docs": "Get the language settings for the account"
+        },
+        {
+          "info": {
+            "name": "Replaces the language settings for the account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.apaleo.com/settings/v1/languages"
+          },
+          "docs": "Replaces the language settings for the account"
+        },
+        {
+          "info": {
+            "name": "Get a market segment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/market-segments/{id}"
+          },
+          "docs": "Get a market segment."
+        },
+        {
+          "info": {
+            "name": "Allows to modify market segment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/market-segments/{id}"
+          },
+          "docs": "Allows to modify market segment."
+        },
+        {
+          "info": {
+            "name": "Delete a market segment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/settings/v1/market-segments/{id}"
+          },
+          "docs": "Delete a market segment."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all market segments, filtered by the specified parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/market-segments"
+          },
+          "docs": "Returns a list of all market segments, filtered by the specified parameters."
+        },
+        {
+          "info": {
+            "name": "Create a market segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/market-segments"
+          },
+          "docs": "Create a market segment"
+        },
+        {
+          "info": {
+            "name": "Returns number of market segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/market-segments/$count"
+          },
+          "docs": "Returns number of market segments."
+        },
+        {
+          "info": {
+            "name": "Get property settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/properties/{id}"
+          },
+          "docs": "Get property settings"
+        },
+        {
+          "info": {
+            "name": "Get a specific time slice definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/properties/{propertyId}/time-slice-definitions/{id}"
+          },
+          "docs": "Get a specific time slice definition"
+        },
+        {
+          "info": {
+            "name": "Modifies a specific time slice definition for the property",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/settings/v1/properties/{propertyId}/time-slice-definitions/{id}"
+          },
+          "docs": "Modifies a specific time slice definition for the property"
+        },
+        {
+          "info": {
+            "name": "Delete a certain time slice definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.apaleo.com/settings/v1/properties/{propertyId}/time-slice-definitions/{id}"
+          },
+          "docs": "Delete a certain time slice definition"
+        },
+        {
+          "info": {
+            "name": "Get time slice definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/properties/{propertyId}/time-slice-definitions"
+          },
+          "docs": "Get time slice definitions"
+        },
+        {
+          "info": {
+            "name": "Creates a time slice definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/properties/{propertyId}/time-slice-definitions"
+          },
+          "docs": "Creates a time slice definition"
+        }
+      ]
+    }
+  ]
+}
