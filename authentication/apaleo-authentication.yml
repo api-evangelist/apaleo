@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/apaleo-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://identity.apaleo.com/connect/token
+    scopes: 10
+  - flow: authorizationCode
+    authorizationUrl: https://identity.apaleo.com/connect/authorize
+    tokenUrl: https://identity.apaleo.com/connect/token
+    scopes: 10
+  description: apaleo uses OAuth 2.0. Obtain a bearer access token from the apaleo identity
+    provider and send it in the Authorization header as 'Bearer {token}'. The client-credentials
+    and authorization-code grants are supported.
+  sources:
+  - openapi/apaleo-openapi.yml
