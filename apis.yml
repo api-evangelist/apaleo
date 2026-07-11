@@ -148,6 +148,8 @@ apis:
     topics such as Reservation, Folio, Invoice, RatePlan, Block, Unit, and Property,
     with per-topic event filters and wildcards.
 common:
+- type: OAuthScopes
+  url: scopes/apaleo-scopes.yml
 - type: GitHubOrganization
   url: https://github.com/apaleo
 - type: LinkedIn
@@ -162,6 +164,8 @@ common:
   url: rate-limits/apaleo-rate-limits.yml
 - type: FinOps
   url: finops/apaleo-finops.yml
+- type: Blog
+  url: https://apaleo.com/blog/home
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
