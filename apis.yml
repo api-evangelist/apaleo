@@ -148,6 +148,8 @@ apis:
     topics such as Reservation, Folio, Invoice, RatePlan, Block, Unit, and Property,
     with per-topic event filters and wildcards.
 common:
+- type: AgenticAccess
+  url: agentic-access/apaleo-agentic-access.yml
 - type: DomainSecurity
   url: security/apaleo-domain-security.yml
 - type: Authentication
