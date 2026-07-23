@@ -1,0 +1,194 @@
+openapi: 3.0.1
+info:
+  title: apaleo Platform Availability Finance API
+  description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
+  termsOfService: https://apaleo.com/terms
+  contact:
+    name: apaleo Developer Support
+    url: https://apaleo.dev
+  version: v1
+servers:
+- url: https://api.apaleo.com
+  description: apaleo Core API (Booking, Inventory, Rate Plan, Availability, Finance, Settings)
+security:
+- oauth2: []
+tags:
+- name: Finance
+  description: Folios, payments, refunds, invoices, and accounts.
+paths:
+  /finance/v1/folios:
+    get:
+      tags:
+      - Finance
+      operationId: FinanceGetFolios
+      summary: Return a list of folios.
+      parameters:
+      - name: reservationId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Finance
+      operationId: FinanceCreateFolio
+      summary: Create a folio.
+      responses:
+        '201':
+          description: Created
+  /finance/v1/folios/{id}:
+    get:
+      tags:
+      - Finance
+      operationId: FinanceGetFolioById
+      summary: Return a single folio by id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolioModel'
+  /finance/v1/folio-actions/{folioId}/charges:
+    post:
+      tags:
+      - Finance
+      operationId: FinancePostCharge
+      summary: Post a charge to a folio.
+      parameters:
+      - name: folioId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /finance/v1/folios/{folioId}/payments:
+    get:
+      tags:
+      - Finance
+      operationId: FinanceGetPayments
+      summary: Return the payments of a folio.
+      parameters:
+      - name: folioId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Finance
+      operationId: FinanceCreatePayment
+      summary: Add a payment to a folio.
+      parameters:
+      - name: folioId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /finance/v1/invoices:
+    get:
+      tags:
+      - Finance
+      operationId: FinanceGetInvoices
+      summary: Return a list of invoices.
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Finance
+      operationId: FinanceCreateInvoice
+      summary: Create an invoice from a folio.
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    MonetaryValueModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+    FolioModel:
+      type: object
+      properties:
+        id:
+          type: string
+        reservationId:
+          type: string
+        propertyId:
+          type: string
+        type:
+          type: string
+          enum:
+          - Guest
+          - External
+          - House
+        status:
+          type: string
+          enum:
+          - Open
+          - Closed
+        balance:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        charges:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        payments:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: apaleo uses OAuth 2.0. Obtain a bearer access token from the apaleo identity provider and send it in the Authorization header as 'Bearer {token}'. The client-credentials and authorization-code grants are supported.
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.apaleo.com/connect/token
+          scopes:
+            reservations.read: Read reservations and bookings
+            reservations.manage: Create and manage reservations and bookings
+            setup.read: Read inventory and configuration
+            setup.manage: Manage inventory and configuration
+            rates.read: Read rate plans and rates
+            rates.manage: Manage rate plans and rates
+            availability.read: Read availability
+            availability.manage: Manage availability
+            folios.read: Read folios and finance data
+            folios.manage: Manage folios, payments, and invoices
+        authorizationCode:
+          authorizationUrl: https://identity.apaleo.com/connect/authorize
+          tokenUrl: https://identity.apaleo.com/connect/token
+          scopes:
+            reservations.read: Read reservations and bookings
+            reservations.manage: Create and manage reservations and bookings
+            setup.read: Read inventory and configuration
+            setup.manage: Manage inventory and configuration
+            rates.read: Read rate plans and rates
+            rates.manage: Manage rate plans and rates
+            availability.read: Read availability
+            availability.manage: Manage availability
+            folios.read: Read folios and finance data
+            folios.manage: Manage folios, payments, and invoices

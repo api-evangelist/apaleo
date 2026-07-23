@@ -1,0 +1,165 @@
+openapi: 3.0.1
+info:
+  title: apaleo Platform Availability Inventory API
+  description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
+  termsOfService: https://apaleo.com/terms
+  contact:
+    name: apaleo Developer Support
+    url: https://apaleo.dev
+  version: v1
+servers:
+- url: https://api.apaleo.com
+  description: apaleo Core API (Booking, Inventory, Rate Plan, Availability, Finance, Settings)
+security:
+- oauth2: []
+tags:
+- name: Inventory
+  description: Properties, units, unit groups, and unit attributes.
+paths:
+  /inventory/v1/properties:
+    get:
+      tags:
+      - Inventory
+      operationId: InventoryGetProperties
+      summary: Return a list of properties.
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Inventory
+      operationId: InventoryCreateProperty
+      summary: Create a property.
+      responses:
+        '201':
+          description: Created
+  /inventory/v1/properties/{id}:
+    get:
+      tags:
+      - Inventory
+      operationId: InventoryGetPropertyById
+      summary: Return a single property by id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyModel'
+  /inventory/v1/units:
+    get:
+      tags:
+      - Inventory
+      operationId: InventoryGetUnits
+      summary: Return a list of units.
+      parameters:
+      - name: propertyId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Inventory
+      operationId: InventoryCreateUnit
+      summary: Create a unit.
+      responses:
+        '201':
+          description: Created
+  /inventory/v1/unit-groups:
+    get:
+      tags:
+      - Inventory
+      operationId: InventoryGetUnitGroups
+      summary: Return a list of unit groups.
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+      - Inventory
+      operationId: InventoryCreateUnitGroup
+      summary: Create a unit group.
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    PropertyModel:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        timeZone:
+          type: string
+        currencyCode:
+          type: string
+        status:
+          type: string
+          enum:
+          - Test
+          - Live
+          - Archived
+        location:
+          $ref: '#/components/schemas/AddressModel'
+    AddressModel:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        regionCode:
+          type: string
+        countryCode:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: apaleo uses OAuth 2.0. Obtain a bearer access token from the apaleo identity provider and send it in the Authorization header as 'Bearer {token}'. The client-credentials and authorization-code grants are supported.
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.apaleo.com/connect/token
+          scopes:
+            reservations.read: Read reservations and bookings
+            reservations.manage: Create and manage reservations and bookings
+            setup.read: Read inventory and configuration
+            setup.manage: Manage inventory and configuration
+            rates.read: Read rate plans and rates
+            rates.manage: Manage rate plans and rates
+            availability.read: Read availability
+            availability.manage: Manage availability
+            folios.read: Read folios and finance data
+            folios.manage: Manage folios, payments, and invoices
+        authorizationCode:
+          authorizationUrl: https://identity.apaleo.com/connect/authorize
+          tokenUrl: https://identity.apaleo.com/connect/token
+          scopes:
+            reservations.read: Read reservations and bookings
+            reservations.manage: Create and manage reservations and bookings
+            setup.read: Read inventory and configuration
+            setup.manage: Manage inventory and configuration
+            rates.read: Read rate plans and rates
+            rates.manage: Manage rate plans and rates
+            availability.read: Read availability
+            availability.manage: Manage availability
+            folios.read: Read folios and finance data
+            folios.manage: Manage folios, payments, and invoices
