@@ -7,7 +7,20 @@ description: apaleo is an API-first cloud hotel property-management system (PMS)
   availability, and finance - is exposed through documented REST APIs secured with
   OAuth 2.0, published as OpenAPI, with webhooks for real-time events, enabling an
   open marketplace of integrations.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apaleo.png
 tags:
 - Hospitality
 - PMS
@@ -18,135 +31,174 @@ created: '2026-06-25'
 modified: '2026-06-25'
 specificationVersion: '0.19'
 apis:
-- aid: apaleo:booking
-  name: apaleo Booking API
-  tags:
-  - Bookings
-  - Reservations
-  - Blocks
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: apaleo:apaleo-availability-api
+  name: apaleo Availability API
+  description: Real-time availability for units, unit groups, and services.
   humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
   baseURL: https://api.apaleo.com/booking/v1
-  properties:
-  - url: https://apaleo.dev/guides/api/overview.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: End-to-end reservation lifecycle - create bookings and reservations,
-    fetch offers, manage groups and blocks, and run reservation actions such as check-in,
-    check-out, amend, assign-unit, and cancel.
-- aid: apaleo:inventory
-  name: apaleo Inventory API
-  tags:
-  - Inventory
-  - Properties
-  - Units
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
-  baseURL: https://api.apaleo.com/inventory/v1
-  properties:
-  - url: https://apaleo.dev/guides/api/overview.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Manage the physical inventory of properties, units, unit groups, and
-    unit attributes - including property rollout actions such as clone, archive, and
-    set-live.
-- aid: apaleo:rateplan
-  name: apaleo Rate Plan API
-  tags:
-  - Rate Plans
-  - Rates
-  - Policies
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
-  baseURL: https://api.apaleo.com/rateplan/v1
-  properties:
-  - url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Set up and update rate plans, rates, services, companies, and cancellation /
-    no-show policies in real time, plus corporate and promo code lookups.
-- aid: apaleo:availability
-  name: apaleo Availability API
   tags:
   - Availability
-  - ARI
-  - Units
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
-  baseURL: https://api.apaleo.com/availability/v1
   properties:
-  - url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Query real-time availability for units, unit groups, services, and properties,
-    and adjust per-unit-group availability.
-- aid: apaleo:finance
+  - type: OpenAPI
+    url: openapi/apaleo-availability-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
+- aid: apaleo:apaleo-booking-api
+  name: apaleo Booking API
+  description: Bookings, reservations, blocks, groups, and offers.
+  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  baseURL: https://api.apaleo.com/booking/v1
+  tags:
+  - Booking
+  properties:
+  - type: OpenAPI
+    url: openapi/apaleo-booking-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
+- aid: apaleo:apaleo-finance-api
   name: apaleo Finance API
+  description: Folios, payments, refunds, invoices, and accounts.
+  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  baseURL: https://api.apaleo.com/booking/v1
   tags:
   - Finance
-  - Folios
-  - Invoices
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
-  baseURL: https://api.apaleo.com/finance/v1
   properties:
-  - url: https://apaleo.dev/guides/api/overview.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Folios, charges, payments, refunds, invoices, routings, and the chart
-    of accounts - covering the full accounting and ledger surface of the platform.
-- aid: apaleo:settings
+  - type: OpenAPI
+    url: openapi/apaleo-finance-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
+- aid: apaleo:apaleo-inventory-api
+  name: apaleo Inventory API
+  description: Properties, units, unit groups, and unit attributes.
+  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  baseURL: https://api.apaleo.com/booking/v1
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/apaleo-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
+- aid: apaleo:apaleo-rate-plan-api
+  name: apaleo Rate Plan API
+  description: Rate plans, rates, services, and policies.
+  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  baseURL: https://api.apaleo.com/booking/v1
+  tags:
+  - Rate Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/apaleo-rate-plan-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
+- aid: apaleo:apaleo-settings-api
   name: apaleo Settings API
+  description: Account- and property-level configuration.
+  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  baseURL: https://api.apaleo.com/booking/v1
   tags:
   - Settings
-  - Configuration
-  - Tax
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
-  baseURL: https://api.apaleo.com/settings/v1
   properties:
-  - url: https://apaleo.dev/guides/api/overview.html
-    type: Documentation
-  - url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Account- and property-level configuration - city tax, capture policies,
-    market segments, languages, sub-accounts, features, and time-slice definitions.
-- aid: apaleo:webhooks
-  name: apaleo Webhook API
-  tags:
-  - Webhooks
-  - Events
-  - Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://webhook.apaleo.com/swagger/index.html
-  baseURL: https://webhook.apaleo.com/v1
-  properties:
-  - url: https://apaleo.dev/guides/api/overview.html
-    type: Documentation
-  - url: https://webhook.apaleo.com/swagger/index.html
-    type: APIReference
-  - url: openapi/apaleo-openapi.yml
-    type: OpenAPI
-  description: Create and manage webhook subscriptions for real-time events across
-    topics such as Reservation, Folio, Invoice, RatePlan, Block, Unit, and Property,
-    with per-topic event filters and wildcards.
+  - type: OpenAPI
+    url: openapi/apaleo-settings-api-openapi.yml
+  - type: Documentation
+    url: https://apaleo.dev/guides/api/overview.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1
+  - type: Documentation
+    url: https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1
+  - type: APIReference
+    url: https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1
+  - type: APIReference
+    url: https://webhook.apaleo.com/swagger/index.html
 common:
 - type: AgenticAccess
   url: agentic-access/apaleo-agentic-access.yml
