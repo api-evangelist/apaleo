@@ -1,0 +1,24 @@
+{
+  "provider": "apaleo",
+  "sources": [
+    "apaleo-availability-api-openapi.yml",
+    "apaleo-booking-api-openapi.yml",
+    "apaleo-finance-api-openapi.yml",
+    "apaleo-inventory-api-openapi.yml",
+    "apaleo-rate-plan-api-openapi.yml",
+    "apaleo-settings-api-openapi.yml"
+  ],
+  "outputs": [
+    "apaleo-availability-api-openapi.yml",
+    "apaleo-booking-api-openapi.yml",
+    "apaleo-finance-api-openapi.yml",
+    "apaleo-inventory-api-openapi.yml",
+    "apaleo-rate-plan-api-openapi.yml",
+    "apaleo-settings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
