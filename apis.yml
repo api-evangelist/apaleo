@@ -29,7 +29,7 @@ tags:
 - API-First
 created: '2026-06-25'
 modified: '2026-06-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: apaleo:apaleo-availability-api
   name: apaleo Availability API
