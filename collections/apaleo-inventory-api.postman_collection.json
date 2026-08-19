@@ -1,0 +1,571 @@
+{
+  "item": [
+    {
+      "id": "52c39751-f8bd-459e-8027-ce52e6cd1039",
+      "name": "Inventory",
+      "description": {
+        "content": "Properties, units, unit groups, and unit attributes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67a19a12-4385-44ef-a97b-529df6a5e149",
+          "name": "Return a list of properties.",
+          "request": {
+            "name": "Return a list of properties.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45f781b5-2a93-45f8-97aa-29aa07364c9f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cc66a9c-d7cd-4c67-b5de-6295492e726b",
+          "name": "Create a property.",
+          "request": {
+            "name": "Create a property.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24702654-ab79-470e-b0b1-9973970896da",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ad556ab-fe50-4887-95b5-61c44143b622",
+          "name": "Return a single property by id.",
+          "request": {
+            "name": "Return a single property by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "properties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c088fe4d-632d-4514-8951-badd414d14fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "properties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"code\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"timeZone\": \"string\",\n  \"currencyCode\": \"string\",\n  \"status\": \"Archived\",\n  \"location\": {\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"postalCode\": \"string\",\n    \"city\": \"string\",\n    \"regionCode\": \"string\",\n    \"countryCode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5ec0182-b841-42a6-85c4-84f6c021b724",
+          "name": "Return a list of units.",
+          "request": {
+            "name": "Return a list of units.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "units"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "propertyId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8498ee2-e243-4c0b-bb7c-c6e479915202",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "units"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f1b463e-22fb-4ff8-9632-9e6f5c789781",
+          "name": "Create a unit.",
+          "request": {
+            "name": "Create a unit.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "units"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f959909-daf0-4e8d-b0fc-94048424e9c6",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "units"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2eaa10a-001f-4018-988b-e38a588e2468",
+          "name": "Return a list of unit groups.",
+          "request": {
+            "name": "Return a list of unit groups.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "unit-groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5624fcba-17b5-4e1b-99d4-003cac0a759a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "unit-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffe5e05c-7daa-43b0-835a-a2a651627510",
+          "name": "Create a unit group.",
+          "request": {
+            "name": "Create a unit group.",
+            "description": {},
+            "url": {
+              "path": [
+                "inventory",
+                "v1",
+                "unit-groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b274cf6-27a1-482c-b122-7042e11057a6",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory",
+                    "v1",
+                    "unit-groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apaleo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "reservations.read reservations.manage setup.read setup.manage rates.read rates.manage availability.read availability.manage folios.read folios.manage"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.apaleo.com/connect/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ac68cfac-ac16-4827-96d6-d8aca6faadb3",
+    "name": "apaleo Platform Availability Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.\n\nContact Support:\n Name: apaleo Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

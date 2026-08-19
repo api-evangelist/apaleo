@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "apaleo Platform Availability Rate Plan API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.apaleo.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rate Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return a list of rate plans.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a list of rate plans."
+        },
+        {
+          "info": {
+            "name": "Create a rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans"
+          },
+          "docs": "Create a rate plan."
+        },
+        {
+          "info": {
+            "name": "Return a single rate plan by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single rate plan by id."
+        },
+        {
+          "info": {
+            "name": "Return the rates of a rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/:id/rates",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the rates of a rate plan."
+        },
+        {
+          "info": {
+            "name": "Update the rates of a rate plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.apaleo.com/rateplan/v1/rate-plans/:id/rates",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the rates of a rate plan."
+        },
+        {
+          "info": {
+            "name": "Return a list of services.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/rateplan/v1/services"
+          },
+          "docs": "Return a list of services."
+        },
+        {
+          "info": {
+            "name": "Create a service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/rateplan/v1/services"
+          },
+          "docs": "Create a service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

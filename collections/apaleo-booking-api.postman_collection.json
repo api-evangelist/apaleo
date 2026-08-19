@@ -1,0 +1,1258 @@
+{
+  "item": [
+    {
+      "id": "cf288e2a-8df5-4bd7-a7c1-f859a9ad14d2",
+      "name": "Booking",
+      "description": {
+        "content": "Bookings, reservations, blocks, groups, and offers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d54b5695-403d-4a50-94ca-f157a8dff1cc",
+          "name": "Create a booking with one or more reservations.",
+          "request": {
+            "name": "Create a booking with one or more reservations.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reservations\": [\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    },\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    }\n  ],\n  \"booker\": {\n    \"title\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"regionCode\": \"<string>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"paymentAccount\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90231bde-b918-422f-8bb2-186dc6d9a4af",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reservations\": [\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    },\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    }\n  ],\n  \"booker\": {\n    \"title\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"regionCode\": \"<string>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"paymentAccount\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1348.5020149573113\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"bookingId\": \"string\",\n  \"reservationIds\": [\n    {\n      \"id\": \"string\"\n    },\n    {\n      \"id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d03b5d19-328a-4cd1-86df-40c93fa62f08",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reservations\": [\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    },\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    }\n  ],\n  \"booker\": {\n    \"title\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"regionCode\": \"<string>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"paymentAccount\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1348.5020149573113\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab4e9b2d-4832-4119-aee4-e1677913c55a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reservations\": [\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    },\n    {\n      \"arrival\": \"<dateTime>\",\n      \"departure\": \"<dateTime>\",\n      \"adults\": \"<integer>\",\n      \"ratePlanId\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"childrenAges\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guestComment\": \"<string>\"\n    }\n  ],\n  \"booker\": {\n    \"title\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"regionCode\": \"<string>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"paymentAccount\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1348.5020149573113\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7776b51-b61a-47f9-91db-4f31e3e9edf1",
+          "name": "Return a list of bookings.",
+          "request": {
+            "name": "Return a list of bookings.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageNumber",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "628860d6-a5f7-4f18-8f7c-898c41956c23",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32490454-59bf-443b-a48d-1c9f575119bf",
+          "name": "Return a single booking by id.",
+          "request": {
+            "name": "Return a single booking by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "bookings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4e04701-a894-4cb9-9c79-62bd4fd0ef84",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9ebdba3c-cdbe-4eb7-b179-2fc13846622c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ed9c23e-9f8c-491a-8f5e-8e7a0004a22d",
+          "name": "Modify the booker and related details of a booking.",
+          "request": {
+            "name": "Modify the booker and related details of a booking.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "bookings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41bdd327-d033-4e01-8ddf-8f2ccbc6bf2f",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "bookings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a88a3b75-60f7-40ff-97d4-6ad5a867d175",
+          "name": "Return a list of reservations matching the filter criteria.",
+          "request": {
+            "name": "Return a list of reservations matching the filter criteria.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "reservations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "propertyIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82f3af33-1e96-4932-b8d3-c091477151c6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "propertyIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1208e2d9-da2c-46d7-a842-6159273f23ec",
+          "name": "Return a single reservation by id.",
+          "request": {
+            "name": "Return a single reservation by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "reservations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb284f98-9358-4940-99a4-26a12271a94b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "reservations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"bookingId\": \"string\",\n  \"status\": \"NoShow\",\n  \"property\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"ratePlanId\": \"string\",\n  \"arrival\": \"2022-04-27T07:15:38.145Z\",\n  \"departure\": \"1948-01-20T14:40:36.748Z\",\n  \"adults\": 4121,\n  \"totalGrossAmount\": {\n    \"amount\": 971.1505094327433,\n    \"currency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6869bf57-cf60-453e-bbeb-7bb0b172f8ea",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "reservations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4346497a-0f11-49e5-ac6c-1c37ba5e1f4d",
+          "name": "Check in a reservation.",
+          "request": {
+            "name": "Check in a reservation.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "reservation-actions",
+                ":id",
+                "checkin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6778db4-6820-4c10-8245-32c7211ab88f",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "reservation-actions",
+                    ":id",
+                    "checkin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1c7b402-670c-4080-b384-12f9ea498e20",
+          "name": "Check out a reservation.",
+          "request": {
+            "name": "Check out a reservation.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "reservation-actions",
+                ":id",
+                "checkout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "484dfb8d-166f-412c-b6aa-2b81a9213f20",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "reservation-actions",
+                    ":id",
+                    "checkout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "395c5c00-4af7-4ced-a859-30f54faddef7",
+          "name": "Create a block of rooms for a group.",
+          "request": {
+            "name": "Create a block of rooms for a group.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "blocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b34a25c-7fa2-4c6c-be2e-99706c4dc95d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "blocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5d6648d-ef3e-4893-b7df-16f9188dac1d",
+          "name": "Return a list of blocks.",
+          "request": {
+            "name": "Return a list of blocks.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "blocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d50a0432-30cc-4f3c-8b81-db0bb0d4ccd8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "blocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ff4371d-37af-4448-9f0c-36ad9867b561",
+          "name": "Return bookable offers for the given property, dates, and occupancy.",
+          "request": {
+            "name": "Return bookable offers for the given property, dates, and occupancy.",
+            "description": {},
+            "url": {
+              "path": [
+                "booking",
+                "v1",
+                "offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "propertyId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "arrival",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "departure",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "adults",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17a978d7-b37f-4f9b-b049-267100da2207",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "v1",
+                    "offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "arrival",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "departure",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apaleo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "reservations.read reservations.manage setup.read setup.manage rates.read rates.manage availability.read availability.manage folios.read folios.manage"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.apaleo.com/connect/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ce9daa75-05fe-4cd8-b284-b3e229e95298",
+    "name": "apaleo Platform Availability Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.\n\nContact Support:\n Name: apaleo Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

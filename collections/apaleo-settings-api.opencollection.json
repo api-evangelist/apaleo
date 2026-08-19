@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "apaleo Platform Availability Settings API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.apaleo.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return the configured city taxes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/city-tax"
+          },
+          "docs": "Return the configured city taxes."
+        },
+        {
+          "info": {
+            "name": "Create a city tax configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/city-tax"
+          },
+          "docs": "Create a city tax configuration."
+        },
+        {
+          "info": {
+            "name": "Return a list of market segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/market-segments"
+          },
+          "docs": "Return a list of market segments."
+        },
+        {
+          "info": {
+            "name": "Create a market segment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/settings/v1/market-segments"
+          },
+          "docs": "Create a market segment."
+        },
+        {
+          "info": {
+            "name": "Return the enabled languages of the account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/settings/v1/languages"
+          },
+          "docs": "Return the enabled languages of the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

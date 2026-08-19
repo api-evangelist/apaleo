@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "apaleo Platform Availability Finance API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.apaleo.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Finance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return a list of folios.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a list of folios."
+        },
+        {
+          "info": {
+            "name": "Create a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios"
+          },
+          "docs": "Create a folio."
+        },
+        {
+          "info": {
+            "name": "Return a single folio by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single folio by id."
+        },
+        {
+          "info": {
+            "name": "Post a charge to a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folio-actions/:folioId/charges",
+            "params": [
+              {
+                "name": "folioId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Post a charge to a folio."
+        },
+        {
+          "info": {
+            "name": "Return the payments of a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/folios/:folioId/payments",
+            "params": [
+              {
+                "name": "folioId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return the payments of a folio."
+        },
+        {
+          "info": {
+            "name": "Add a payment to a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/folios/:folioId/payments",
+            "params": [
+              {
+                "name": "folioId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add a payment to a folio."
+        },
+        {
+          "info": {
+            "name": "Return a list of invoices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/finance/v1/invoices"
+          },
+          "docs": "Return a list of invoices."
+        },
+        {
+          "info": {
+            "name": "Create an invoice from a folio.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/finance/v1/invoices"
+          },
+          "docs": "Create an invoice from a folio."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

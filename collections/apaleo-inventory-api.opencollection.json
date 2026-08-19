@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "apaleo Platform Availability Inventory API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.apaleo.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return a list of properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/properties"
+          },
+          "docs": "Return a list of properties."
+        },
+        {
+          "info": {
+            "name": "Create a property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/properties"
+          },
+          "docs": "Create a property."
+        },
+        {
+          "info": {
+            "name": "Return a single property by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/properties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single property by id."
+        },
+        {
+          "info": {
+            "name": "Return a list of units.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/units",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a list of units."
+        },
+        {
+          "info": {
+            "name": "Create a unit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/units"
+          },
+          "docs": "Create a unit."
+        },
+        {
+          "info": {
+            "name": "Return a list of unit groups.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups"
+          },
+          "docs": "Return a list of unit groups."
+        },
+        {
+          "info": {
+            "name": "Create a unit group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apaleo.com/inventory/v1/unit-groups"
+          },
+          "docs": "Create a unit group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

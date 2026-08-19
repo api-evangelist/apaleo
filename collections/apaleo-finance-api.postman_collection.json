@@ -1,0 +1,700 @@
+{
+  "item": [
+    {
+      "id": "4c843b14-ea13-4a1a-99e5-69d9e4c64b49",
+      "name": "Finance",
+      "description": {
+        "content": "Folios, payments, refunds, invoices, and accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "035ca9d0-8e72-483b-99f0-1c2384ef1ead",
+          "name": "Return a list of folios.",
+          "request": {
+            "name": "Return a list of folios.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "reservationId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b18e1fd-c76d-4592-ac4d-45abd3c8a0e9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reservationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "358d289f-7420-441c-b2e6-78c3aede5e80",
+          "name": "Create a folio.",
+          "request": {
+            "name": "Create a folio.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ad33ffb-7af7-4888-84e8-0aacb0438d46",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06bde0ce-0faf-42ba-b7ba-6a165ca05d36",
+          "name": "Return a single folio by id.",
+          "request": {
+            "name": "Return a single folio by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folios",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3daf8e89-77e0-4dae-82af-d56c916dc11c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folios",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"reservationId\": \"string\",\n  \"propertyId\": \"string\",\n  \"type\": \"House\",\n  \"status\": \"Closed\",\n  \"balance\": {\n    \"amount\": 1263.791243139306,\n    \"currency\": \"string\"\n  },\n  \"charges\": [\n    {\n      \"key_0\": 2439,\n      \"key_1\": 4639.675196938753\n    },\n    {\n      \"key_0\": 2232.486238418486,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"key_0\": 3534,\n      \"key_1\": 3500,\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 4376,\n      \"key_2\": 3705\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b12a3a1-bede-4df0-8a1c-eb59912552db",
+          "name": "Post a charge to a folio.",
+          "request": {
+            "name": "Post a charge to a folio.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folio-actions",
+                ":folioId",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folioId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9b5eb5d-6d6a-40ad-8375-dadd52ca86c5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folio-actions",
+                    ":folioId",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folioId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3b3a524-9bd3-49a0-af0d-f08f9b31eb28",
+          "name": "Return the payments of a folio.",
+          "request": {
+            "name": "Return the payments of a folio.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folios",
+                ":folioId",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folioId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d541050-f2eb-4733-8431-2364aed9aee9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folios",
+                    ":folioId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folioId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "109d9e82-30df-4fa4-83bf-cb443cfefaf8",
+          "name": "Add a payment to a folio.",
+          "request": {
+            "name": "Add a payment to a folio.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "folios",
+                ":folioId",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folioId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8ecdf65-50b7-4b4d-94f5-224294c7bdd5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "folios",
+                    ":folioId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folioId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b646cc31-bc26-42be-8023-003de8d345d3",
+          "name": "Return a list of invoices.",
+          "request": {
+            "name": "Return a list of invoices.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b826857c-2d38-437b-b8b1-5ef8cc73b3a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04c29e5f-0b44-4166-bcad-98dfa88c357a",
+          "name": "Create an invoice from a folio.",
+          "request": {
+            "name": "Create an invoice from a folio.",
+            "description": {},
+            "url": {
+              "path": [
+                "finance",
+                "v1",
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29f84368-50e3-4af2-8c9e-b6b448bd1954",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finance",
+                    "v1",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apaleo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "reservations.read reservations.manage setup.read setup.manage rates.read rates.manage availability.read availability.manage folios.read folios.manage"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.apaleo.com/connect/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "abbf0ec5-8a2e-4db1-8350-5d3d83681422",
+    "name": "apaleo Platform Availability Finance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.\n\nContact Support:\n Name: apaleo Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
