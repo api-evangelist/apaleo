@@ -7,6 +7,18 @@ description: apaleo is an API-first cloud hotel property-management system (PMS)
   availability, and finance - is exposed through documented REST APIs secured with
   OAuth 2.0, published as OpenAPI, with webhooks for real-time events, enabling an
   open marketplace of integrations.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
