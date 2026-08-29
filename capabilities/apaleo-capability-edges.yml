@@ -1,0 +1,46 @@
+slug: apaleo
+provider: apaleo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Booking
+  spec_file: apaleo-booking-api-openapi.yml
+  capability_id: BC-4020
+  capability_id_l1: BC-4020
+  capability_name: Reservation & Booking Management
+  confidence: 0.95
+  evidence: POST /booking/v1/bookings  Create a booking with one or more reservations.; PUT /booking/v1/reservation-actions/{id}/checkin
+  reason: 'Full reservation lifecycle for a hotel PMS: create/list/modify bookings and reservations, check-in/out,
+    group blocks and bookable offers. Spans several sub-capabilities (capture, modification, group blocks)
+    so the L1 is the honest level.'
+- tag: Finance
+  spec_file: apaleo-finance-api-openapi.yml
+  capability_id: BC-4020.60
+  capability_id_l1: BC-4020
+  capability_name: Booking Payment & Settlement
+  confidence: 0.7
+  evidence: POST /finance/v1/folio-actions/{folioId}/charges  FinancePostCharge  Post a charge to a folio.;
+    POST /finance/v1/folios/{folioId}/payments  Add a payment to a folio.
+  reason: Folio creation, charge posting, payments and invoicing from a folio is booking-level charge
+    capture and settlement in the hotel reservation/folio lifecycle. Some overlap with front-office folio
+    settlement and general accounts receivable keeps confidence moderate.
+- tag: Inventory
+  spec_file: apaleo-inventory-api-openapi.yml
+  capability_id: BC-4000.10
+  capability_id_l1: BC-4000
+  capability_name: Lodging Product Management
+  confidence: 0.7
+  evidence: POST /inventory/v1/units  InventoryCreateUnit  Create a unit.; POST /inventory/v1/unit-groups  InventoryCreateUnitGroup
+  reason: Creating properties, units and unit groups defines the accommodation product structure (unit
+    groups being room types) in a hotel PMS. Could alternatively be read as inventory pool definition,
+    so not maximal confidence.

@@ -212,6 +212,9 @@ apis:
   - type: APIReference
     url: https://webhook.apaleo.com/swagger/index.html
 common:
+- type: CapabilityMap
+  url: capabilities/apaleo-capability-edges.yml
+  name: apaleo Business Capability Map
 - type: AgenticAccess
   url: agentic-access/apaleo-agentic-access.yml
 - type: DomainSecurity
