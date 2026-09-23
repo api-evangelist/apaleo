@@ -1,12 +1,7 @@
 {
   "provider": "apaleo",
   "sources": [
-    "apaleo-availability-api-openapi.yml",
-    "apaleo-booking-api-openapi.yml",
-    "apaleo-finance-api-openapi.yml",
-    "apaleo-inventory-api-openapi.yml",
-    "apaleo-rate-plan-api-openapi.yml",
-    "apaleo-settings-api-openapi.yml"
+    "_original/apaleo-openapi.yml"
   ],
   "outputs": [
     "apaleo-availability-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apaleo-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apaleo-availability-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apaleo-booking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apaleo-finance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apaleo-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apaleo-rate-plan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apaleo-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

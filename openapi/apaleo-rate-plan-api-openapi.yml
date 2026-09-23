@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: apaleo Platform Availability Rate Plan API
+  title: apaleo Platform Rate Plan API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
   termsOfService: https://apaleo.com/terms
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanGetRatePlans
-      summary: Return a list of rate plans.
+      summary: Return a list of rate plans
       parameters:
       - name: propertyId
         in: query
@@ -34,7 +34,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanCreateRatePlan
-      summary: Create a rate plan.
+      summary: Create a rate plan
       responses:
         '201':
           description: Created
@@ -43,7 +43,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanGetRatePlanById
-      summary: Return a single rate plan by id.
+      summary: Return a single rate plan by id
       parameters:
       - name: id
         in: path
@@ -62,7 +62,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanGetRates
-      summary: Return the rates of a rate plan.
+      summary: Return the rates of a rate plan
       parameters:
       - name: id
         in: path
@@ -86,7 +86,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanUpdateRates
-      summary: Update the rates of a rate plan.
+      summary: Update the rates of a rate plan
       parameters:
       - name: id
         in: path
@@ -101,7 +101,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanGetServices
-      summary: Return a list of services.
+      summary: Return a list of services
       responses:
         '200':
           description: OK
@@ -109,7 +109,7 @@ paths:
       tags:
       - Rate Plan
       operationId: RateplanCreateService
-      summary: Create a service.
+      summary: Create a service
       responses:
         '201':
           description: Created

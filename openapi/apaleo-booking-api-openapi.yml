@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: apaleo Platform Availability Booking API
+  title: apaleo Platform Booking API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
   termsOfService: https://apaleo.com/terms
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Booking
       operationId: BookingCreateBooking
-      summary: Create a booking with one or more reservations.
+      summary: Create a booking with one or more reservations
       requestBody:
         required: true
         content:
@@ -43,7 +43,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetBookings
-      summary: Return a list of bookings.
+      summary: Return a list of bookings
       parameters:
       - name: pageNumber
         in: query
@@ -63,7 +63,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetBookingById
-      summary: Return a single booking by id.
+      summary: Return a single booking by id
       parameters:
       - name: id
         in: path
@@ -79,7 +79,7 @@ paths:
       tags:
       - Booking
       operationId: BookingPatchBooking
-      summary: Modify the booker and related details of a booking.
+      summary: Modify the booker and related details of a booking
       parameters:
       - name: id
         in: path
@@ -94,7 +94,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetReservations
-      summary: Return a list of reservations matching the filter criteria.
+      summary: Return a list of reservations matching the filter criteria
       parameters:
       - name: propertyIds
         in: query
@@ -132,7 +132,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetReservationById
-      summary: Return a single reservation by id.
+      summary: Return a single reservation by id
       parameters:
       - name: id
         in: path
@@ -153,7 +153,7 @@ paths:
       tags:
       - Booking
       operationId: BookingCheckinReservation
-      summary: Check in a reservation.
+      summary: Check in a reservation
       parameters:
       - name: id
         in: path
@@ -168,7 +168,7 @@ paths:
       tags:
       - Booking
       operationId: BookingCheckoutReservation
-      summary: Check out a reservation.
+      summary: Check out a reservation
       parameters:
       - name: id
         in: path
@@ -183,7 +183,7 @@ paths:
       tags:
       - Booking
       operationId: BookingCreateBlock
-      summary: Create a block of rooms for a group.
+      summary: Create a block of rooms for a group
       responses:
         '201':
           description: Created
@@ -191,7 +191,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetBlocks
-      summary: Return a list of blocks.
+      summary: Return a list of blocks
       responses:
         '200':
           description: OK
@@ -200,7 +200,7 @@ paths:
       tags:
       - Booking
       operationId: BookingGetOffers
-      summary: Return bookable offers for the given property, dates, and occupancy.
+      summary: Return bookable offers for the given property, dates, and occupancy
       parameters:
       - name: propertyId
         in: query
@@ -243,6 +243,51 @@ components:
             properties:
               id:
                 type: string
+    AddressModel:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        regionCode:
+          type: string
+        countryCode:
+          type: string
+    ReservationItemModel:
+      type: object
+      properties:
+        id:
+          type: string
+        bookingId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Confirmed
+          - InHouse
+          - CheckedOut
+          - Canceled
+          - NoShow
+        property:
+          $ref: '#/components/schemas/EmbeddedPropertyModel'
+        ratePlanId:
+          type: string
+        arrival:
+          type: string
+          format: date-time
+        departure:
+          type: string
+          format: date-time
+        adults:
+          type: integer
+          format: int32
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
     BookerModel:
       type: object
       properties:
@@ -279,14 +324,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreateReservationModel'
-    MonetaryValueModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type: string
     CreateReservationModel:
       type: object
       required:
@@ -315,50 +352,13 @@ components:
           type: string
         guestComment:
           type: string
-    ReservationItemModel:
+    MonetaryValueModel:
       type: object
       properties:
-        id:
-          type: string
-        bookingId:
-          type: string
-        status:
-          type: string
-          enum:
-          - Confirmed
-          - InHouse
-          - CheckedOut
-          - Canceled
-          - NoShow
-        property:
-          $ref: '#/components/schemas/EmbeddedPropertyModel'
-        ratePlanId:
-          type: string
-        arrival:
-          type: string
-          format: date-time
-        departure:
-          type: string
-          format: date-time
-        adults:
-          type: integer
-          format: int32
-        totalGrossAmount:
-          $ref: '#/components/schemas/MonetaryValueModel'
-    AddressModel:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        postalCode:
-          type: string
-        city:
-          type: string
-        regionCode:
-          type: string
-        countryCode:
+        amount:
+          type: number
+          format: double
+        currency:
           type: string
   securitySchemes:
     oauth2:

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: apaleo Platform Availability Inventory API
+  title: apaleo Platform Inventory API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
   termsOfService: https://apaleo.com/terms
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryGetProperties
-      summary: Return a list of properties.
+      summary: Return a list of properties
       responses:
         '200':
           description: OK
@@ -29,7 +29,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryCreateProperty
-      summary: Create a property.
+      summary: Create a property
       responses:
         '201':
           description: Created
@@ -38,7 +38,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryGetPropertyById
-      summary: Return a single property by id.
+      summary: Return a single property by id
       parameters:
       - name: id
         in: path
@@ -57,7 +57,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryGetUnits
-      summary: Return a list of units.
+      summary: Return a list of units
       parameters:
       - name: propertyId
         in: query
@@ -70,7 +70,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryCreateUnit
-      summary: Create a unit.
+      summary: Create a unit
       responses:
         '201':
           description: Created
@@ -79,7 +79,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryGetUnitGroups
-      summary: Return a list of unit groups.
+      summary: Return a list of unit groups
       responses:
         '200':
           description: OK
@@ -87,7 +87,7 @@ paths:
       tags:
       - Inventory
       operationId: InventoryCreateUnitGroup
-      summary: Create a unit group.
+      summary: Create a unit group
       responses:
         '201':
           description: Created

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: apaleo Platform Availability API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
@@ -21,7 +21,7 @@ paths:
       tags:
       - Availability
       operationId: AvailabilityGetUnits
-      summary: Return unit availability for a property and date range.
+      summary: Return unit availability for a property and date range
       parameters:
       - name: propertyId
         in: query
@@ -48,7 +48,7 @@ paths:
       tags:
       - Availability
       operationId: AvailabilityGetUnitGroups
-      summary: Return unit-group availability for a property and date range.
+      summary: Return unit-group availability for a property and date range
       parameters:
       - name: propertyId
         in: query
@@ -63,7 +63,7 @@ paths:
       tags:
       - Availability
       operationId: AvailabilityGetServices
-      summary: Return service availability for a property and date range.
+      summary: Return service availability for a property and date range
       responses:
         '200':
           description: OK

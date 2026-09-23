@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: apaleo Platform Availability Settings API
+  title: apaleo Platform Settings API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
   termsOfService: https://apaleo.com/terms
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Settings
       operationId: SettingsGetCityTaxes
-      summary: Return the configured city taxes.
+      summary: Return the configured city taxes
       responses:
         '200':
           description: OK
@@ -29,7 +29,7 @@ paths:
       tags:
       - Settings
       operationId: SettingsCreateCityTax
-      summary: Create a city tax configuration.
+      summary: Create a city tax configuration
       responses:
         '201':
           description: Created
@@ -38,7 +38,7 @@ paths:
       tags:
       - Settings
       operationId: SettingsGetMarketSegments
-      summary: Return a list of market segments.
+      summary: Return a list of market segments
       responses:
         '200':
           description: OK
@@ -46,7 +46,7 @@ paths:
       tags:
       - Settings
       operationId: SettingsCreateMarketSegment
-      summary: Create a market segment.
+      summary: Create a market segment
       responses:
         '201':
           description: Created
@@ -55,7 +55,7 @@ paths:
       tags:
       - Settings
       operationId: SettingsGetLanguages
-      summary: Return the enabled languages of the account.
+      summary: Return the enabled languages of the account
       responses:
         '200':
           description: OK

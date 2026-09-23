@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: apaleo Platform Availability Finance API
+  title: apaleo Platform Finance API
   description: Unified OpenAPI view of the apaleo API-first hotel property-management system. apaleo exposes its capabilities as a set of versioned REST APIs - Booking, Inventory, Rate Plan, Availability, Finance, and Settings - all served from https://api.apaleo.com and secured with OAuth 2.0 bearer tokens issued by the apaleo identity provider. Real-time events are delivered via the Webhook API at https://webhook.apaleo.com.
   termsOfService: https://apaleo.com/terms
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceGetFolios
-      summary: Return a list of folios.
+      summary: Return a list of folios
       parameters:
       - name: reservationId
         in: query
@@ -34,7 +34,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceCreateFolio
-      summary: Create a folio.
+      summary: Create a folio
       responses:
         '201':
           description: Created
@@ -43,7 +43,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceGetFolioById
-      summary: Return a single folio by id.
+      summary: Return a single folio by id
       parameters:
       - name: id
         in: path
@@ -62,7 +62,7 @@ paths:
       tags:
       - Finance
       operationId: FinancePostCharge
-      summary: Post a charge to a folio.
+      summary: Post a charge to a folio
       parameters:
       - name: folioId
         in: path
@@ -77,7 +77,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceGetPayments
-      summary: Return the payments of a folio.
+      summary: Return the payments of a folio
       parameters:
       - name: folioId
         in: path
@@ -91,7 +91,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceCreatePayment
-      summary: Add a payment to a folio.
+      summary: Add a payment to a folio
       parameters:
       - name: folioId
         in: path
@@ -106,7 +106,7 @@ paths:
       tags:
       - Finance
       operationId: FinanceGetInvoices
-      summary: Return a list of invoices.
+      summary: Return a list of invoices
       responses:
         '200':
           description: OK
@@ -114,20 +114,12 @@ paths:
       tags:
       - Finance
       operationId: FinanceCreateInvoice
-      summary: Create an invoice from a folio.
+      summary: Create an invoice from a folio
       responses:
         '201':
           description: Created
 components:
   schemas:
-    MonetaryValueModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type: string
     FolioModel:
       type: object
       properties:
@@ -160,6 +152,14 @@ components:
           items:
             type: object
             additionalProperties: true
+    MonetaryValueModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
