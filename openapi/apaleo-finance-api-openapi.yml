@@ -120,6 +120,14 @@ paths:
           description: Created
 components:
   schemas:
+    MonetaryValueModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
     FolioModel:
       type: object
       properties:
@@ -152,14 +160,6 @@ components:
           items:
             type: object
             additionalProperties: true
-    MonetaryValueModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -229,6 +229,27 @@ paths:
           description: OK
 components:
   schemas:
+    CreateBookingModel:
+      type: object
+      required:
+      - reservations
+      properties:
+        booker:
+          $ref: '#/components/schemas/BookerModel'
+        paymentAccount:
+          type: object
+          additionalProperties: true
+        reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateReservationModel'
+    EmbeddedPropertyModel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     AddressModel:
       type: object
       properties:
@@ -244,55 +265,6 @@ components:
           type: string
         countryCode:
           type: string
-    CreateReservationModel:
-      type: object
-      required:
-      - arrival
-      - departure
-      - adults
-      - ratePlanId
-      properties:
-        propertyId:
-          type: string
-        arrival:
-          type: string
-          format: date-time
-        departure:
-          type: string
-          format: date-time
-        adults:
-          type: integer
-          format: int32
-        childrenAges:
-          type: array
-          items:
-            type: integer
-            format: int32
-        ratePlanId:
-          type: string
-        guestComment:
-          type: string
-    EmbeddedPropertyModel:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    BookingCreatedModel:
-      type: object
-      properties:
-        id:
-          type: string
-        bookingId:
-          type: string
-        reservationIds:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
     BookerModel:
       type: object
       properties:
@@ -308,20 +280,6 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/AddressModel'
-    CreateBookingModel:
-      type: object
-      required:
-      - reservations
-      properties:
-        booker:
-          $ref: '#/components/schemas/BookerModel'
-        paymentAccount:
-          type: object
-          additionalProperties: true
-        reservations:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateReservationModel'
     ReservationItemModel:
       type: object
       properties:
@@ -352,6 +310,48 @@ components:
           format: int32
         totalGrossAmount:
           $ref: '#/components/schemas/MonetaryValueModel'
+    CreateReservationModel:
+      type: object
+      required:
+      - arrival
+      - departure
+      - adults
+      - ratePlanId
+      properties:
+        propertyId:
+          type: string
+        arrival:
+          type: string
+          format: date-time
+        departure:
+          type: string
+          format: date-time
+        adults:
+          type: integer
+          format: int32
+        childrenAges:
+          type: array
+          items:
+            type: integer
+            format: int32
+        ratePlanId:
+          type: string
+        guestComment:
+          type: string
+    BookingCreatedModel:
+      type: object
+      properties:
+        id:
+          type: string
+        bookingId:
+          type: string
+        reservationIds:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
     MonetaryValueModel:
       type: object
       properties:
