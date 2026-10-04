@@ -229,42 +229,6 @@ paths:
           description: OK
 components:
   schemas:
-    CreateBookingModel:
-      type: object
-      required:
-      - reservations
-      properties:
-        booker:
-          $ref: '#/components/schemas/BookerModel'
-        paymentAccount:
-          type: object
-          additionalProperties: true
-        reservations:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateReservationModel'
-    EmbeddedPropertyModel:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    AddressModel:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        postalCode:
-          type: string
-        city:
-          type: string
-        regionCode:
-          type: string
-        countryCode:
-          type: string
     BookerModel:
       type: object
       properties:
@@ -310,6 +274,42 @@ components:
           format: int32
         totalGrossAmount:
           $ref: '#/components/schemas/MonetaryValueModel'
+    EmbeddedPropertyModel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    BookingCreatedModel:
+      type: object
+      properties:
+        id:
+          type: string
+        bookingId:
+          type: string
+        reservationIds:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+    AddressModel:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        regionCode:
+          type: string
+        countryCode:
+          type: string
     CreateReservationModel:
       type: object
       required:
@@ -338,20 +338,20 @@ components:
           type: string
         guestComment:
           type: string
-    BookingCreatedModel:
+    CreateBookingModel:
       type: object
+      required:
+      - reservations
       properties:
-        id:
-          type: string
-        bookingId:
-          type: string
-        reservationIds:
+        booker:
+          $ref: '#/components/schemas/BookerModel'
+        paymentAccount:
+          type: object
+          additionalProperties: true
+        reservations:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                type: string
+            $ref: '#/components/schemas/CreateReservationModel'
     MonetaryValueModel:
       type: object
       properties:
