@@ -1,0 +1,4551 @@
+edges:
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=io.github.apaleo
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: io.github.apaleo/mcp-server
+    register_id: io.github.apaleo/mcp-server
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  mcp_registry:
+    servers:
+    - io.github.apaleo/mcp-server
+    hosted_remote: 1
+    local_package: 0
+    transports:
+      streamable-http: 1
+    auth_declared: 0
+    catalog_declared: true
+    namespace_domains:
+    - apaleo.com
+  matched_by:
+  - remote-domain
+  detected_by: sweep-agent-tools.py
+  first_seen: '2026-10-14'
+- partner_name: 365id AB
+  app: 365id
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/365id
+  category: Automation platforms
+  partner_domain: 365id.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Grman IT Solutions
+  app: Abacus Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/abacus-connector
+  category: Accounting software
+  partner_domain: afinconnector.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Abitari
+  app: Abitari Kiosk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/abitari-kiosk
+  category: Kiosk & self-service check-in
+  partner_domain: abitari.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: NotConnected
+- partner_name: Abitari
+  app: Abitari Locks Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/abitari-locks-connector
+  category: Door locks & Keycard encoders
+  partner_domain: abitari.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Adchieve
+  app: 'Adchieve – Google Hotel Ads & AI '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/adchieve
+  category: Metasearch & Adtech
+  partner_domain: adchieve.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: ADDITIVE+
+  app: ADDITIVE+
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/additive
+  category: CRM & email marketing platforms
+  partner_domain: additive.eu
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Adria Scan
+  app: AdriaScan
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/adria-scan
+  category: Identity management systems
+  partner_domain: passport-scanners-hotels.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: ailean
+  app: ailean for hospitality
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ailean-for-hospitality
+  category: Live chats & chatbots
+  partner_domain: ailean.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Akia
+  app: Akia
+  partner: akia
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/akia
+  category: Conversational AI
+  partner_domain: akia.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: aleno AG
+  app: aleno
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/aleno
+  category: Analytics & business intelligence
+  partner_domain: aleno.me
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Allgäu-Walser-Pass Gästemeldung
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/allgau-walser-pass-gastemeldung
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: AltoVita
+  app: AltoVita
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/altovita
+  category: Direct OTA Connectors
+  partner_domain: altovita.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Alturos Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/alturos-guest-registration
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Amadeus
+  app: Amadeus iHotelier Booking Engine
+  partner: travelclick-amadeus
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/amadeus-ihotelier-booking-engine
+  category: Booking engines
+  partner_domain: amadeus-hospitality.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Amadeus
+  app: Amadeus iHotelier Channel Manager
+  partner: travelclick-amadeus
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/amadeus-ihotelier-channel-manager
+  category: Channel managers
+  partner_domain: amadeus-hospitality.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Amadeus
+  app: Amadeus iHotelier CRS
+  partner: travelclick-amadeus
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/amadeus-ihotelier-crs
+  category: Central reservation systems
+  partner_domain: amadeus-hospitality.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: ampliphi RMS
+  app: ampliphi RMS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ampliphi-rms
+  category: Rate shopping & market Intelligence
+  partner_domain: getampliphi.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Grman IT Solutions
+  app: Apaleo BMD Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/apaleo-bmd-connector
+  category: Accounting software
+  partner_domain: afinconnector.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: apaleo for Sheets
+  app: apaleo for Sheets
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/apaleo-for-google-sheets
+  category: Analytics & business intelligence
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Apaleo MCP Server
+  app: Apaleo MCP Server
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/apaleo-mcp-server
+  category: Automation platforms
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: apalyst
+  app: apalyst
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/apalyst
+  category: Analytics & business intelligence
+  partner_domain: apalyst.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Aphy
+  app: Aphy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/aphy
+  category: Automation platforms
+  partner_domain: aphy.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Arbio Group GmbH
+  app: Arbio Portal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/arbio-portal
+  category: Analytics & business intelligence
+  partner_domain: arbio.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Ariane Systems
+  app: Ariane — Online & Kiosk Check-in
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ariane-online-kiosk-check-in
+  category: Digital Guest Journey
+  partner_domain: ariane.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: AskWhisper
+  app: AskWhisper
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/askwhisper
+  category: Conversational AI
+  partner_domain: askwhisper.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Auctores
+  app: Auctores Smart Overbooking
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/auctores-smart-overbooking
+  category: Analytics & business intelligence
+  partner_domain: auctores.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Autohost
+  app: Autohost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/autohost
+  category: Automation platforms
+  partner_domain: autohost.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: AVS Gästemeldung by FRIVA
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/avs-gastemeldung-by-friva
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: vukee GmbH & Co. KG
+  app: AVS Meldeschein
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/avs-meldeschein-2
+  category: Identity management systems
+  partner_domain: vukee.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Bayerwald Media Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bayerwald-media-guest-registration
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FLAE ROBOTICS a.s.
+  app: BE-A
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/be-a
+  category: Conversational AI
+  partner_domain: be-a.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Beacon
+  app: Beacon - Explorer
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/beacon-explorer
+  category: Analytics & business intelligence
+  partner_domain: getbeacon.cloud
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Beacon
+  app: Beacon - Rate Radar
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/beacon-rate-radar
+  category: Rate shopping & market Intelligence
+  partner_domain: getbeacon.cloud
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Bedaya
+  app: BedayaConnect
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bedayaconnect
+  category: Identity management systems
+  partner_domain: bedaya.ch
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Lighthouse
+  app: Benchmark Insight - Lighthouse
+  partner: lighthouse-travel
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/benchmark-insight-lighthouse
+  category: Revenue management systems
+  partner_domain: mylighthouse.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Benchmarking Alliance
+  app: Benchmarking Alliance
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/benchmarking-alliance
+  category: Analytics & business intelligence
+  partner_domain: benchmarkingalliance.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: BEONx
+  app: BEONx
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/beonx
+  category: Revenue management systems
+  partner_domain: beonx.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: BeSafe Group
+  app: BeSafe Rate
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/besafe-rate
+  category: Revenue management systems
+  partner_domain: besaferate.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: BetterSpace
+  app: better.energy by Betterspace
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/better-energy-by-betterspace
+  category: In-room control & tablets
+  partner_domain: betterspace360.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: BetterSpace
+  app: better.guest Check-In Terminal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/better-guest-check-in-terminal
+  category: Kiosk & self-service check-in
+  partner_domain: betterspace360.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: BLENT
+  app: BLENT
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/blent
+  category: Analytics & business intelligence
+  partner_domain: blent.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: BlueID ACCESS®
+  app: BlueID
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/blueid
+  category: Door locks & Keycard encoders
+  partner_domain: blueid.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HoTechOlution (Stefan Wölflinger)
+  app: BMD Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bmd-connector
+  category: Accounting software
+  partner_domain: hotecholution.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Bookboost AB
+  app: Unified Inbox by Bookboost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bookboost
+  category: Guest messaging platforms
+  partner_domain: bookboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Booking.com Channel Connect
+  app: Booking.com Channel Connect
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/booking-com-channel-connect
+  category: Direct OTA Connectors
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Bowo
+  app: Bowo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bowo
+  category: Digital Guest Journey
+  partner_domain: bowo.fr
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Brainy RMS
+  app: Brainy RMS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/brainy-rms
+  category: Revenue management systems
+  partner_domain: brainy-rms.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Breezeway
+  app: Breezeway
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/breezeway
+  category: Digital Guest Journey
+  partner_domain: breezeway.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Simultem
+  app: Bulk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/bulk-4
+  category: Automation platforms
+  partner_domain: simultem-apps.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Lighthouse
+  app: Business Intelligence - Lighthouse
+  partner: lighthouse-travel
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/business-intelligence-lighthouse
+  category: Revenue management systems
+  partner_domain: mylighthouse.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: BetterSpace
+  app: BYOD by Betterspace
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/byod-by-betterspace
+  category: Digital Guest Journey
+  partner_domain: betterspace360.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Capcorn Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/capcorn-guest-registration
+  category: 'Legal environment '
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Cendyn
+  app: Cendyn Digital Marketing Platform
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/cendyn-dmp
+  category: Metasearch & Adtech
+  partner_domain: cendyn.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Lighthouse
+  app: 'Channel Management (Lighthouse) '
+  partner: lighthouse-travel
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/channel-management-lighthouse
+  category: Channel managers
+  partner_domain: mylighthouse.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: DIRS21
+  app: Channelswitch (DIRS21)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/channelswitch-by-dirs21
+  category: Channel managers
+  partner_domain: dirs21.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Channex.io Ltd
+  app: Channex
+  partner: channex
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/channex
+  category: Channel managers
+  partner_domain: channex.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: char
+  app: char pmslink / VConnect for IPTV
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/char-pmslink-for-iptv
+  category: IPTV
+  partner_domain: charpmslink.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: char
+  app: char pmslink / VConnect for PBX
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/char-pmslink-for-pbx
+  category: PBX
+  partner_domain: charpmslink.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: char
+  app: char pmslink / VConnect keycard
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/char-pmslink-keycard
+  category: Door locks & Keycard encoders
+  partner_domain: charpmslink.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: chatlyn GmbH
+  app: chatlyn
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/chatlyn
+  category: Conversational AI
+  partner_domain: chatlyn.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Chekin
+  app: Chekin
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/chekin
+  category: Upselling & upgrading platforms
+  partner_domain: chekin.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Civitfun Hospitality
+  app: 'Civitfun '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/civitfun-hospitality
+  category: Kiosk & self-service check-in
+  partner_domain: civitfun.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Community Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/community-guest-registration
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: CultBooking
+  app: CultBooking
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/cultbooking
+  category: Booking engines
+  partner_domain: cultbooking.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: 'Customer Alliance '
+  app: Customer Alliance
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/customer-alliance
+  category: Analytics & business intelligence
+  partner_domain: customer-alliance.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: customice
+  app: customice
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/customice
+  category: Events & groups quoting platforms
+  partner_domain: customice.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: D-EDGE
+  app: D-EDGE
+  partner: d-edge
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/d-edge
+  category: Booking engines
+  partner_domain: d-edge.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Akin Labs Inc
+  app: D3x
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/d3x
+  category: Conversational AI
+  partner_domain: d3x.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: dailypoint™
+  app: dailypoint™
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/dailypoint-tm
+  category: CRM & email marketing platforms
+  partner_domain: dailypoint.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Profit Intelligence
+  app: Data Analytics by PI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/data-analytics-by-pi
+  category: Analytics & business intelligence
+  partner_domain: profitintelligence.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Grman IT Solutions
+  app: 'Datev Connector '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/datev-connector
+  category: Accounting software
+  partner_domain: afinconnector.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: DerbySoft Ltd.
+  app: DerbySoft Property Connector
+  partner: derbysoft
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/derbysoft-property-connector
+  category: Channel managers
+  partner_domain: derbysoft.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: StaysCo
+  app: StaysCo (formerly DèsVu Stays)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/desvu-stays
+  category: Direct OTA Connectors
+  partner_domain: staysco.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: DialogShift
+  app: DialogShift
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/dialogshift
+  category: Guest messaging platforms
+  partner_domain: dialogshift.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: DIAMO
+  app: DIAMO
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/diamo
+  category: Revenue management systems
+  partner_domain: diamo.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: DIRS21
+  app: Direct Booking DIRS21 One
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/direct-booking-by-dirs21
+  category: Booking engines
+  partner_domain: dirs21.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: discontinue.dev MAS GmbH
+  app: Discontinue.dev
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/discontinue.dev
+  category: Automation platforms
+  partner_domain: discontinue.dev
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Duve
+  app: Duve
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/duve
+  category: Digital Guest Journey
+  partner_domain: duve.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: E-axess
+  app: E-AXESS RMS & REPORTING
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/e-axess-rms-reporting-1
+  category: Analytics & business intelligence
+  partner_domain: spotpilot.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Eurofluxo
+  app: EasyLynq
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/easylynq
+  category: In-room control & tablets
+  partner_domain: eurofluxo.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Ecco Italy SRL
+  app: Ecco
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ecco
+  category: Conversational AI
+  partner_domain: tryecco.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: CrystalStat
+  app: Enigma
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/enigma
+  category: Analytics & business intelligence
+  partner_domain: crystalstat.eu
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Enzosystems BV
+  app: Enzosystems Kiosks
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/enzosystems-kiosks
+  category: Kiosk & self-service check-in
+  partner_domain: enzosystems.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: vukee GmbH & Co. KG
+  app: EULEKTRO/EVesto E-Charging platform
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/eulektroevesto-e-charging-platform
+  category: Door locks & Keycard encoders
+  partner_domain: vukee.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Event Temple
+  app: Event Temple
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/event-temple
+  category: Events & groups quoting platforms
+  partner_domain: eventtemple.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: EVENTMACHINE
+  app: EVENTMACHINE
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/eventmachine
+  category: Events & groups quoting platforms
+  partner_domain: eventmachine.xyz
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Omniboost
+  app: Exact Globe Powered by Omniboost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/exact-globe-powered-by-omniboost
+  category: Accounting software
+  partner_domain: omniboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Omniboost
+  app: Exact Online Powered by Omniboost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/exact-online-powered-by-omniboost
+  category: Accounting software
+  partner_domain: omniboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: ExpectMe
+  app: ExpectMe
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/expect-me
+  category: Digital Guest Journey
+  partner_domain: expect-me.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Experience Hotel
+  app: Experience Hotel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/experience-hotel
+  category: CRM & email marketing platforms
+  partner_domain: experience-hotel.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Fairmas GmbH
+  app: Fairmas
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/fairmas
+  category: Analytics & business intelligence
+  partner_domain: fairmas.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: fanz
+  app: fanz
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/fanz
+  category: Point of sale systems
+  partner_domain: fanz.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Faundit
+  app: Faundit
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/faundit
+  category: Digital Guest Journey
+  partner_domain: faundit.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Feratel Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/feratel-guest-registration
+  category: Identity management systems
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Flexkeeping
+  app: Flexkeeping
+  partner: flexkeeping
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/flexkeeping
+  category: Housekeeping & Staff collaboration
+  partner_domain: flexkeeping.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Flowence
+  app: 'Flowence '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/flowence
+  category: Metasearch & Adtech
+  partner_domain: getflowence.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FLYR Hospitality
+  app: FLYR Hospitality
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/flyr
+  category: Analytics & business intelligence
+  partner_domain: flyrhospitality.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Fornova
+  app: FornovaRI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/fornovari
+  category: Analytics & business intelligence
+  partner_domain: fornova.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: G-APP
+  app: G-APP
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/g-app
+  category: Analytics & business intelligence
+  partner_domain: g-app.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Gastfreund GmbH
+  app: Gastfreund
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gastfreund-guest-app
+  category: Digital Guest Journey
+  partner_domain: gastfreund.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Omniboost
+  app: Gastronovi Powered by Omniboost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gastronovi-powered-by-omniboost
+  category: Automation platforms
+  partner_domain: omniboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: GauVendi
+  app: 'GauVendi: Sell One Room 10 Ways.'
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gauvendi-revolutionize-your-sales
+  category: Booking engines
+  partner_domain: gauvendi.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Gift Up!
+  app: Gift Up
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gift-up-gift-cards
+  category: Voucher management systems
+  partner_domain: giftup.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: HoTechOlution (Stefan Wölflinger)
+  app: GIMSI - Group & Proposal Management
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gimsi-group-proposal-management
+  category: Booking engines
+  partner_domain: gimsi.app
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Backyou
+  app: Backyou
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/gps-by-groupcorner
+  category: Events & groups quoting platforms
+  partner_domain: backyou.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotek Hospitality Group
+  app: Guestkey by Hotek
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/guestkey-by-hotek
+  category: Mobile key & keyless entry
+  partner_domain: guestkey.nl
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Guestnet
+  app: Guestnet
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/guestnet
+  category: Digital Guest Journey
+  partner_domain: guest.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: GuestRevu
+  app: GuestRevu
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/guestrevu
+  category: Online reputation & feedback management
+  partner_domain: guestrevu.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Guestway
+  app: Guestway
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/guestway
+  category: Digital Guest Journey
+  partner_domain: guestway.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Häfele
+  app: Häfele - DIALOCK
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/haefele-dialock
+  category: Door locks & Keycard encoders
+  partner_domain: haefele.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: happyhotel
+  app: happyhotel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/happyhotel
+  category: Analytics & business intelligence
+  partner_domain: happyhotel.uk
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: HBenchmark
+  app: HBenchmark
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hbenchmark
+  category: Analytics & business intelligence
+  partner_domain: hbenchmark.it
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HelloGuest
+  app: HelloGuest
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/helloguest-hospitality
+  category: Digital Guest Journey
+  partner_domain: helloguest.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: helloTESS!
+  app: helloTESS! point of sale
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hellotess
+  category: Point of sale systems
+  partner_domain: hellotess.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotel Res Bot UG (limited liability)
+  app: HERA
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hera-hotel-resbot
+  category: Guest messaging platforms
+  partner_domain: hotel-reservation-bot.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: NerionSoft
+  app: Hestia
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hestia
+  category: Booking engines
+  partner_domain: nerionsoft.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: HiJiffy
+  app: HiJiffy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hijiffy
+  category: Guest messaging platforms
+  partner_domain: hijiffy.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HKeeper
+  app: HKeeper
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hkeeper
+  category: Digital Guest Journey
+  partner_domain: hkeeper.global
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HKeeper
+  app: HNext AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hnext-ai
+  category: Housekeeping & Staff collaboration
+  partner_domain: hnext.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Hochschwarzwald-Card Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hochschwarzwald-card
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: UMTS Media Service GmbH
+  app: Hotel-Doorman
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-doorman-1
+  category: Mobile key & keyless entry
+  partner_domain: hotel-doorman.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Profit Intelligence
+  app: Hotel Insights
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-insights
+  category: Analytics & business intelligence
+  partner_domain: profitintelligence.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Hotel Manager
+  app: Hotel Manager
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-manager
+  category: Digital Guest Journey
+  partner_domain: hotelmanager.co
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotel-Spider
+  app: Hotel-Spider Channel Manager
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-spider-channelmanager
+  category: Channel managers
+  partner_domain: hotel-spider.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotel-Spider
+  app: Hotel-Spider Metasearch
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-spider-meta-search
+  category: Metasearch & Adtech
+  partner_domain: hotel-spider.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotel Trader
+  app: Hotel Trader
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotel-trader
+  category: Direct OTA Connectors
+  partner_domain: hoteltrader.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: 'Hotelbird '
+  app: Hotelbird
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelbird
+  category: Digital Guest Journey
+  partner_domain: hotelbird.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: HotelIQ by Intelligent Hospitality
+  app: HotelIQ by Intelligent Hospitality
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hoteliq-by-intelligent-hospitality
+  category: Analytics & business intelligence
+  partner_domain: hoteliq.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: hotelkit GmbH
+  app: hotelkit
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelkit
+  category: Housekeeping & Staff collaboration
+  partner_domain: hotelkit.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Hotelkontrolle (HOKO) Guest Export
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelkontrolle-hoko-guest-export
+  category: 'Legal environment '
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Hotellistat GmbH
+  app: Hotellistat
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotellistat
+  category: Analytics & business intelligence
+  partner_domain: hotellistat.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: workmatrix GmbH
+  app: hotelmatrix Booking Engine
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelmatrix-booking-engine
+  category: Booking engines
+  partner_domain: hotelmatrix.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: HotelPartner Yield Management
+  app: HotelPartner Revenue Management
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelpartner-yield-management
+  category: Revenue management systems
+  partner_domain: hotelpartner-ym.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HotelREZ Hotels & Resorts
+  app: HotelREZ Hotels & Resorts
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelrez-hotels-and-resorts
+  category: Central reservation systems
+  partner_domain: hotelrez.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Hotel-Spider
+  app: Hotel-Spider Booking Engine
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelspider-web-booking-engine
+  category: Booking engines
+  partner_domain: hotel-spider.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Hotelworld AI
+  app: Hotelworld AI Reservation Agent
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hotelworld-ai-reservation-agent
+  category: Automation platforms
+  partner_domain: hotelworld.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: detco GmbH
+  app: HRS Channel Connect
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hrs-channel-connect
+  category: Direct OTA Connectors
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: HyperGuest
+  app: HyperGuest
+  partner: hyperguest
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/hyperguest
+  category: Direct OTA Connectors
+  partner_domain: hyperguest.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Simultem
+  app: IBE by Simultem
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ibe-by-simultem
+  category: Booking engines
+  partner_domain: simultem-apps.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Roomgrid by Thoesch GmbH
+  app: Roomgrid
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/icecreek-rooms
+  category: Housekeeping & Staff collaboration
+  partner_domain: roomgrid.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: IDeaS Revenue Management Systems
+  app: IDeaS Revenue Solutions
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ideas-revenue-solutions
+  category: Revenue management systems
+  partner_domain: ideas.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: ConsultiiQ GmbH
+  app: 'iiQ-Check '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/iiq-check
+  category: Analytics & business intelligence
+  partner_domain: iiq-check.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: BetterSpace
+  app: In-Room Tablet (Betterspace)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/in-room-tablet-by-betterspace
+  category: In-room control & tablets
+  partner_domain: betterspace360.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: INCERT
+  app: INCERT
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/incert
+  category: Voucher management systems
+  partner_domain: incert.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Infinito Solutions
+  app: Infinito Virtual Intelligence
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/infinito-virtual-intelligence
+  category: Revenue management systems
+  partner_domain: infinito.solutions
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Shiji
+  app: Infrasys Cloud POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/infrasys-cloud-pos
+  category: Point of sale systems
+  partner_domain: shijigroup.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Intenik Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/intenik-guest-registration
+  category: 'Legal environment '
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Jana
+  app: Jana Concierge
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/jana-concierge
+  category: Digital Guest Journey
+  partner_domain: jana-concierge.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Juyo Analytics
+  app: JUYO Analytics
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/juyo-analytics
+  category: Analytics & business intelligence
+  partner_domain: juyoanalytics.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Katanox
+  app: Katanox
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/katanox
+  category: Channel managers
+  partner_domain: katanox.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: keyota GmbH
+  app: keyota
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/keyota
+  category: Door locks & Keycard encoders
+  partner_domain: keyota.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Letshare, Proposal and Bookings
+  app: 'Letshare '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/letshare
+  category: Booking engines
+  partner_domain: proposalpro.online
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Lightspeed
+  app: Lightspeed Restaurant K-Series
+  partner: lightspeed
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/lightspeed-restaurant-k-series
+  category: Point of sale systems
+  partner_domain: lightspeedhq.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: likeMagic
+  app: LIKE MAGIC
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/likemagic
+  category: Digital Guest Journey
+  partner_domain: likemagic.tech
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Livion Oy
+  app: LivionKey
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/livionkey
+  category: Kiosk & self-service check-in
+  partner_domain: livionkey.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Lobby
+  app: Lobby
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/lobby
+  category: Email reservation assistant
+  partner_domain: lobbyai.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: LoungeUp
+  app: D-EDGE CRM (Formerly LoungeUp)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/loungeup
+  category: CRM & email marketing platforms
+  partner_domain: loungeup.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Lula.Cleaning
+  app: Lula.Cleaning
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/lula.cleaning
+  category: Automation platforms
+  partner_domain: lula.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: MAIC Sarl
+  app: MAIC OS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/maic-os
+  category: Digital Guest Journey
+  partner_domain: maiccube.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: XQueue GmbH
+  app: Maileon
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/maileon
+  category: CRM & email marketing platforms
+  partner_domain: maileon.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: MARA Solutions
+  app: MARA AI Review Assistant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mara-ai-review-assistant
+  category: Conversational AI
+  partner_domain: mara-solutions.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: MasterMind · Tech
+  app: MasterMind · Tech
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mastermind-tech
+  category: Conversational AI
+  partner_domain: mmindtech.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: MEINbusiness GmbH
+  app: MEINbusiness
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/meinbusiness
+  category: Accounting software
+  partner_domain: meinbusiness.biz
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Minut
+  app: Minut
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/minut
+  category: In-room control & tablets
+  partner_domain: minut.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Mobifront
+  app: 'Mobifront: Mobile PMS & Teamwork'
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mobifront-mobile-pms-extension
+  category: Automation platforms
+  partner_domain: mobifront.tech
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Bookboost AB
+  app: 'Multi-Channel CRM by Bookboost '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/multi-channel-crm-by-bookboost
+  category: CRM & email marketing platforms
+  partner_domain: bookboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: based on IT GmbH
+  app: MY SPA
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/my-spa
+  category: Spa management systems
+  partner_domain: based-on-it.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: YAY! Digital GmbH
+  app: MyBreakfast
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mybreakfast
+  category: Digital Guest Journey
+  partner_domain: mybreakfast.in
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: detco GmbH
+  app: myExpediaConnect
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/myexpediaconnect
+  category: Direct OTA Connectors
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: detco GmbH
+  app: myGuestMailing by detco
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/myguestmailing-by-detco
+  category: CRM & email marketing platforms
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: detco GmbH
+  app: 'myIBE by detco '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/myibe
+  category: Booking engines
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: detco GmbH
+  app: myMetaSearch by detco and opensmjle
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mymetasearch-by-detco-and-opensmjle
+  category: Metasearch & Adtech
+  partner_domain: opensmjle.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: detco GmbH
+  app: myProfileManager by detco
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/myprofilemanager-by-detco
+  category: CRM & email marketing platforms
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: detco GmbH
+  app: myTraces by detco
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mytraces-by-detco
+  category: Housekeeping & Staff collaboration
+  partner_domain: detco.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: WND AG
+  app: myWND TV
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/mywnd-tv
+  category: Digital Guest Journey
+  partner_domain: wnd.ch
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Bicbloc
+  app: Nettobloc Room Ops
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/nettobloc-room-ops
+  category: Housekeeping & Staff collaboration
+  partner_domain: bicbloc.eu
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: NovaVoca
+  app: 'NovaVoca '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/novavoca
+  category: Conversational AI
+  partner_domain: novavoca.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Nuitee
+  app: Nuitee
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/nuitee
+  category: Channel managers
+  partner_domain: nuitee.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Oaky
+  app: Oaky by Plusgrade
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/oaky
+  category: Upselling & upgrading platforms
+  partner_domain: oaky.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Grman IT Solutions
+  app: odoo Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/odoo-connector
+  category: Accounting software
+  partner_domain: afinconnector.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: oho360 GmbH
+  app: luqio Dashboard & Reports by oho360
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/oho360-dashboard-reporting
+  category: Analytics & business intelligence
+  partner_domain: luqio.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: HotelNetSolutions GmbH
+  app: OnePageBooking (HotelNetSolutions)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/onepagebooking
+  category: Booking engines
+  partner_domain: hotelnetsolutions.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: 'Onsai '
+  app: Onsai
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/onsai
+  category: Conversational AI
+  partner_domain: onsai.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Opally
+  app: Opally
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/opally
+  category: Conversational AI
+  partner_domain: opally.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: OpenGDS
+  app: OpenGDS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/opengds
+  category: Direct OTA Connectors
+  partner_domain: opengds.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: 'Omni Software Ltd t/a OSS-Systems '
+  app: OSS-Hospitality
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/oss-hospitality
+  category: Housekeeping & Staff collaboration
+  partner_domain: oss-systems.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Otel AI
+  app: Otel AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/otel-ai
+  category: Automation platforms
+  partner_domain: otelai.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Ovimore
+  app: Ovimore
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/ovimore
+  category: Analytics & business intelligence
+  partner_domain: ovimore.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Owner Center
+  app: Owner Center
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/owner-center
+  category: Housekeeping & Staff collaboration
+  partner_domain: ownercenter.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: PayJim UG (haftungsbeschränkt)
+  app: PAYJIM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/payjim-checkout-fast
+  category: Digital Guest Journey
+  partner_domain: payjim.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: vukee GmbH & Co. KG
+  app: Payment Reconciliation
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/payment-reconciliation
+  category: Accounting software
+  partner_domain: vukee.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: AGI Research GmbH
+  app: Petty Cash Book
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/petty-cash-book
+  category: Accounting software
+  partner_domain: agi-research.info
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: vukee GmbH & Co. KG
+  app: Philips CMND Server Integration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/philips-cmnd-server-integration
+  category: In-room control & tablets
+  partner_domain: vukee.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Pindora
+  app: Pindora
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pindora
+  category: Door locks & Keycard encoders
+  partner_domain: pindora.fi
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Planet
+  app: Planet TV & Wi-Fi
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/planet-tv-wi-fi
+  category: IPTV
+  partner_domain: weareplanet.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Plusgrade
+  app: Plusgrade
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/plusgrade
+  category: Revenue management systems
+  partner_domain: plusgrade.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: PolyAPI
+  app: PolyAPI
+  partner: polyapi
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/polyapi
+  category: Automation platforms
+  partner_domain: polyapi.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Portal
+  app: Portal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/portal
+  category: Digital Guest Journey
+  partner_domain: tryportal.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Price My Hotel Room
+  app: Price My Hotel Room
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/price-my-hotel-room
+  category: Analytics & business intelligence
+  partner_domain: pmhr.se
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: PRICELABS
+  app: PriceLabs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pricelabs
+  category: Revenue management systems
+  partner_domain: pricelabs.co
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Pricepoint
+  app: Pricepoint
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pricepoint
+  category: Revenue management systems
+  partner_domain: pricepoint.co
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Lighthouse
+  app: Pricing Manager (Lighthouse)
+  partner: lighthouse-travel
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pricing-assistant
+  category: Rate shopping & market Intelligence
+  partner_domain: mylighthouse.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Simultem
+  app: Profiles
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/profiles
+  category: CRM & email marketing platforms
+  partner_domain: simultem-apps.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Profitize
+  app: profitize
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/profitize
+  category: Analytics & business intelligence
+  partner_domain: profitize.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Pxier Services
+  app: Pxier Resto
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pxier-resto
+  category: Point of sale systems
+  partner_domain: pxier.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Pxier Services
+  app: Pxier Sales & Catering
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pxier-sales-and-catering
+  category: Sales & catering software
+  partner_domain: pxier.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Pxier Services
+  app: Pxier Spa
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/pxier-spa
+  category: Spa management systems
+  partner_domain: pxier.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Quicktext
+  app: Quicktext
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/quicktext
+  category: Guest messaging platforms
+  partner_domain: quicktext.im
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: HotelNetSolutions GmbH
+  app: RateDistributor (HotelNetSolutions)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/rate-distributor
+  category: Channel managers
+  partner_domain: hotelnetsolutions.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: RateBoard
+  app: 'RateBoard '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/rateboard
+  category: Analytics & business intelligence
+  partner_domain: rateboard.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Rategenie
+  app: Rategenie
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/rategenie
+  category: Revenue management systems
+  partner_domain: rategenie.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Re:Guest
+  app: ReGuest
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/re-guest
+  category: CRM & email marketing platforms
+  partner_domain: reguest.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Crystalstat
+  app: Reportivity
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/reportivity
+  category: Analytics & business intelligence
+  partner_domain: reportivity.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Reserva
+  app: Reserva
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/reserva
+  category: Upselling & upgrading platforms
+  partner_domain: reserva.is
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Revbell
+  app: Revbell
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/revbell
+  category: Revenue management systems
+  partner_domain: revbell.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: RevControl
+  app: RevControl
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/revcontrol
+  category: Revenue management systems
+  partner_domain: revcontrol.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Revinate
+  app: Revinate
+  partner: revinate
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/revinate
+  category: CRM & email marketing platforms
+  partner_domain: revinate.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: 'Right Revenue '
+  app: 'Right Revenue '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/right-revenue
+  category: Analytics & business intelligence
+  partner_domain: rightrevenue.co.uk
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: RIMS MP-Network GmbH
+  app: RIMS | Confirmation System
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/rims-or-confirmation-system
+  category: CRM & email marketing platforms
+  partner_domain: hotel-rims.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Rocksoft B.V.
+  app: Rocksoft Kiosk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/rocksoft-kiosk
+  category: Kiosk & self-service check-in
+  partner_domain: rcksft.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Room Allocation Agent by Apaleo
+  app: Room Allocation Agent by Apaleo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/room-allocation-agent-by-apaleo
+  category: Housekeeping & Staff collaboration
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Roomchecking
+  app: Roomchecking
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roomchecking
+  category: Housekeeping & Staff collaboration
+  partner_domain: roomchecking.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: RoomCloud
+  app: RoomCloud Channel Manager
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roomcloud-channel-manager
+  category: Booking engines
+  partner_domain: roomcloud.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: ROOMDEX, Inc
+  app: ROOMDEX
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roomdex
+  category: Upselling & upgrading platforms
+  partner_domain: roomdex.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Roommatik
+  app: Roommatik
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roommatik
+  category: Kiosk & self-service check-in
+  partner_domain: roommatik.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: RoomPal
+  app: RoomPal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roompal
+  category: In-room control & tablets
+  partner_domain: roompal.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: RoomPriceGenie
+  app: RoomPriceGenie
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/roompricegenie
+  category: Revenue management systems
+  partner_domain: roompricegenie.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: HS-Soft AG
+  app: RunMyResto
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/runmyresto
+  category: Accounting software
+  partner_domain: runmyresto.ch
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Runnr.ai
+  app: Runnr.ai
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/runnr.ai
+  category: Conversational AI
+  partner_domain: runnr.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Samsotech
+  app: Samsotech
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/samsotech
+  category: Identity management systems
+  partner_domain: samsotech-id.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Var Group Iberia - Delta
+  app: Delta ID - Scan to PMS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/scan-to-pms
+  category: Automation platforms
+  partner_domain: deltainformatica.es
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Scopevisio AG
+  app: Scopevisio Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/scopevisio-connector
+  category: Accounting software
+  partner_domain: scopevisio.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Seekda
+  app: Seekda
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/seekda
+  category: Channel managers
+  partner_domain: seekda.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Bang Tech Inc.
+  app: 'Shadowbook '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/shadowbook
+  category: Automation platforms
+  partner_domain: shadowbook.online
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Softup
+  app: SibilAI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/sibilai
+  category: Analytics & business intelligence
+  partner_domain: sibilai.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Sidenet AI
+  app: Sidenet AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/sidenet-ai
+  category: Analytics & business intelligence
+  partner_domain: sidenet.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Simon & Josef GmbH
+  app: Simon & Josef
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/simon-josef
+  category: Digital Guest Journey
+  partner_domain: simonandjosef.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Simpra
+  app: Simpra Suite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/simpra-suite
+  category: Point of sale systems
+  partner_domain: simprasuite.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: SiteMinder
+  app: SiteMinder
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/siteminder
+  category: Channel managers
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Smarthotel
+  app: Smart Channel Manager
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/smart-channel-manager
+  category: Automation platforms
+  partner_domain: smarthotel.nl
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Smart Host GmbH
+  app: Smart Host
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/smart-host
+  category: CRM & email marketing platforms
+  partner_domain: smart-host.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Smartpricing
+  app: Smartpricing
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/smartpricing
+  category: Revenue management systems
+  partner_domain: smartpricing.it
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Solvotix AS
+  app: Solvotix Bridge
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/solvotix-bridge
+  category: Automation platforms
+  partner_domain: solvotix.org
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Sponteous technology inc.
+  app: Sponteous
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/sponteous-1
+  category: Guest messaging platforms
+  partner_domain: sponteous.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: STAAH
+  app: STAAH
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/staah
+  category: Booking engines
+  partner_domain: staah.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: StayFi
+  app: StayFi
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/stayfi
+  category: CRM & email marketing platforms
+  partner_domain: stayfi.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Opidun
+  app: Stayinto
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/stayinto
+  category: Direct OTA Connectors
+  partner_domain: stayinto.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Staymate
+  app: Staymate
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/staymate
+  category: Digital Guest Journey
+  partner_domain: staymate.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Straiv GmbH
+  app: Straiv
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/straiv
+  category: Digital Guest Journey
+  partner_domain: straiv.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Profit Intelligence
+  app: 'Strategic Studio by PI '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/strategic-studio-by-pi
+  category: Analytics & business intelligence
+  partner_domain: profitintelligence.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: SuitePad GmbH
+  app: SuitePad
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/suitepad
+  category: In-room control & tablets
+  partner_domain: suitepad.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Sweeply
+  app: Sweeply
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/sweeply
+  category: Housekeeping & Staff collaboration
+  partner_domain: getsweeply.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Sweeply
+  app: Sweeply Trace Agent
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/sweeply-trace-agent
+  category: Automation platforms
+  partner_domain: getsweeply.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: TAC Informationstechnologie GmbH
+  app: TAC Software
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tac-software
+  category: Spa management systems
+  partner_domain: eu.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: TCA Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tca-guest-registration
+  category: 'Legal environment '
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Tevalis
+  app: Tevalis EPos
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tevalis-epos
+  category: Point of sale systems
+  partner_domain: tevalis.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: TiGERtms
+  app: TigerTMS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tigertms
+  category: Digital Guest Journey
+  partner_domain: tigertms.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Topsys
+  app: Top-Office
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/top-office-by-topsys
+  category: CRM & email marketing platforms
+  partner_domain: topsys.fr
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Topsys
+  app: Top-Report
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/top-report
+  category: Accounting software
+  partner_domain: topsys.fr
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: Tour-X Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tour-x-guest-registration
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Open Source Trace Agent
+  app: Open Source Trace Agent
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://store.apaleo.com/apps/trace-agent
+  category: Housekeeping & Staff collaboration
+  partner_domain: null
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Tramino
+  app: Tramino Pass
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tramino-pass
+  category: Automation platforms
+  partner_domain: tramino.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Trengo
+  app: Trengo
+  partner: trengo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/trengo
+  category: Live chats & chatbots
+  partner_domain: trengo.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: TrustYou GmbH
+  app: TrustYou CXP
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/trustyou
+  category: Online reputation & feedback management
+  partner_domain: trustyou.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: TrustYou GmbH
+  app: TrustYou Customer Data Platform
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/trustyou-customer-data-platform
+  category: CRM & email marketing platforms
+  partner_domain: trustyou.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Tuya Hotel
+  app: Tuya Hotel
+  partner: tuya
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/tuya-hotel
+  category: In-room control & tablets
+  partner_domain: tuya.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: U-Stay Guest Export
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/u-stay-guest-export
+  category: 'Legal environment '
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: UMNICORN GmbH
+  app: UMNICORN 10X HOSPITA.I.LITY
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/umnicorn-10x-hospita.i.lity
+  category: CRM & email marketing platforms
+  partner_domain: umnicorn.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: umnify GmbH
+  app: 'umnify #hospitality'
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/umnify-hospitality
+  category: CRM & email marketing platforms
+  partner_domain: umnify.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: umnify GmbH
+  app: 'umnify #ServicedLiving'
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/umnify-servicedliving
+  category: CRM & email marketing platforms
+  partner_domain: umnify.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Polydom Inc.
+  app: Una by Polydom
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/una
+  category: Conversational AI
+  partner_domain: polydom.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: UpsellGuru
+  app: UpsellGuru
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/upsellguru
+  category: Guest messaging platforms
+  partner_domain: upsellguru.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Kassanet Pieterse
+  app: Vectron-apaleo connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/vectron-apaleo-connector
+  category: Point of sale systems
+  partner_domain: pieterse.nl
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Venli
+  app: Venli
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/venli
+  category: Conversational AI
+  partner_domain: venli.ai
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Vertical Booking
+  app: Vertical Booking
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/vertical-booking
+  category: Central reservation systems
+  partner_domain: verticalbooking.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: ViCo
+  app: ViCo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/vico
+  category: Digital Guest Journey
+  partner_domain: vicomanager.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: vioma
+  app: vioma
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/vioma
+  category: Booking engines
+  partner_domain: vioma.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: VisitorData
+  app: VisitorData
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/visitordata
+  category: Analytics & business intelligence
+  partner_domain: visitordata.nl
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: Voxel
+  app: Voxel, an Amadeus company
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/voxel
+  category: Accounting software
+  partner_domain: voxelgroup.net
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: SimpleClient
+- partner_name: Apar1Ments Living GmbH
+  app: Waveo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/waveo
+  category: Accounting software
+  partner_domain: waveoai.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Welcome Pickups
+  app: Welcome Pickups
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/welcome-pickups
+  category: Upselling & upgrading platforms
+  partner_domain: welcomepickups.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: FRIVA Digital Solutions GmbH
+  app: WinTOP Guest Registration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/wintop-guest-registration
+  category: Digital Guest Journey
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: Grman IT Solutions
+  app: Xero Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/xero-connector
+  category: Accounting software
+  partner_domain: afinconnector.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: InstantConnect
+- partner_name: Omniboost
+  app: Xero Powered by Omniboost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/xero-powered-by-omniboost
+  category: Accounting software
+  partner_domain: omniboost.io
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: YourFavoriteBed GmbH
+  app: YFCleaning
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/yfcleaning
+  category: Housekeeping & Staff collaboration
+  partner_domain: yfcleaning.de
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: YieldPlanet
+  app: YieldPlanet Channel Manager
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/yieldplanet-channel-manager
+  category: Channel managers
+  partner_domain: yieldplanet.com
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  integration_type: ApaleoConnect
+- partner_name: FRIVA Digital Solutions GmbH
+  app: 'Zermatt Guest Registration '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://store.apaleo.com/apps/zermatt-guest-registration
+  category: Identity management systems
+  partner_domain: friva.at
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+- partner_name: SiteMinder
+  partner: siteminder
+  partner_match: aggregator
+  type: coverage
+  channel: partner-built
+  relationship: system-coverage
+  direction: partner-built
+  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
+  listed_as: apaleo
+  detected_by: sweep-hospitality.py
+  detected: '2026-10-14'
+  categories:
+  - pms
+generated: '2026-10-14'
+method: searched
+checked:
+- https://integrations-api.siteminder.com/public/partners/all?lang=en
+- https://registry.modelcontextprotocol.io/v0/servers
+- https://store.apaleo.com/
+- https://store.apaleo.com/_next/data/<buildId>/<category>.json
+source:
+- https://integrations-api.siteminder.com/public/partners/all?lang=en
+- https://store.apaleo.com/
+- https://store.apaleo.com/_next/data/<buildId>/<category>.json
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: apaleo
+  url: https://store.apaleo.com/
+  app_count: 288
+  adapter: sweep-hospitality.py:next-data
+  listed: 288
+  source: https://store.apaleo.com/_next/data/<buildId>/<category>.json
