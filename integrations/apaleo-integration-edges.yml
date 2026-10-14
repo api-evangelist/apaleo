@@ -42,6 +42,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/365id
   category: Automation platforms
+  listing_role: app
   partner_domain: 365id.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -57,6 +58,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/abacus-connector
   category: Accounting software
+  listing_role: app
   partner_domain: afinconnector.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -73,6 +75,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/abitari-kiosk
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: abitari.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -89,6 +92,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/abitari-locks-connector
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: abitari.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -105,6 +109,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/adchieve
   category: Metasearch & Adtech
+  listing_role: channel
   partner_domain: adchieve.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -121,6 +126,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/additive
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: additive.eu
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -137,6 +143,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/adria-scan
   category: Identity management systems
+  listing_role: app
   partner_domain: passport-scanners-hotels.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -153,6 +160,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ailean-for-hospitality
   category: Live chats & chatbots
+  listing_role: app
   partner_domain: ailean.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -169,6 +177,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/akia
   category: Conversational AI
+  listing_role: app
   partner_domain: akia.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -185,6 +194,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/aleno
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: aleno.me
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -200,6 +210,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/allgau-walser-pass-gastemeldung
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -215,6 +226,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/altovita
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: altovita.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -231,6 +243,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/alturos-guest-registration
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -246,6 +259,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/amadeus-ihotelier-booking-engine
   category: Booking engines
+  listing_role: app
   partner_domain: amadeus-hospitality.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -262,6 +276,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/amadeus-ihotelier-channel-manager
   category: Channel managers
+  listing_role: channel
   partner_domain: amadeus-hospitality.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -278,6 +293,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/amadeus-ihotelier-crs
   category: Central reservation systems
+  listing_role: app
   partner_domain: amadeus-hospitality.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -294,6 +310,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ampliphi-rms
   category: Rate shopping & market Intelligence
+  listing_role: app
   partner_domain: getampliphi.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -309,6 +326,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/apaleo-bmd-connector
   category: Accounting software
+  listing_role: app
   partner_domain: afinconnector.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -325,6 +343,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/apaleo-for-google-sheets
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -341,6 +360,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/apaleo-mcp-server
   category: Automation platforms
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -356,6 +376,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/apalyst
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: apalyst.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -371,6 +392,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/aphy
   category: Automation platforms
+  listing_role: app
   partner_domain: aphy.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -386,6 +408,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/arbio-portal
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: arbio.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -401,6 +424,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ariane-online-kiosk-check-in
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: ariane.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -416,6 +440,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/askwhisper
   category: Conversational AI
+  listing_role: app
   partner_domain: askwhisper.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -431,6 +456,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/auctores-smart-overbooking
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: auctores.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -446,6 +472,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/autohost
   category: Automation platforms
+  listing_role: app
   partner_domain: autohost.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -462,6 +489,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/avs-gastemeldung-by-friva
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -477,6 +505,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/avs-meldeschein-2
   category: Identity management systems
+  listing_role: app
   partner_domain: vukee.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -492,6 +521,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bayerwald-media-guest-registration
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -507,6 +537,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/be-a
   category: Conversational AI
+  listing_role: app
   partner_domain: be-a.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -522,6 +553,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/beacon-explorer
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: getbeacon.cloud
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -537,6 +569,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/beacon-rate-radar
   category: Rate shopping & market Intelligence
+  listing_role: app
   partner_domain: getbeacon.cloud
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -552,6 +585,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bedayaconnect
   category: Identity management systems
+  listing_role: app
   partner_domain: bedaya.ch
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -568,6 +602,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/benchmark-insight-lighthouse
   category: Revenue management systems
+  listing_role: app
   partner_domain: mylighthouse.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -584,6 +619,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/benchmarking-alliance
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: benchmarkingalliance.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -599,6 +635,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/beonx
   category: Revenue management systems
+  listing_role: app
   partner_domain: beonx.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -615,6 +652,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/besafe-rate
   category: Revenue management systems
+  listing_role: app
   partner_domain: besaferate.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -630,6 +668,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/better-energy-by-betterspace
   category: In-room control & tablets
+  listing_role: app
   partner_domain: betterspace360.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -646,6 +685,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/better-guest-check-in-terminal
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: betterspace360.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -662,6 +702,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/blent
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: blent.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -678,6 +719,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/blueid
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: blueid.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -694,6 +736,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bmd-connector
   category: Accounting software
+  listing_role: app
   partner_domain: hotecholution.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -710,6 +753,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bookboost
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: bookboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -726,6 +770,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/booking-com-channel-connect
   category: Direct OTA Connectors
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -742,6 +787,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bowo
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: bowo.fr
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -758,6 +804,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/brainy-rms
   category: Revenue management systems
+  listing_role: app
   partner_domain: brainy-rms.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -773,6 +820,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/breezeway
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: breezeway.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -789,6 +837,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/bulk-4
   category: Automation platforms
+  listing_role: app
   partner_domain: simultem-apps.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -805,6 +854,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/business-intelligence-lighthouse
   category: Revenue management systems
+  listing_role: app
   partner_domain: mylighthouse.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -820,6 +870,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/byod-by-betterspace
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: betterspace360.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -836,6 +887,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/capcorn-guest-registration
   category: 'Legal environment '
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -851,6 +903,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/cendyn-dmp
   category: Metasearch & Adtech
+  listing_role: channel
   partner_domain: cendyn.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -867,6 +920,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/channel-management-lighthouse
   category: Channel managers
+  listing_role: channel
   partner_domain: mylighthouse.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -882,6 +936,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/channelswitch-by-dirs21
   category: Channel managers
+  listing_role: channel
   partner_domain: dirs21.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -898,6 +953,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/channex
   category: Channel managers
+  listing_role: channel
   partner_domain: channex.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -914,6 +970,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/char-pmslink-for-iptv
   category: IPTV
+  listing_role: app
   partner_domain: charpmslink.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -930,6 +987,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/char-pmslink-for-pbx
   category: PBX
+  listing_role: app
   partner_domain: charpmslink.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -946,6 +1004,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/char-pmslink-keycard
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: charpmslink.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -962,6 +1021,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/chatlyn
   category: Conversational AI
+  listing_role: app
   partner_domain: chatlyn.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -978,6 +1038,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/chekin
   category: Upselling & upgrading platforms
+  listing_role: app
   partner_domain: chekin.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -994,6 +1055,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/civitfun-hospitality
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: civitfun.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1010,6 +1072,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/community-guest-registration
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1025,6 +1088,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/cultbooking
   category: Booking engines
+  listing_role: app
   partner_domain: cultbooking.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1041,6 +1105,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/customer-alliance
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: customer-alliance.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1056,6 +1121,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/customice
   category: Events & groups quoting platforms
+  listing_role: app
   partner_domain: customice.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1072,6 +1138,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/d-edge
   category: Booking engines
+  listing_role: app
   partner_domain: d-edge.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1088,6 +1155,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/d3x
   category: Conversational AI
+  listing_role: app
   partner_domain: d3x.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1103,6 +1171,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/dailypoint-tm
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: dailypoint.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1119,6 +1188,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/data-analytics-by-pi
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: profitintelligence.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1135,6 +1205,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/datev-connector
   category: Accounting software
+  listing_role: app
   partner_domain: afinconnector.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1151,6 +1222,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/derbysoft-property-connector
   category: Channel managers
+  listing_role: channel
   partner_domain: derbysoft.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1167,6 +1239,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/desvu-stays
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: staysco.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1183,6 +1256,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/dialogshift
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: dialogshift.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1199,6 +1273,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/diamo
   category: Revenue management systems
+  listing_role: app
   partner_domain: diamo.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1214,6 +1289,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/direct-booking-by-dirs21
   category: Booking engines
+  listing_role: app
   partner_domain: dirs21.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1230,6 +1306,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/discontinue.dev
   category: Automation platforms
+  listing_role: app
   partner_domain: discontinue.dev
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1245,6 +1322,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/duve
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: duve.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1261,6 +1339,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/e-axess-rms-reporting-1
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: spotpilot.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1277,6 +1356,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/easylynq
   category: In-room control & tablets
+  listing_role: app
   partner_domain: eurofluxo.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1293,6 +1373,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ecco
   category: Conversational AI
+  listing_role: app
   partner_domain: tryecco.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1309,6 +1390,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/enigma
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: crystalstat.eu
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1325,6 +1407,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/enzosystems-kiosks
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: enzosystems.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1340,6 +1423,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/eulektroevesto-e-charging-platform
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: vukee.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1355,6 +1439,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/event-temple
   category: Events & groups quoting platforms
+  listing_role: app
   partner_domain: eventtemple.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1371,6 +1456,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/eventmachine
   category: Events & groups quoting platforms
+  listing_role: app
   partner_domain: eventmachine.xyz
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1387,6 +1473,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/exact-globe-powered-by-omniboost
   category: Accounting software
+  listing_role: app
   partner_domain: omniboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1402,6 +1489,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/exact-online-powered-by-omniboost
   category: Accounting software
+  listing_role: app
   partner_domain: omniboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1418,6 +1506,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/expect-me
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: expect-me.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1434,6 +1523,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/experience-hotel
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: experience-hotel.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1450,6 +1540,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/fairmas
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: fairmas.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1465,6 +1556,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/fanz
   category: Point of sale systems
+  listing_role: app
   partner_domain: fanz.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1481,6 +1573,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/faundit
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: faundit.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1496,6 +1589,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/feratel-guest-registration
   category: Identity management systems
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1511,6 +1605,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/flexkeeping
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: flexkeeping.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1527,6 +1622,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/flowence
   category: Metasearch & Adtech
+  listing_role: channel
   partner_domain: getflowence.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1542,6 +1638,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/flyr
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: flyrhospitality.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1558,6 +1655,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/fornovari
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: fornova.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1574,6 +1672,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/g-app
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: g-app.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1589,6 +1688,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gastfreund-guest-app
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: gastfreund.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1604,6 +1704,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gastronovi-powered-by-omniboost
   category: Automation platforms
+  listing_role: app
   partner_domain: omniboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1619,6 +1720,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gauvendi-revolutionize-your-sales
   category: Booking engines
+  listing_role: app
   partner_domain: gauvendi.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1635,6 +1737,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gift-up-gift-cards
   category: Voucher management systems
+  listing_role: app
   partner_domain: giftup.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1651,6 +1754,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gimsi-group-proposal-management
   category: Booking engines
+  listing_role: app
   partner_domain: gimsi.app
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1667,6 +1771,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/gps-by-groupcorner
   category: Events & groups quoting platforms
+  listing_role: app
   partner_domain: backyou.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1683,6 +1788,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/guestkey-by-hotek
   category: Mobile key & keyless entry
+  listing_role: app
   partner_domain: guestkey.nl
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1699,6 +1805,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/guestnet
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: guest.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1715,6 +1822,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/guestrevu
   category: Online reputation & feedback management
+  listing_role: app
   partner_domain: guestrevu.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1731,6 +1839,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/guestway
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: guestway.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1747,6 +1856,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/haefele-dialock
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: haefele.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1763,6 +1873,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/happyhotel
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: happyhotel.uk
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1779,6 +1890,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hbenchmark
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: hbenchmark.it
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1795,6 +1907,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/helloguest-hospitality
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: helloguest.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1811,6 +1924,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hellotess
   category: Point of sale systems
+  listing_role: app
   partner_domain: hellotess.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1827,6 +1941,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hera-hotel-resbot
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: hotel-reservation-bot.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1843,6 +1958,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hestia
   category: Booking engines
+  listing_role: app
   partner_domain: nerionsoft.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1858,6 +1974,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hijiffy
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: hijiffy.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1874,6 +1991,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hkeeper
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: hkeeper.global
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1890,6 +2008,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hnext-ai
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: hnext.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1905,6 +2024,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hochschwarzwald-card
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1920,6 +2040,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-doorman-1
   category: Mobile key & keyless entry
+  listing_role: app
   partner_domain: hotel-doorman.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1935,6 +2056,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-insights
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: profitintelligence.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1950,6 +2072,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-manager
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: hotelmanager.co
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1966,6 +2089,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-spider-channelmanager
   category: Channel managers
+  listing_role: channel
   partner_domain: hotel-spider.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1982,6 +2106,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-spider-meta-search
   category: Metasearch & Adtech
+  listing_role: channel
   partner_domain: hotel-spider.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -1998,6 +2123,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotel-trader
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: hoteltrader.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2013,6 +2139,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelbird
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: hotelbird.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2029,6 +2156,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hoteliq-by-intelligent-hospitality
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: hoteliq.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2045,6 +2173,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelkit
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: hotelkit.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2061,6 +2190,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelkontrolle-hoko-guest-export
   category: 'Legal environment '
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2076,6 +2206,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotellistat
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: hotellistat.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2092,6 +2223,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelmatrix-booking-engine
   category: Booking engines
+  listing_role: app
   partner_domain: hotelmatrix.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2107,6 +2239,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelpartner-yield-management
   category: Revenue management systems
+  listing_role: app
   partner_domain: hotelpartner-ym.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2123,6 +2256,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelrez-hotels-and-resorts
   category: Central reservation systems
+  listing_role: app
   partner_domain: hotelrez.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2139,6 +2273,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelspider-web-booking-engine
   category: Booking engines
+  listing_role: app
   partner_domain: hotel-spider.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2155,6 +2290,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hotelworld-ai-reservation-agent
   category: Automation platforms
+  listing_role: app
   partner_domain: hotelworld.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2170,6 +2306,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hrs-channel-connect
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2186,6 +2323,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/hyperguest
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: hyperguest.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2202,6 +2340,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ibe-by-simultem
   category: Booking engines
+  listing_role: app
   partner_domain: simultem-apps.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2218,6 +2357,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/icecreek-rooms
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: roomgrid.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2234,6 +2374,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ideas-revenue-solutions
   category: Revenue management systems
+  listing_role: app
   partner_domain: ideas.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2249,6 +2390,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/iiq-check
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: iiq-check.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2265,6 +2407,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/in-room-tablet-by-betterspace
   category: In-room control & tablets
+  listing_role: app
   partner_domain: betterspace360.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2281,6 +2424,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/incert
   category: Voucher management systems
+  listing_role: app
   partner_domain: incert.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2297,6 +2441,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/infinito-virtual-intelligence
   category: Revenue management systems
+  listing_role: app
   partner_domain: infinito.solutions
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2313,6 +2458,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/infrasys-cloud-pos
   category: Point of sale systems
+  listing_role: app
   partner_domain: shijigroup.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2329,6 +2475,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/intenik-guest-registration
   category: 'Legal environment '
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2344,6 +2491,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/jana-concierge
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: jana-concierge.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2360,6 +2508,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/juyo-analytics
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: juyoanalytics.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2376,6 +2525,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/katanox
   category: Channel managers
+  listing_role: channel
   partner_domain: katanox.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2392,6 +2542,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/keyota
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: keyota.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2407,6 +2558,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/letshare
   category: Booking engines
+  listing_role: app
   partner_domain: proposalpro.online
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2423,6 +2575,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/lightspeed-restaurant-k-series
   category: Point of sale systems
+  listing_role: app
   partner_domain: lightspeedhq.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2439,6 +2592,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/likemagic
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: likemagic.tech
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2455,6 +2609,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/livionkey
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: livionkey.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2470,6 +2625,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/lobby
   category: Email reservation assistant
+  listing_role: app
   partner_domain: lobbyai.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2485,6 +2641,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/loungeup
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: loungeup.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2501,6 +2658,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/lula.cleaning
   category: Automation platforms
+  listing_role: app
   partner_domain: lula.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2516,6 +2674,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/maic-os
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: maiccube.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2531,6 +2690,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/maileon
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: maileon.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2547,6 +2707,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mara-ai-review-assistant
   category: Conversational AI
+  listing_role: app
   partner_domain: mara-solutions.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2563,6 +2724,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mastermind-tech
   category: Conversational AI
+  listing_role: app
   partner_domain: mmindtech.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2578,6 +2740,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/meinbusiness
   category: Accounting software
+  listing_role: app
   partner_domain: meinbusiness.biz
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2594,6 +2757,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/minut
   category: In-room control & tablets
+  listing_role: app
   partner_domain: minut.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2610,6 +2774,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mobifront-mobile-pms-extension
   category: Automation platforms
+  listing_role: app
   partner_domain: mobifront.tech
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2625,6 +2790,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/multi-channel-crm-by-bookboost
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: bookboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2641,6 +2807,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/my-spa
   category: Spa management systems
+  listing_role: app
   partner_domain: based-on-it.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2656,6 +2823,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mybreakfast
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: mybreakfast.in
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2671,6 +2839,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/myexpediaconnect
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2687,6 +2856,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/myguestmailing-by-detco
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2703,6 +2873,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/myibe
   category: Booking engines
+  listing_role: app
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2719,6 +2890,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mymetasearch-by-detco-and-opensmjle
   category: Metasearch & Adtech
+  listing_role: channel
   partner_domain: opensmjle.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2735,6 +2907,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/myprofilemanager-by-detco
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2751,6 +2924,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mytraces-by-detco
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: detco.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2767,6 +2941,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/mywnd-tv
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: wnd.ch
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2782,6 +2957,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/nettobloc-room-ops
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: bicbloc.eu
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2797,6 +2973,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/novavoca
   category: Conversational AI
+  listing_role: app
   partner_domain: novavoca.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2813,6 +2990,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/nuitee
   category: Channel managers
+  listing_role: channel
   partner_domain: nuitee.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2828,6 +3006,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/oaky
   category: Upselling & upgrading platforms
+  listing_role: app
   partner_domain: oaky.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2844,6 +3023,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/odoo-connector
   category: Accounting software
+  listing_role: app
   partner_domain: afinconnector.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2859,6 +3039,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/oho360-dashboard-reporting
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: luqio.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2874,6 +3055,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/onepagebooking
   category: Booking engines
+  listing_role: app
   partner_domain: hotelnetsolutions.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2890,6 +3072,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/onsai
   category: Conversational AI
+  listing_role: app
   partner_domain: onsai.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2905,6 +3088,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/opally
   category: Conversational AI
+  listing_role: app
   partner_domain: opally.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2920,6 +3104,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/opengds
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: opengds.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2935,6 +3120,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/oss-hospitality
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: oss-systems.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2951,6 +3137,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/otel-ai
   category: Automation platforms
+  listing_role: app
   partner_domain: otelai.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2966,6 +3153,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/ovimore
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: ovimore.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2981,6 +3169,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/owner-center
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: ownercenter.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -2997,6 +3186,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/payjim-checkout-fast
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: payjim.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3013,6 +3203,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/payment-reconciliation
   category: Accounting software
+  listing_role: app
   partner_domain: vukee.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3028,6 +3219,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/petty-cash-book
   category: Accounting software
+  listing_role: app
   partner_domain: agi-research.info
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3043,6 +3235,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/philips-cmnd-server-integration
   category: In-room control & tablets
+  listing_role: app
   partner_domain: vukee.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3058,6 +3251,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pindora
   category: Door locks & Keycard encoders
+  listing_role: app
   partner_domain: pindora.fi
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3074,6 +3268,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/planet-tv-wi-fi
   category: IPTV
+  listing_role: app
   partner_domain: weareplanet.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3090,6 +3285,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/plusgrade
   category: Revenue management systems
+  listing_role: app
   partner_domain: plusgrade.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3106,6 +3302,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/polyapi
   category: Automation platforms
+  listing_role: app
   partner_domain: polyapi.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3121,6 +3318,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/portal
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: tryportal.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3136,6 +3334,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/price-my-hotel-room
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: pmhr.se
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3152,6 +3351,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pricelabs
   category: Revenue management systems
+  listing_role: app
   partner_domain: pricelabs.co
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3168,6 +3368,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pricepoint
   category: Revenue management systems
+  listing_role: app
   partner_domain: pricepoint.co
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3183,6 +3384,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pricing-assistant
   category: Rate shopping & market Intelligence
+  listing_role: app
   partner_domain: mylighthouse.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3199,6 +3401,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/profiles
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: simultem-apps.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3215,6 +3418,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/profitize
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: profitize.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3230,6 +3434,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pxier-resto
   category: Point of sale systems
+  listing_role: app
   partner_domain: pxier.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3246,6 +3451,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pxier-sales-and-catering
   category: Sales & catering software
+  listing_role: app
   partner_domain: pxier.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3262,6 +3468,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/pxier-spa
   category: Spa management systems
+  listing_role: app
   partner_domain: pxier.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3278,6 +3485,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/quicktext
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: quicktext.im
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3294,6 +3502,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/rate-distributor
   category: Channel managers
+  listing_role: channel
   partner_domain: hotelnetsolutions.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3310,6 +3519,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/rateboard
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: rateboard.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3326,6 +3536,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/rategenie
   category: Revenue management systems
+  listing_role: app
   partner_domain: rategenie.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3342,6 +3553,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/re-guest
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: reguest.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3358,6 +3570,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/reportivity
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: reportivity.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3374,6 +3587,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/reserva
   category: Upselling & upgrading platforms
+  listing_role: app
   partner_domain: reserva.is
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3390,6 +3604,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/revbell
   category: Revenue management systems
+  listing_role: app
   partner_domain: revbell.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3405,6 +3620,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/revcontrol
   category: Revenue management systems
+  listing_role: app
   partner_domain: revcontrol.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3421,6 +3637,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/revinate
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: revinate.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3437,6 +3654,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/right-revenue
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: rightrevenue.co.uk
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3453,6 +3671,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/rims-or-confirmation-system
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: hotel-rims.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3469,6 +3688,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/rocksoft-kiosk
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: rcksft.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3484,6 +3704,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/room-allocation-agent-by-apaleo
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3499,6 +3720,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roomchecking
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: roomchecking.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3515,6 +3737,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roomcloud-channel-manager
   category: Booking engines
+  listing_role: app
   partner_domain: roomcloud.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3531,6 +3754,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roomdex
   category: Upselling & upgrading platforms
+  listing_role: app
   partner_domain: roomdex.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3547,6 +3771,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roommatik
   category: Kiosk & self-service check-in
+  listing_role: app
   partner_domain: roommatik.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3563,6 +3788,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roompal
   category: In-room control & tablets
+  listing_role: app
   partner_domain: roompal.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3579,6 +3805,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/roompricegenie
   category: Revenue management systems
+  listing_role: app
   partner_domain: roompricegenie.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3595,6 +3822,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/runmyresto
   category: Accounting software
+  listing_role: app
   partner_domain: runmyresto.ch
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3610,6 +3838,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/runnr.ai
   category: Conversational AI
+  listing_role: app
   partner_domain: runnr.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3626,6 +3855,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/samsotech
   category: Identity management systems
+  listing_role: app
   partner_domain: samsotech-id.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3642,6 +3872,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/scan-to-pms
   category: Automation platforms
+  listing_role: app
   partner_domain: deltainformatica.es
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3657,6 +3888,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/scopevisio-connector
   category: Accounting software
+  listing_role: app
   partner_domain: scopevisio.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3673,6 +3905,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/seekda
   category: Channel managers
+  listing_role: channel
   partner_domain: seekda.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3688,6 +3921,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/shadowbook
   category: Automation platforms
+  listing_role: app
   partner_domain: shadowbook.online
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3703,6 +3937,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/sibilai
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: sibilai.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3719,6 +3954,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/sidenet-ai
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: sidenet.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3734,6 +3970,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/simon-josef
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: simonandjosef.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3750,6 +3987,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/simpra-suite
   category: Point of sale systems
+  listing_role: app
   partner_domain: simprasuite.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3766,6 +4004,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/siteminder
   category: Channel managers
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3782,6 +4021,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/smart-channel-manager
   category: Automation platforms
+  listing_role: app
   partner_domain: smarthotel.nl
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3797,6 +4037,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/smart-host
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: smart-host.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3813,6 +4054,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/smartpricing
   category: Revenue management systems
+  listing_role: app
   partner_domain: smartpricing.it
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3829,6 +4071,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/solvotix-bridge
   category: Automation platforms
+  listing_role: app
   partner_domain: solvotix.org
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3844,6 +4087,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/sponteous-1
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: sponteous.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3860,6 +4104,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/staah
   category: Booking engines
+  listing_role: app
   partner_domain: staah.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3876,6 +4121,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/stayfi
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: stayfi.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3892,6 +4138,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/stayinto
   category: Direct OTA Connectors
+  listing_role: channel
   partner_domain: stayinto.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3907,6 +4154,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/staymate
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: staymate.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3923,6 +4171,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/straiv
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: straiv.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3939,6 +4188,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/strategic-studio-by-pi
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: profitintelligence.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3955,6 +4205,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/suitepad
   category: In-room control & tablets
+  listing_role: app
   partner_domain: suitepad.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3971,6 +4222,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/sweeply
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: getsweeply.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -3987,6 +4239,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/sweeply-trace-agent
   category: Automation platforms
+  listing_role: app
   partner_domain: getsweeply.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4002,6 +4255,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tac-software
   category: Spa management systems
+  listing_role: app
   partner_domain: eu.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4017,6 +4271,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tca-guest-registration
   category: 'Legal environment '
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4032,6 +4287,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tevalis-epos
   category: Point of sale systems
+  listing_role: app
   partner_domain: tevalis.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4048,6 +4304,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tigertms
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: tigertms.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4064,6 +4321,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/top-office-by-topsys
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: topsys.fr
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4080,6 +4338,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/top-report
   category: Accounting software
+  listing_role: app
   partner_domain: topsys.fr
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4095,6 +4354,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tour-x-guest-registration
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4110,6 +4370,7 @@ edges:
   direction: provider-built
   evidence: https://store.apaleo.com/apps/trace-agent
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: null
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4125,6 +4386,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tramino-pass
   category: Automation platforms
+  listing_role: app
   partner_domain: tramino.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4140,6 +4402,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/trengo
   category: Live chats & chatbots
+  listing_role: app
   partner_domain: trengo.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4155,6 +4418,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/trustyou
   category: Online reputation & feedback management
+  listing_role: app
   partner_domain: trustyou.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4171,6 +4435,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/trustyou-customer-data-platform
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: trustyou.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4186,6 +4451,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/tuya-hotel
   category: In-room control & tablets
+  listing_role: app
   partner_domain: tuya.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4202,6 +4468,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/u-stay-guest-export
   category: 'Legal environment '
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4217,6 +4484,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/umnicorn-10x-hospita.i.lity
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: umnicorn.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4232,6 +4500,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/umnify-hospitality
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: umnify.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4248,6 +4517,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/umnify-servicedliving
   category: CRM & email marketing platforms
+  listing_role: app
   partner_domain: umnify.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4263,6 +4533,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/una
   category: Conversational AI
+  listing_role: app
   partner_domain: polydom.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4278,6 +4549,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/upsellguru
   category: Guest messaging platforms
+  listing_role: app
   partner_domain: upsellguru.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4294,6 +4566,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/vectron-apaleo-connector
   category: Point of sale systems
+  listing_role: app
   partner_domain: pieterse.nl
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4310,6 +4583,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/venli
   category: Conversational AI
+  listing_role: app
   partner_domain: venli.ai
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4325,6 +4599,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/vertical-booking
   category: Central reservation systems
+  listing_role: app
   partner_domain: verticalbooking.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4341,6 +4616,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/vico
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: vicomanager.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4357,6 +4633,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/vioma
   category: Booking engines
+  listing_role: app
   partner_domain: vioma.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4373,6 +4650,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/visitordata
   category: Analytics & business intelligence
+  listing_role: app
   partner_domain: visitordata.nl
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4389,6 +4667,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/voxel
   category: Accounting software
+  listing_role: app
   partner_domain: voxelgroup.net
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4405,6 +4684,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/waveo
   category: Accounting software
+  listing_role: app
   partner_domain: waveoai.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4420,6 +4700,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/welcome-pickups
   category: Upselling & upgrading platforms
+  listing_role: app
   partner_domain: welcomepickups.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4435,6 +4716,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/wintop-guest-registration
   category: Digital Guest Journey
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4450,6 +4732,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/xero-connector
   category: Accounting software
+  listing_role: app
   partner_domain: afinconnector.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4466,6 +4749,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/xero-powered-by-omniboost
   category: Accounting software
+  listing_role: app
   partner_domain: omniboost.io
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4482,6 +4766,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/yfcleaning
   category: Housekeeping & Staff collaboration
+  listing_role: app
   partner_domain: yfcleaning.de
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4497,6 +4782,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/yieldplanet-channel-manager
   category: Channel managers
+  listing_role: channel
   partner_domain: yieldplanet.com
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
@@ -4513,6 +4799,7 @@ edges:
   direction: partner-built
   evidence: https://store.apaleo.com/apps/zermatt-guest-registration
   category: Identity management systems
+  listing_role: app
   partner_domain: friva.at
   detected_by: sweep-hospitality.py
   detected: '2026-10-14'
