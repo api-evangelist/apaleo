@@ -229,21 +229,6 @@ paths:
           description: OK
 components:
   schemas:
-    BookerModel:
-      type: object
-      properties:
-        title:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        address:
-          $ref: '#/components/schemas/AddressModel'
     ReservationItemModel:
       type: object
       properties:
@@ -274,42 +259,6 @@ components:
           format: int32
         totalGrossAmount:
           $ref: '#/components/schemas/MonetaryValueModel'
-    EmbeddedPropertyModel:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    BookingCreatedModel:
-      type: object
-      properties:
-        id:
-          type: string
-        bookingId:
-          type: string
-        reservationIds:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-    AddressModel:
-      type: object
-      properties:
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        postalCode:
-          type: string
-        city:
-          type: string
-        regionCode:
-          type: string
-        countryCode:
-          type: string
     CreateReservationModel:
       type: object
       required:
@@ -338,6 +287,50 @@ components:
           type: string
         guestComment:
           type: string
+    BookingCreatedModel:
+      type: object
+      properties:
+        id:
+          type: string
+        bookingId:
+          type: string
+        reservationIds:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+    BookerModel:
+      type: object
+      properties:
+        title:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressModel'
+    AddressModel:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        regionCode:
+          type: string
+        countryCode:
+          type: string
     CreateBookingModel:
       type: object
       required:
@@ -359,6 +352,13 @@ components:
           type: number
           format: double
         currency:
+          type: string
+    EmbeddedPropertyModel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
           type: string
   securitySchemes:
     oauth2:
