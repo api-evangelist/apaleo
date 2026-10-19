@@ -1,0 +1,193 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Types API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: Types
+paths:
+  /booking/v0-nsfw/types/sources:
+    get:
+      tags:
+      - Types
+      summary: Returns a list of supported sources
+      description: 'Returns a list of channels that could be used as a source to create bookings.
+
+        For fine-grained clients, you must have this permission: ''core.booking_types.read''.'
+      operationId: BookingTypesSourcesGet
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceListModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+  /booking/v0-nsfw/types/{type}/allowed-values:
+    get:
+      tags:
+      - Types
+      summary: Returns a list of values that a field of the specified type can take in the…
+      description: 'You need to be authorized (no particular scope required)
+
+        For fine-grained clients, you must have this permission: ''core.booking_types.read''.'
+      operationId: BookingTypesByTypeAllowed-valuesGet
+      parameters:
+      - in: path
+        name: type
+        description: The type to provide allowed values for
+        required: true
+        schema:
+          type: string
+          enum:
+          - IdentificationIssuePlace
+          - BirthPlace
+          - City
+          - Gender
+          - IdentificationType
+          - RegionCode
+      - in: query
+        name: countryCode
+        description: The code of the country in which the property is located in ISO 3166-1 alpha-2 format.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: textSearch
+        description: 'Filter the result by the provided free text.
+
+          If specified, only values that contain one of the provided values will be returned.'
+        schema:
+          type: string
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      - in: query
+        name: sort
+        description: 'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.'
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - value:asc
+            - value:desc
+      responses:
+        '200':
+          description: Returns values matching your criteria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedValueListModel'
+        '204':
+          description: There are no values matching your criteria.
+        '404':
+          description: There are no distinct values for this type. This means that any value is allowed.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2: []
+components:
+  schemas:
+    AllowedValueListModel:
+      type: object
+      required:
+      - allowedValues
+      - count
+      properties:
+        allowedValues:
+          type: array
+          description: List of allowed values
+          items:
+            type: string
+        count:
+          type: integer
+          description: Total count of items
+          format: int64
+      additionalProperties: false
+      example:
+        allowedValues:
+        - PassportNumber
+        - DriverLicenseNumber
+        count: 5
+    SourceListModel:
+      type: object
+      required:
+      - sources
+      properties:
+        sources:
+          type: array
+          description: List of sources.
+          items:
+            type: string
+      additionalProperties: false
+      example:
+        sources:
+        - Booking.com
+        - Expedia
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

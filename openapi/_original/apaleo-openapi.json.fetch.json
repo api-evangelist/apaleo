@@ -1,0 +1,12 @@
+{
+ "url": "https://api.apaleo.com/swagger/booking-v0-nsfw/swagger.json",
+ "final": "https://api.apaleo.com/swagger/booking-v0-nsfw/swagger.json",
+ "status": 200,
+ "content_type": "application/json;charset=utf-8",
+ "bytes": 642905,
+ "sha256": "0480ad77428589e950181a75b0c3096c7145ce3b4465a89bb5f38a74a52843ac",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

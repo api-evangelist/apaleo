@@ -1,0 +1,1430 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Reservation Actions…
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: ReservationActions
+paths:
+  /booking/v0-nsfw/reservation-actions/{id}/assign-unit:
+    put:
+      tags:
+      - ReservationActions
+      summary: Assign a unit to a reservation
+      description: 'Assigns one of the available units to a reservation which is in state ''Confirmed'' or ''InHouse''.
+
+        You must have at least one of these scopes: ''reservations.assign-unit, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdAssign-unitPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation a unit should be assigned to.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: unitConditions
+        description: The optional unit conditions for unit that you want to auto assign for.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Clean
+            - CleanToBeInspected
+            - Dirty
+      responses:
+        '200':
+          description: Unit assignment was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoAssignedUnitListModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.assign-unit
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/assign-unit/{unitId}:
+    put:
+      tags:
+      - ReservationActions
+      summary: Assign a specific unit to a reservation
+      description: 'Assigns a specific unit to a reservation which is in state ''Confirmed'' or ''InHouse''.
+
+        If the unit is not available, the call will return an error, and no unit will be assigned.
+
+        You must have at least one of these scopes: ''reservations.assign-unit, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdAssign-unitByUnitIdPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation the unit should be assigned to.
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: unitId
+        description: The id of the unit to be assigned.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: from
+        description: The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        schema:
+          type: string
+      - in: query
+        name: to
+        description: The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        schema:
+          type: string
+      - in: query
+        name: lockUnit
+        description: Whether to lock the unit for the duration of the reservation. If not specified, the unit will not be locked.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Unit assignment was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignedUnitModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.assign-unit
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/unassign-units:
+    put:
+      tags:
+      - ReservationActions
+      summary: Unassign units from a reservation
+      description: 'Unassigns units for all time slices of the given reservation. If no units are assigned for the
+
+        reservation nothing will happen. It will fail for reservations in status ''CheckedOut''.
+
+        You must have at least one of these scopes: ''reservations.assign-unit, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdUnassign-unitsPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation the unit should be unassigned for.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Unassigning the unit was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.assign-unit
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/checkin:
+    put:
+      tags:
+      - ReservationActions
+      summary: Check-in of a reservation
+      description: 'Check in a specific reservation which is in status ''Confirmed'', and has a unit assigned. This changes the status to ''InHouse'', and sets the check-in date and time.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdCheckinPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be processed.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: withCityTax
+        description: Define if city tax should be added for this reservation or not. The default is "true".
+        schema:
+          type: boolean
+      responses:
+        '204':
+          description: Check-in of the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/revert-checkin:
+    put:
+      tags:
+      - ReservationActions
+      summary: Reverses the check-in of a reservation
+      description: 'You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdRevert-checkinPut
+      parameters:
+      - in: path
+        name: id
+        description: The ID of the reservation to reverse the check-in for.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/checkout:
+    put:
+      tags:
+      - ReservationActions
+      summary: Check-out of a reservation
+      description: 'Check out a specific reservation which is in status ''InHouse''. This changes the status to ''CheckedOut'', and sets the check-out date and time.
+
+        All open charges on the folio will be posted.
+
+
+        Check-out is only possible, if the departure date is not later than tomorrow. Otherwise, first amend the reservation and shorten the stay.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdCheckoutPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Check-out of the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/cancel:
+    put:
+      tags:
+      - ReservationActions
+      summary: Cancel a reservation
+      description: 'Cancel a specific reservation which is in status ''Confirmed'' and where the arrival time is in the future.
+
+        This changes the status to ''Canceled'', and sets the cancellation date and time.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.cancel''.'
+      operationId: BookingReservation-actionsByIdCancelPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Cancellation of the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/noshow:
+    put:
+      tags:
+      - ReservationActions
+      summary: Set a reservation to No-show
+      description: 'Set a specific reservation to No-show which is in status ''Confirmed'' and where the arrival date is in the past.
+
+        This changes the status to ''NoShow'', and sets the no-show date and time.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.noshow''.'
+      operationId: BookingReservation-actionsByIdNoshowPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Setting the reservation to No-show was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/amend:
+    put:
+      tags:
+      - ReservationActions
+      summary: Allows you to amend the stay details of a reservation
+      description: 'Modifies the stay-related data of a reservation.
+
+
+        If a reservation is ''Confirmed'', you can change all fields.
+
+
+        If a reservation is ''InHouse'', only changes to future time slices are possible.
+
+
+        Changes to reservations that are in the status ''CheckedOut'' or ''Canceled'' are not possible at all.
+
+        Regardless of requote value, the prices for time slices will be re-quoted based on current prices
+
+        - rate plan changes
+
+        - reservation is part of a block. The current rates of the block will be applied.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdAmendPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be modified
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The reservation has been changed.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DesiredStayDetailsModel'
+        description: The new stay details that should be applied to the reservation.
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/amend/$force:
+    put:
+      tags:
+      - ReservationActions
+      summary: Allows you to amend the stay details of a reservation regardless of…
+      description: 'Modifies the stay-related data of a reservation.
+
+
+        If a reservation is ''Confirmed'', you can change all fields.
+
+
+        If a reservation is ''InHouse'', only changes to future time slices are possible.
+
+
+        Changes to reservations that are in the status ''CheckedOut'' or ''Canceled'' are not possible at all.
+
+        Regardless of requote value, the prices for time slices will be re-quoted based on current prices
+
+        - rate plan changes
+
+        - reservation is part of a block. The current rates of the block will be applied.
+
+        You must have this scope: ''reservations.force-manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify.force''.'
+      operationId: BookingReservation-actionsByIdAmend$forcePut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be modified
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The reservation has been changed.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.force-manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DesiredStayDetailsModel'
+        description: The new stay details that should be applied to the reservation.
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/channel-amend:
+    put:
+      tags:
+      - ReservationActions
+      summary: Allows channel to amend the stay details of a reservation regardless of…
+      description: 'Modifies the stay-related data of a reservation.
+
+
+        If a reservation is ''Confirmed'', you can change all fields.
+
+
+        If a reservation is ''InHouse'', only changes to future time slices are possible.
+
+
+        Changes to reservations that are in the status ''CheckedOut'' or ''Canceled'' are not possible at all.
+
+        Regardless of requote value, the prices for time slices will be re-quoted based on current prices
+
+        - rate plan changes
+
+        - reservation is part of a block. The current rates of the block will be applied.
+
+        You must have this scope: ''reservations.force-manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify.channel''.'
+      operationId: BookingReservation-actionsByIdChannel-amendPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation that should be modified
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The reservation has been changed.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.force-manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DesiredStayDetailsChannelModel'
+        description: The new stay details that should be applied to the reservation.
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/book-service:
+    put:
+      tags:
+      - ReservationActions
+      summary: Book the service for a specific reservation
+      description: 'Use this to book a service for a specific reservation.
+
+        Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.
+
+        When an amount is specified, it is the price before taxes on services and before sales taxes, but including VAT, so those taxes are added on top of it.
+
+        When an amount is omitted, the price is taken from the service configuration and matches the amount the service offer returns: sales taxes are added on top of it, while taxes on services have already been deducted from it and are reported separately.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdBook-servicePut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Booking of the service for the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookReservationServiceModel'
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/book-service/$force:
+    put:
+      tags:
+      - ReservationActions
+      summary: Book the service for a specific reservation regardless of availability
+      description: 'Use this to book a service for a specific reservation.
+
+        Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.
+
+        When an amount is specified, it is the price before taxes on services and before sales taxes, but including VAT, so those taxes are added on top of it.
+
+        When an amount is omitted, the price is taken from the service configuration and matches the amount the service offer returns: sales taxes are added on top of it, while taxes on services have already been deducted from it and are reported separately.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify.force''.'
+      operationId: BookingReservation-actionsByIdBook-service$forcePut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Booking of the service for the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookReservationServiceModel'
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/remove-city-tax:
+    put:
+      tags:
+      - ReservationActions
+      summary: Removes the city tax from a reservation
+      description: 'Use this is you want to remove the city tax from a reservation before the stay.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdRemove-city-taxPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Removal of the city tax for the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/add-city-tax:
+    put:
+      tags:
+      - ReservationActions
+      summary: Adds the city tax to a reservation
+      description: 'Use this if you want to add the city tax to a reservation.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdAdd-city-taxPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Addition of the city tax for the reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/remove-validation-messages:
+    put:
+      tags:
+      - ReservationActions
+      summary: Removes the validation messages from a reservation by codes
+      description: 'Use this if you want to remove the validation messages from a reservation.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.remove_validation_messages''.'
+      operationId: BookingReservation-actionsByIdRemove-validation-messagesPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Removal of the validation messages for specified codes from reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteReservationValidationMessagesRequest'
+        description: List of validation message codes need to be deleted.
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/add-validation-messages:
+    put:
+      tags:
+      - ReservationActions
+      summary: Adds validation messages to reservation
+      description: 'Use this if you want to add validation messages to reservation.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdAdd-validation-messagesPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Adding validation messages to reservation was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddReservationValidationMessagesRequest'
+        description: List of validation messages needs to be added.
+        required: true
+  /booking/v0-nsfw/reservation-actions/{id}/lock-unit:
+    put:
+      tags:
+      - ReservationActions
+      summary: Lock unit assignment for a reservation
+      description: 'Locks the currently assigned unit(s) for a reservation, preventing any reassignment or unassignment operations.
+
+        Only reservations in ''Confirmed'' or ''InHouse'' status can be locked.
+
+        At least one unit must be assigned to the reservation before locking.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdLock-unitPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Reservation was locked successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/reservation-actions/{id}/unlock-unit:
+    put:
+      tags:
+      - ReservationActions
+      summary: Unlock unit assignment for a reservation
+      description: 'Unlocks the currently assigned unit(s) for a reservation that were previously locked, allowing reassignment or unassignment operations.
+
+        The unit assignment must currently be in a locked state.
+
+        You must have this scope: ''reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.reservations.modify''.'
+      operationId: BookingReservation-actionsByIdUnlock-unitPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the reservation
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Reservation was unlocked successfully.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - reservations.manage
+        - admin
+components:
+  schemas:
+    AutoAssignedUnitListModel:
+      type: object
+      required:
+      - timeSlices
+      properties:
+        timeSlices:
+          type: array
+          description: The list of time slices with the respective assigned unit
+          items:
+            $ref: '#/components/schemas/AutoAssignedUnitItemModel'
+      additionalProperties: false
+      example:
+        timeSlices:
+        - unit:
+            id: MUC-JQI
+            name: A.102
+            description: Double room
+            unitGroupId: MUC-DBL
+          from: '2026-10-16T17:00:00+02:00'
+          to: '2026-10-17T11:00:00+02:00'
+        - unit:
+            id: MUC-MTA
+            name: A.101
+            description: Single room
+            unitGroupId: MUC-SGL
+          from: '2026-10-17T17:00:00+02:00'
+          to: '2026-10-18T11:00:00+02:00'
+    Date:
+      type: object
+      required:
+      - serviceDate
+      properties:
+        serviceDate:
+          type: string
+          description: The date the service is delivered
+          format: date
+          example: '2020-10-10'
+        count:
+          type:
+          - integer
+          - 'null'
+          description: The number of services to book for this date. It defaults to the service offer count when not specified.
+          format: int32
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    DesiredStayDetailsChannelModel:
+      type: object
+      required:
+      - adults
+      - arrival
+      - departure
+      - timeSlices
+      properties:
+        arrival:
+          type: string
+          description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        departure:
+          type: string
+          description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        adults:
+          type: integer
+          description: Number of adults
+          format: int32
+        childrenAges:
+          type:
+          - array
+          - 'null'
+          description: Ages of the children
+          items:
+            type: integer
+            format: int32
+        requote:
+          type:
+          - boolean
+          - 'null'
+          description: 'Whether the prices for time slices with no change to the rate plan should be re-quoted based on current prices, or if
+
+            only additions like change of number of adults should be calculated. If a reservation is part of a block, the time slices prices will always be re-quoted to the current price of the block. Defaults to ''false''.'
+        timeSlices:
+          type: array
+          description: The list of time slices
+          items:
+            $ref: '#/components/schemas/DesiredTimeSliceModel'
+        pricingType:
+          type:
+          - string
+          - 'null'
+          description: The type of prices, before taxes, before taxes with VAT or after taxes
+          enum:
+          - BeforeTaxesWithVat
+          - BeforeTaxes
+          - AfterTaxes
+        taxRemittanceResponsibility:
+          type:
+          - string
+          - 'null'
+          description: 'Specifies who is responsible for remitting taxes to local authorities for a reservation:
+
+            - Hotel: The property (hotel) is responsible for remitting all applicable taxes.
+
+            - OTA: The OTA (Online Travel Agency) remits at least one of the applicable taxes.
+
+            If the value is not provided, the OTA does not provide any information about tax remittance and the default behavior is assumed.'
+          enum:
+          - Hotel
+          - Ota
+      additionalProperties: false
+      example:
+        arrival: '2026-10-18T17:00:00+02:00'
+        departure: '2026-10-20T11:00:00+02:00'
+        adults: 1
+        childrenAges:
+        - 6
+        requote: false
+        timeSlices:
+        - ratePlanId: MUC-NONREF-DBL
+          totalGrossAmount:
+            amount: 86.0
+            currency: EUR
+        - ratePlanId: MUC-NONREF-DBL
+          totalGrossAmount:
+            amount: 101.0
+            currency: EUR
+        pricingType: BeforeTaxesWithVat
+    AssignedUnitModel:
+      type: object
+      required:
+      - unit
+      properties:
+        unit:
+          $ref: '#/components/schemas/EmbeddedUnitModel'
+      additionalProperties: false
+      example:
+        unit:
+          id: MUC-JQI
+          name: A.102
+          description: Double room
+          unitGroupId: MUC-DBL
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    DeleteReservationValidationMessagesRequest:
+      type: object
+      required:
+      - codes
+      properties:
+        codes:
+          type: array
+          items:
+            type: string
+            enum:
+            - UnitGroupFullyBooked
+            - UnitGroupCapacityExceeded
+            - RatePlanRestrictionsViolated
+            - RatePlanSurchargesNotSet
+            - RateRestrictionsViolated
+            - RatePlanChannelNotSet
+            - RatesNotSet
+            - BlockFullyBooked
+            - UnitMoved
+            - IncludedServicesAmountExceededRateAmount
+            - RatePlanCompanyRestrictionsViolated
+            - ServiceFullyBooked
+            - RateDoesNotSatifyHurdles
+            - LoyaltyMembershipNotRecognized
+      additionalProperties: false
+    BookReservationServiceModel:
+      type: object
+      required:
+      - serviceId
+      properties:
+        serviceId:
+          type: string
+          description: The id of the service you want to book
+        count:
+          type:
+          - integer
+          - 'null'
+          description: The number of services to book for each service date. It defaults to the service offer count when not specified.
+          format: int32
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        dates:
+          type:
+          - array
+          - 'null'
+          description: The optional dates you want to book the service for; if not specified the default service pattern will be used (e.g. whole stay).
+          items:
+            $ref: '#/components/schemas/Date'
+      additionalProperties: false
+      example:
+        serviceId: MUC-SPA
+        dates:
+        - serviceDate: '2026-10-16'
+          amount:
+            amount: 25.0
+            currency: EUR
+        - serviceDate: '2026-10-17'
+    DesiredStayDetailsModel:
+      type: object
+      required:
+      - adults
+      - arrival
+      - departure
+      - timeSlices
+      properties:
+        arrival:
+          type: string
+          description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        departure:
+          type: string
+          description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        adults:
+          type: integer
+          description: Number of adults
+          format: int32
+        childrenAges:
+          type:
+          - array
+          - 'null'
+          description: Ages of the children
+          items:
+            type: integer
+            format: int32
+        requote:
+          type:
+          - boolean
+          - 'null'
+          description: 'Whether the prices for time slices with no change to the rate plan should be re-quoted based on current prices, or if
+
+            only additions like change of number of adults should be calculated. If a reservation is part of a block, the time slices prices will always be re-quoted to the current price of the block. Defaults to ''false''.'
+        timeSlices:
+          type: array
+          description: The list of time slices
+          items:
+            $ref: '#/components/schemas/DesiredTimeSliceModel'
+      additionalProperties: false
+      example:
+        arrival: '2026-10-18T17:00:00+02:00'
+        departure: '2026-10-20T11:00:00+02:00'
+        adults: 1
+        childrenAges:
+        - 6
+        requote: false
+        timeSlices:
+        - ratePlanId: MUC-NONREF-DBL
+          totalGrossAmount:
+            amount: 86.0
+            currency: EUR
+        - ratePlanId: MUC-NONREF-DBL
+          totalGrossAmount:
+            amount: 101.0
+            currency: EUR
+    DesiredTimeSliceModel:
+      type: object
+      required:
+      - ratePlanId
+      properties:
+        ratePlanId:
+          type: string
+          description: The rate plan id for this time slice
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    AddReservationValidationMessagesRequest:
+      type: object
+      required:
+      - validationMessages
+      properties:
+        validationMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateReservationValidationMessageModel'
+      additionalProperties: false
+      example:
+        validationMessages:
+        - category: OfferNotAvailable
+          code: UnitGroupFullyBooked
+        - category: OfferNotAvailable
+          code: RatePlanChannelNotSet
+    CreateReservationValidationMessageModel:
+      type: object
+      required:
+      - category
+      - code
+      properties:
+        category:
+          type: string
+          enum:
+          - OfferNotAvailable
+          - AutoUnitAssignment
+          - GuestLoyalty
+        code:
+          type: string
+          enum:
+          - UnitGroupFullyBooked
+          - UnitGroupCapacityExceeded
+          - RatePlanRestrictionsViolated
+          - RatePlanSurchargesNotSet
+          - RateRestrictionsViolated
+          - RatePlanChannelNotSet
+          - RatesNotSet
+          - BlockFullyBooked
+          - UnitMoved
+          - IncludedServicesAmountExceededRateAmount
+          - RatePlanCompanyRestrictionsViolated
+          - ServiceFullyBooked
+          - RateDoesNotSatifyHurdles
+          - LoyaltyMembershipNotRecognized
+      additionalProperties: false
+    EmbeddedUnitModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unit id
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the unit
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the unit
+        unitGroupId:
+          type:
+          - string
+          - 'null'
+          description: The unit group id
+      additionalProperties: false
+    AutoAssignedUnitItemModel:
+      type: object
+      required:
+      - from
+      - to
+      - unit
+      properties:
+        unit:
+          $ref: '#/components/schemas/EmbeddedUnitModel'
+        from:
+          type: string
+          description: The start date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: The end date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

@@ -1,0 +1,102 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Group Actions API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: GroupActions
+paths:
+  /booking/v0-nsfw/group-actions/{id}/set-commercial-status:
+    put:
+      tags:
+      - GroupActions
+      summary: Set the commercial status of a group
+      description: 'Assigns or clears the commercial status of a specific group.
+
+        Commercial status must be enabled for the account, and the referenced commercial status must exist and not be archived.
+
+        You must have at least one of these scopes: ''groups.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.modify''.'
+      operationId: BookingGroup-actionsByIdSet-commercial-statusPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Setting the commercial status was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetCommercialStatusModel'
+        description: The commercial status to set. Omit commercialStatusId to clear.
+        required: true
+components:
+  schemas:
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    SetCommercialStatusModel:
+      type: object
+      description: Request to set or clear the commercial status of a group.
+      properties:
+        commercialStatusId:
+          type:
+          - string
+          - 'null'
+          description: The commercial status id to assign. Omit or set to null to clear the commercial status.
+        comment:
+          type:
+          - string
+          - 'null'
+          description: An optional comment recorded in the group's activity log alongside this change.
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

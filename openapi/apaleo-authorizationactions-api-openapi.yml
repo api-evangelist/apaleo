@@ -1,0 +1,362 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Authorization…
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: AuthorizationActions
+paths:
+  /booking/v0-nsfw/authorization-actions/{authorizationId}/cancel:
+    put:
+      tags:
+      - AuthorizationActions
+      summary: Cancels the authorization
+      description: 'You must have this scope: ''authorizations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.authorizations.modify''.'
+      operationId: BookingAuthorization-actionsByAuthorizationIdCancelPut
+      parameters:
+      - in: path
+        name: authorizationId
+        description: The identifier of the authorization
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - authorizations.manage
+        - admin
+  /booking/v0-nsfw/authorization-actions/{authorizationId}/refresh:
+    put:
+      tags:
+      - AuthorizationActions
+      summary: Updates the requested amount and extends the expiry date of the authorization
+      description: 'Allows to top up the authorization and renew expiry date. The top-up amount is specified in the payload and needs to be greater than the original amount.
+
+        If the amount specified is the same as the original one, the authorization is renewed and changes its expiry date.
+
+        If the amount specified is less than the original one, the authorization is adjusted down.
+
+        You must have this scope: ''authorizations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.authorizations.modify''.'
+      operationId: BookingAuthorization-actionsByAuthorizationIdRefreshPut
+      parameters:
+      - in: path
+        name: authorizationId
+        description: The identifier of the authorization
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - authorizations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizationRefreshRequest'
+        description: The definition of the authorization refresh request
+        required: true
+  /booking/v0-nsfw/authorization-actions/{authorizationId}/commit:
+    put:
+      tags:
+      - AuthorizationActions
+      summary: Sets the authorization to success
+      description: 'You must have this scope: ''payments.admin''.
+
+        For fine-grained clients, you must have this permission: ''core.authorizations.modify''.'
+      operationId: BookingAuthorization-actionsByAuthorizationIdCommitPut
+      parameters:
+      - in: path
+        name: authorizationId
+        description: The identifier of the authorization
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payments.admin
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitAuthorizationModel'
+        description: The details related to the authorization to commit
+        required: true
+  /booking/v0-nsfw/authorization-actions/{authorizationId}/fail:
+    put:
+      tags:
+      - AuthorizationActions
+      summary: Fails the authorization
+      description: 'You must have this scope: ''payments.admin''.
+
+        For fine-grained clients, you must have this permission: ''core.authorizations.modify''.'
+      operationId: BookingAuthorization-actionsByAuthorizationIdFailPut
+      parameters:
+      - in: path
+        name: authorizationId
+        description: The identifier of the authorization
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payments.admin
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FailAuthorizationRequest'
+        description: The details related to the authorization to fail/expire
+        required: true
+  /booking/v0-nsfw/authorization-actions/{authorizationId}/expire-payment-link:
+    put:
+      tags:
+      - AuthorizationActions
+      summary: Expires the pending payment link with the payment provider and updates the…
+      description: 'You must have this scope: ''authorizations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.authorizations.modify''.'
+      operationId: BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut
+      parameters:
+      - in: path
+        name: authorizationId
+        description: The identifier of the authorization
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - authorizations.manage
+        - admin
+components:
+  schemas:
+    FailAuthorizationRequest:
+      type: object
+      required:
+      - reasonCode
+      properties:
+        reasonCode:
+          type: string
+          description: Reason code for the authorization failure.
+          enum:
+          - Failed
+          - Expired
+        failureReason:
+          type:
+          - string
+          - 'null'
+          description: Textual description of the failure reason.
+        transactionId:
+          type:
+          - string
+          - 'null'
+          description: 'Transaction Id of Authorization in the payment service payment transaction log.
+
+            Required if transaction id already set for authorization.'
+        expiredAt:
+          type:
+          - string
+          - 'null'
+          description: 'The actual date and time of EXPIRE event.
+
+            Required if Apaleo.Api.Modules.Booking.Models.Authorization.FailAuthorizationRequest.ReasonCode is Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationFailureReasonCode.Expired.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+          format: date-time
+      additionalProperties: false
+      example:
+        reasonCode: Failed
+        failureReason: Authorization failed due to insufficient funds
+        transactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        expiredAt: '2026-11-16T20:18:14.8221566Z'
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    AuthorizationRefreshRequest:
+      type: object
+      required:
+      - amount
+      properties:
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+      example:
+        amount:
+          amount: 150.0
+          currency: EUR
+    CommitAuthorizationModel:
+      type: object
+      required:
+      - expiresAt
+      - paymentTransactionId
+      properties:
+        paymentTransactionId:
+          type: string
+          description: Transaction Id of Authorization in the payment service payment transaction log
+          minLength: 1
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        expiresAt:
+          type: string
+          description: The date that the authorization expires<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+      additionalProperties: false
+      example:
+        paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        amount:
+          amount: 123.0
+          currency: EUR
+        expiresAt: '2026-11-16T20:18:14.8190527Z'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

@@ -1,0 +1,2063 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Offer API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: Offer
+paths:
+  /booking/v0-nsfw/offers:
+    get:
+      tags:
+      - Offer
+      summary: Returns offers for one specific stay
+      description: 'Calculates and returns available offers for a specific property, arrival and departure date.
+
+        You must have at least one of these scopes: ''offers.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.offers.read''.'
+      operationId: BookingOffersGet
+      parameters:
+      - in: query
+        name: propertyId
+        description: The property ID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: arrival
+        description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: departure
+        description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: timeSliceTemplate
+        description: The time slice template used to filter the rate plans, defaults to 'over night'
+        schema:
+          type: string
+          enum:
+          - DayUse
+          - OverNight
+      - in: query
+        name: timeSliceDefinitionIds
+        description: Time slice definition IDs, used to filter rate plans
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: unitGroupIds
+        description: Unit group IDs, used to filter rate plans
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: unitGroupTypes
+        description: Unit group types, used to filter rate plans
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - BedRoom
+            - MeetingRoom
+            - EventSpace
+            - ParkingLot
+            - Other
+      - in: query
+        name: channelCode
+        description: Channel code, used to filter the rate plans
+        schema:
+          type: string
+          enum:
+          - Direct
+          - BookingCom
+          - Ibe
+          - ChannelManager
+          - Expedia
+          - Homelike
+          - Hrs
+          - AltoVita
+          - DesVu
+          - Gimsi
+      - in: query
+        name: promoCode
+        description: The promo code associated with a certain special offer
+        schema:
+          type: string
+      - in: query
+        name: corporateCode
+        description: The code associated with a corporate rate
+        schema:
+          type: string
+      - in: query
+        name: adults
+        description: The number of adults you want offers for
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: childrenAges
+        description: The ages of the children you want offers for
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: includeUnavailable
+        description: Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StayOffersModel'
+        '204':
+          description: There are no available offers for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offers.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/rate-plan-offers:
+    get:
+      tags:
+      - Offer
+      summary: Returns offers for a specific rate plan
+      description: 'Calculates and returns available offers for a specific rate plan, arrival and departure date.
+
+        You must have at least one of these scopes: ''offers.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.offers.read''.'
+      operationId: BookingRate-plan-offersGet
+      parameters:
+      - in: query
+        name: ratePlanId
+        description: The rate plan ID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: arrival
+        description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: departure
+        description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: channelCode
+        description: The channel code
+        schema:
+          type: string
+          enum:
+          - Direct
+          - BookingCom
+          - Ibe
+          - ChannelManager
+          - Expedia
+          - Homelike
+          - Hrs
+          - AltoVita
+          - DesVu
+          - Gimsi
+      - in: query
+        name: adults
+        description: The number of adults you want offers for
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: childrenAges
+        description: The ages of the children you want offers for
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: includeUnavailable
+        description: Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned
+        schema:
+          type: boolean
+      - in: query
+        name: overridePrices
+        description: Desired prices for each timeslice
+        schema:
+          type: array
+          items:
+            type:
+            - number
+            - 'null'
+            format: double
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StayOffersModel'
+        '204':
+          description: There are no available offers for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offers.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/service-offers:
+    get:
+      tags:
+      - Offer
+      summary: Returns service offers for one specific stay
+      description: 'You must have at least one of these scopes: ''offers.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.offers.read''.'
+      operationId: BookingService-offersGet
+      parameters:
+      - in: query
+        name: ratePlanId
+        description: The rate plan ID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: arrival
+        description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: departure
+        description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: channelCode
+        description: The channel code used to filter the services
+        schema:
+          type: string
+          enum:
+          - Direct
+          - BookingCom
+          - Ibe
+          - ChannelManager
+          - Expedia
+          - Homelike
+          - Hrs
+          - AltoVita
+          - DesVu
+          - Gimsi
+      - in: query
+        name: adults
+        description: The number of adults you want offers for
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: childrenAges
+        description: The ages of the children you want offers for
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: onlyDefaultDates
+        description: 'Depending on the postNextDay setting of a service it will be posted before or after midnight.
+
+          Breakfast is usually delivered on the next morning, having ''postNextDay'' set to true. Its ''default dates'' are from the day after
+
+          arrival until the departure day. For services like dinner ''postNextDay'' is false, and default dates are day of arrival until one
+
+          day before departure.
+
+          With this query parameter set to ''false'', you can also ask for dates outside of those default dates. It defaults to true.'
+        schema:
+          type: boolean
+      - in: query
+        name: includeUnavailable
+        description: Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceOffersModel'
+        '204':
+          description: There are no available offers for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offers.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/offer-index:
+    get:
+      tags:
+      - Offer
+      summary: Returns offers with rates and availabilities for the specified range
+      description: 'Calculates and returns offers per time slice for a specific rate plan, arrival and departure date.
+
+        You must have at least one of these scopes: ''offer-index.read, offers.read''.
+
+        For fine-grained clients, you must have this permission: ''core.offers.read''.'
+      operationId: BookingOffer-indexGet
+      parameters:
+      - in: query
+        name: ratePlanId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: from
+        description: <br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: to
+        description: <br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: channelCode
+        required: true
+        schema:
+          type: string
+          enum:
+          - Direct
+          - BookingCom
+          - Ibe
+          - ChannelManager
+          - Expedia
+          - Homelike
+          - Hrs
+          - AltoVita
+          - DesVu
+          - Gimsi
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSliceListModel'
+        '204':
+          description: There are no rates for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offer-index.read
+        - offers.read
+        - admin
+  /booking/v0-nsfw/offer-index-bulk:
+    get:
+      tags:
+      - Offer
+      summary: Returns offers with rates and availabilities for the specified range
+      description: 'Calculates and returns offers per time slice for multiple rate plans, arrival and departure date.
+
+        The rate plans must belong to the same unit group and have the same time slice definition.
+
+        You must have at least one of these scopes: ''offer-index.read, offers.read''.
+
+        For fine-grained clients, you must have this permission: ''core.offers.read''.'
+      operationId: BookingOffer-index-bulkGet
+      parameters:
+      - in: query
+        name: ratePlanIds
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: from
+        description: <br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: to
+        description: <br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: channelCode
+        required: true
+        schema:
+          type: string
+          enum:
+          - Direct
+          - BookingCom
+          - Ibe
+          - ChannelManager
+          - Expedia
+          - Homelike
+          - Hrs
+          - AltoVita
+          - DesVu
+          - Gimsi
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkTimeSliceListModel'
+        '204':
+          description: There are no rates for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offer-index.read
+        - offers.read
+        - admin
+components:
+  schemas:
+    OfferNoShowFeeModel:
+      type: object
+      required:
+      - code
+      - description
+      - fee
+      - name
+      properties:
+        code:
+          type: string
+          description: The code of the no-show policy applied
+        name:
+          type: string
+          description: The name of the no-show policy applied
+          minLength: 1
+        description:
+          type: string
+          description: The description of the no-show policy applied
+          minLength: 1
+        fee:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    TimeSliceOfferItemModel:
+      type: object
+      required:
+      - available
+      - availableUnits
+      - unitGroup
+      properties:
+        unitGroup:
+          $ref: '#/components/schemas/EmbeddedUnitGroupModel'
+        minGuaranteeType:
+          type:
+          - string
+          - 'null'
+          description: The minimum guarantee type for the offer
+          enum:
+          - PM6Hold
+          - CreditCard
+          - Prepayment
+          - Company
+          - Ota
+        minAdvance:
+          $ref: '#/components/schemas/PeriodModel'
+        maxAdvance:
+          $ref: '#/components/schemas/PeriodModel'
+        available:
+          type: integer
+          description: The number of available units for the offer
+          format: int32
+        availableUnits:
+          type: integer
+          description: The number of available units for the offer considering overbookings
+          format: int32
+        restrictions:
+          $ref: '#/components/schemas/RateRestrictionsModel'
+        prices:
+          type:
+          - array
+          - 'null'
+          description: The prices for this offer
+          items:
+            $ref: '#/components/schemas/PerOccupancyPriceItemModel'
+      additionalProperties: false
+    ServiceOffersModel:
+      type: object
+      required:
+      - services
+      properties:
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceOfferUnstableModel'
+      additionalProperties: false
+      example:
+        services:
+        - service:
+            id: MUC-WLAN
+            code: WLAN
+            name: High-Speed WLAN
+            description: Upgrade the complimentary internet access to a high speed connection.
+            pricingUnit: Room
+            defaultGrossPrice:
+              amount: 5.0
+              currency: EUR
+          count: 1
+          availableCount: 2
+          totalAmount:
+            grossAmount: 20.0
+            netAmount: 16.8
+            vatType: Normal
+            vatPercent: 19.0
+            currency: EUR
+          prePaymentAmount:
+            amount: 20.0
+            currency: EUR
+          dates:
+          - serviceDate: '2026-10-16'
+            amount:
+              grossAmount: 10.0
+              netAmount: 8.4
+              vatType: Normal
+              vatPercent: 19.0
+              currency: EUR
+            isDefaultDate: false
+            isMandatory: false
+            availableCount: 5
+          - serviceDate: '2026-10-17'
+            amount:
+              grossAmount: 10.0
+              netAmount: 8.4
+              vatType: Normal
+              vatPercent: 19.0
+              currency: EUR
+            isDefaultDate: false
+            isMandatory: false
+            availableCount: 2
+        - service:
+            id: MUC-YOGA
+            code: YOGA
+            name: Sun Salutation
+            description: Start the day with a private Yoga session with one of our certified trainers.
+            pricingUnit: Person
+            defaultGrossPrice:
+              amount: 35.0
+              currency: EUR
+          count: 1
+          totalAmount:
+            grossAmount: 30.0
+            netAmount: 25.21
+            vatType: Normal
+            vatPercent: 19.0
+            currency: EUR
+          prePaymentAmount:
+            amount: 30.0
+            currency: EUR
+          dates:
+          - serviceDate: '2026-10-17'
+            amount:
+              grossAmount: 30.0
+              netAmount: 25.21
+              vatType: Normal
+              vatPercent: 19.0
+              currency: EUR
+            isDefaultDate: false
+            isMandatory: false
+            taxes:
+            - taxDefinitionCode: WELLNESS-TAX
+              amount:
+                grossAmount: 2.0
+                netAmount: 2.0
+                vatType: Without
+                vatPercent: 0.0
+                currency: EUR
+              remittedBy: Hotel
+    EmbeddedRatePlanModel:
+      type: object
+      required:
+      - id
+      - isSubjectToCityTax
+      properties:
+        id:
+          type: string
+          description: The rate plan id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the rate plan that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the rate plan
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the rate plan
+        isSubjectToCityTax:
+          type: boolean
+          description: Whether the rate plan is subject to city tax or not
+      additionalProperties: false
+    EmbeddedPropertyModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The property id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the property that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the property
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the property
+          readOnly: true
+      additionalProperties: false
+    OfferTimeSliceModel:
+      type: object
+      required:
+      - availableUnits
+      - baseAmount
+      - from
+      - to
+      - totalGrossAmount
+      properties:
+        from:
+          type: string
+          description: The start date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: The end date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        availableUnits:
+          type: integer
+          description: The number of available units for that time slice
+          format: int32
+        baseAmount:
+          $ref: '#/components/schemas/AmountModel'
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        includedServices:
+          type:
+          - array
+          - 'null'
+          description: The breakdown for services included in the offer
+          items:
+            $ref: '#/components/schemas/OfferServiceModel'
+      additionalProperties: false
+    TaxDetailModel:
+      type: object
+      required:
+      - net
+      - tax
+      - vatPercent
+      - vatType
+      properties:
+        vatType:
+          type: string
+          enum:
+          - 'Null'
+          - VeryReduced
+          - Reduced
+          - Normal
+          - Without
+          - Special
+          - Special1
+          - Special2
+          - ReducedCovid19
+          - NormalCovid19
+          - Mixed
+        vatPercent:
+          type: number
+          format: double
+        net:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        tax:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    PriceModel:
+      type: object
+      required:
+      - afterTax
+      - beforeTax
+      - currency
+      - grossAmount
+      - taxes
+      properties:
+        grossAmount:
+          type: number
+          description: 'Price including all included services and VAT - <b>DEPRECATED: This field will be removed soon, use BeforeTax + Taxes.Tax instead</b>'
+          format: double
+        beforeTax:
+          type: number
+          description: Price including all included services without VAT or any other taxes like city tax
+          format: double
+        afterTax:
+          type: number
+          description: Price including all included services, VAT and any other taxes like city tax
+          format: double
+        taxes:
+          $ref: '#/components/schemas/TaxesModel'
+        currency:
+          type: string
+          description: The currency for all prices and tax details
+      additionalProperties: false
+      example:
+        grossAmount: 100.0
+        beforeTax: 91.57
+        afterTax: 101.71
+        taxes:
+          tax: 8.43
+          cityTax: 1.71
+        currency: USD
+    OfferUnitGroupModel:
+      type: object
+      required:
+      - code
+      - description
+      - id
+      - maxPersons
+      - name
+      - type
+      properties:
+        id:
+          type: string
+          description: The unit group id
+        code:
+          type: string
+          description: The code for the unit group that can be shown in reports and table views
+        name:
+          type: string
+          description: The name for the unit group
+          minLength: 1
+        description:
+          type: string
+          description: The description for the unit group
+          minLength: 1
+        maxPersons:
+          type: integer
+          description: Maximum number of persons for the unit group
+          format: int32
+        rank:
+          type:
+          - integer
+          - 'null'
+          description: The unit group rank
+          format: int32
+        type:
+          type: string
+          description: The unit group type
+          enum:
+          - BedRoom
+          - MeetingRoom
+          - EventSpace
+          - ParkingLot
+          - Other
+      additionalProperties: false
+    AppliedTaxModel:
+      type: object
+      description: A tax applied according to a tax definition configured in the Taxes API.
+      required:
+      - amount
+      - remittedBy
+      - taxDefinitionCode
+      properties:
+        taxDefinitionCode:
+          type: string
+          description: The code of the tax definition that produced this tax
+          minLength: 1
+        amount:
+          $ref: '#/components/schemas/AmountModel'
+        remittedBy:
+          type: string
+          description: Who is responsible for remitting the tax
+          enum:
+          - Hotel
+          - Ota
+      additionalProperties: false
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    RatePlanTimeSliceListModel:
+      type: object
+      required:
+      - ratePlanId
+      - timeSlices
+      properties:
+        ratePlanId:
+          type: string
+          description: The id of the rate plan
+          minLength: 1
+        timeSlices:
+          type: array
+          description: List of time slices
+          items:
+            $ref: '#/components/schemas/TimeSliceItemModel'
+      additionalProperties: false
+    StayOffersModel:
+      type: object
+      description: 'The unstable (v0-nsfw) variant of Apaleo.Api.Modules.Booking.Models.Offer.StayOffer.StayOffersModel.
+
+        It additionally exposes the taxes applied according to the tax definitions configured in the Taxes API.'
+      required:
+      - offers
+      - property
+      properties:
+        property:
+          $ref: '#/components/schemas/EmbeddedPropertyModel'
+        offers:
+          type: array
+          description: List of offered unit groups with rates
+          items:
+            $ref: '#/components/schemas/OfferModel'
+      additionalProperties: false
+      example:
+        property:
+          id: MUC
+          code: MUC
+          name: Demo Hotel Munich
+          description: This is the demo hotel Munich
+        offers:
+        - arrival: '2026-10-18T17:00:00+02:00'
+          departure: '2026-10-20T11:00:00+02:00'
+          unitGroup:
+            id: MUC-SGL
+            code: SGL
+            name: Standard
+            description: Standard
+            maxPersons: 1
+            rank: 2
+            type: BedRoom
+          minGuaranteeType: PM6Hold
+          availableUnits: 4
+          ratePlan:
+            id: MUC-NONREF_SGL
+            code: NONREF
+            name: Non Refundable
+            description: Non Refundable
+            isSubjectToCityTax: false
+          totalGrossAmount:
+            amount: 279.0
+            currency: EUR
+          cancellationFee:
+            code: FLEX
+            name: Flexible
+            description: Free cancellation.
+            dueDateTime: '2026-10-18T17:00:00+02:00'
+            fee:
+              amount: 279.0
+              currency: EUR
+          noShowFee:
+            code: NOSHOW
+            name: Non Refundable
+            description: No free no-show
+            fee:
+              amount: 279.0
+              currency: EUR
+          timeSlices:
+          - from: '2026-10-18T17:00:00+02:00'
+            to: '2026-10-19T11:00:00+02:00'
+            availableUnits: 4
+            baseAmount:
+              grossAmount: 107.0
+              netAmount: 100.0
+              vatType: Reduced
+              vatPercent: 7.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 117.0
+              currency: EUR
+            includedServices:
+            - service:
+                id: MUC-WLAN
+              serviceDate: '2026-10-18'
+              count: 1
+              availableCount: 5
+              amount:
+                grossAmount: 10.0
+                netAmount: 8.4
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Included
+              taxes:
+              - taxDefinitionCode: SERVICE-TAX
+                amount:
+                  grossAmount: 2.0
+                  netAmount: 2.0
+                  vatType: Without
+                  vatPercent: 0.0
+                  currency: EUR
+                remittedBy: Hotel
+          - from: '2026-10-19T11:00:00+02:00'
+            to: '2026-10-20T11:00:00+02:00'
+            availableUnits: 5
+            baseAmount:
+              grossAmount: 107.0
+              netAmount: 100.0
+              vatType: Reduced
+              vatPercent: 7.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 142.0
+              currency: EUR
+            includedServices:
+            - service:
+                id: MUC-WLAN
+              serviceDate: '2026-10-19'
+              count: 1
+              availableCount: 5
+              amount:
+                grossAmount: 10.0
+                netAmount: 8.4
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Included
+              taxes:
+              - taxDefinitionCode: SERVICE-TAX
+                amount:
+                  grossAmount: 2.0
+                  netAmount: 2.0
+                  vatType: Without
+                  vatPercent: 0.0
+                  currency: EUR
+                remittedBy: Hotel
+            - service:
+                id: MUC-CLEANING
+              serviceDate: '2026-10-19'
+              count: 1
+              availableCount: 2
+              amount:
+                grossAmount: 25.0
+                netAmount: 21.01
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Additional
+          services:
+          - service:
+              id: MUC-PARKING
+              code: PARKING
+              name: Parking
+              description: Parking spot per night
+              pricingUnit: Room
+              defaultGrossPrice:
+                amount: 20.0
+                currency: EUR
+            count: 1
+            availableCount: 3
+            totalAmount:
+              grossAmount: 20.0
+              netAmount: 16.81
+              vatType: Normal
+              vatPercent: 19.0
+              currency: EUR
+            prePaymentAmount:
+              amount: 0.0
+              currency: EUR
+            dates:
+            - serviceDate: '2026-10-18'
+              amount:
+                grossAmount: 20.0
+                netAmount: 16.81
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              isDefaultDate: true
+              isMandatory: false
+              availableCount: 3
+              taxes:
+              - taxDefinitionCode: PARKING-TAX
+                amount:
+                  grossAmount: 2.0
+                  netAmount: 2.0
+                  vatType: Without
+                  vatPercent: 0.0
+                  currency: EUR
+                remittedBy: Hotel
+          taxDetails:
+          - vatType: Reduced
+            vatPercent: 7.0
+            net:
+              amount: 200.0
+              currency: EUR
+            tax:
+              amount: 14.0
+              currency: EUR
+          - vatType: Normal
+            vatPercent: 19.0
+            net:
+              amount: 54.62
+              currency: EUR
+            tax:
+              amount: 10.38
+              currency: EUR
+          isCorporate: false
+          prePaymentAmount:
+            amount: 0.0
+            currency: EUR
+          cityTaxes:
+          - id: MUC-TAX
+            code: TAX
+            name: City tax
+            totalGrossAmount:
+              amount: 119.0
+              currency: EUR
+            dates:
+            - serviceDate: '2021-08-27'
+              amount:
+                grossAmount: 119.0
+                netAmount: 100.0
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+        - arrival: '2026-10-18T17:00:00+02:00'
+          departure: '2026-10-20T11:00:00+02:00'
+          unitGroup:
+            id: MUC-SGL
+            code: SGL
+            name: Standard
+            description: Standard
+            maxPersons: 1
+            rank: 2
+            type: BedRoom
+          minGuaranteeType: Prepayment
+          availableUnits: 4
+          ratePlan:
+            id: MUC-FLEX_SGL
+            code: FLEX
+            name: Flexible
+            description: Flexible
+            isSubjectToCityTax: false
+          totalGrossAmount:
+            amount: 503.0
+            currency: EUR
+          cancellationFee:
+            code: NONREF
+            name: Non Refundable
+            description: Full stay amount due 24 hours after booking.
+            dueDateTime: '2026-10-17T13:20:52.8772609+02:00'
+            fee:
+              amount: 503.0
+              currency: EUR
+          noShowFee:
+            code: NOSHOW
+            name: Non Refundable
+            description: No free no-show
+            fee:
+              amount: 503.0
+              currency: EUR
+          timeSlices:
+          - from: '2026-10-18T17:00:00+02:00'
+            to: '2026-10-19T11:00:00+02:00'
+            availableUnits: 4
+            baseAmount:
+              grossAmount: 214.0
+              netAmount: 200.0
+              vatType: Reduced
+              vatPercent: 7.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 224.0
+              currency: EUR
+            includedServices:
+            - service:
+                id: MUC-WLAN
+              serviceDate: '2026-10-18'
+              count: 1
+              availableCount: 5
+              amount:
+                grossAmount: 10.0
+                netAmount: 8.4
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Included
+              taxes:
+              - taxDefinitionCode: SERVICE-TAX
+                amount:
+                  grossAmount: 2.0
+                  netAmount: 2.0
+                  vatType: Without
+                  vatPercent: 0.0
+                  currency: EUR
+                remittedBy: Hotel
+          - from: '2026-10-19T11:00:00+02:00'
+            to: '2026-10-20T11:00:00+02:00'
+            availableUnits: 5
+            baseAmount:
+              grossAmount: 214.0
+              netAmount: 200.0
+              vatType: Reduced
+              vatPercent: 7.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 249.0
+              currency: EUR
+            includedServices:
+            - service:
+                id: MUC-WLAN
+              serviceDate: '2026-10-19'
+              count: 1
+              availableCount: 5
+              amount:
+                grossAmount: 10.0
+                netAmount: 8.4
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Included
+              taxes:
+              - taxDefinitionCode: SERVICE-TAX
+                amount:
+                  grossAmount: 2.0
+                  netAmount: 2.0
+                  vatType: Without
+                  vatPercent: 0.0
+                  currency: EUR
+                remittedBy: Hotel
+            - service:
+                id: MUC-CLEANING
+              serviceDate: '2026-10-19'
+              count: 1
+              availableCount: 2
+              amount:
+                grossAmount: 25.0
+                netAmount: 21.01
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              pricingMode: Additional
+          services:
+          - service:
+              id: MUC-SPA
+              code: SPA
+              name: Spa access
+              description: Spa access per stay
+              pricingUnit: Person
+              defaultGrossPrice:
+                amount: 30.0
+                currency: EUR
+            count: 1
+            availableCount: 2
+            totalAmount:
+              grossAmount: 30.0
+              netAmount: 25.21
+              vatType: Normal
+              vatPercent: 19.0
+              currency: EUR
+            prePaymentAmount:
+              amount: 0.0
+              currency: EUR
+            dates:
+            - serviceDate: '2026-10-18'
+              amount:
+                grossAmount: 30.0
+                netAmount: 25.21
+                vatType: Normal
+                vatPercent: 19.0
+                currency: EUR
+              isDefaultDate: true
+              isMandatory: false
+              availableCount: 2
+          taxDetails:
+          - vatType: Reduced
+            vatPercent: 7.0
+            net:
+              amount: 400.0
+              currency: EUR
+            tax:
+              amount: 28.0
+              currency: EUR
+          - vatType: Normal
+            vatPercent: 19.0
+            net:
+              amount: 63.02
+              currency: EUR
+            tax:
+              amount: 11.98
+              currency: EUR
+          isCorporate: false
+          prePaymentAmount:
+            amount: 503.0
+            currency: EUR
+    PerOccupancyPriceItemModel:
+      type: object
+      required:
+      - adults
+      - price
+      properties:
+        adults:
+          type: integer
+          description: Number of adults
+          format: int32
+        price:
+          $ref: '#/components/schemas/PriceModel'
+      additionalProperties: false
+    TimeSliceItemModel:
+      type: object
+      required:
+      - from
+      - to
+      properties:
+        from:
+          type: string
+          description: Date and time the time slice begins<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: Date and time the time slice ends<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        offers:
+          type:
+          - array
+          - 'null'
+          description: List of offers for this time slice
+          items:
+            $ref: '#/components/schemas/TimeSliceOfferItemModel'
+      additionalProperties: false
+    OfferModel:
+      type: object
+      required:
+      - arrival
+      - availableUnits
+      - cancellationFee
+      - departure
+      - isCorporate
+      - minGuaranteeType
+      - noShowFee
+      - prePaymentAmount
+      - ratePlan
+      - taxDetails
+      - timeSlices
+      - totalGrossAmount
+      - unitGroup
+      properties:
+        arrival:
+          type: string
+          description: The earliest arrival date and time for this offer<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        departure:
+          type: string
+          description: The latest departure date and time for this offer<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        unitGroup:
+          $ref: '#/components/schemas/OfferUnitGroupModel'
+        minGuaranteeType:
+          type: string
+          description: The minimum guarantee type for this offer
+          enum:
+          - PM6Hold
+          - CreditCard
+          - Prepayment
+          - Company
+        availableUnits:
+          type: integer
+          description: The number of available units for that offer
+          format: int32
+        ratePlan:
+          $ref: '#/components/schemas/EmbeddedRatePlanModel'
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        cancellationFee:
+          $ref: '#/components/schemas/OfferCancellationFeeModel'
+        noShowFee:
+          $ref: '#/components/schemas/OfferNoShowFeeModel'
+        timeSlices:
+          type: array
+          description: The breakdown for each time slice for this offer
+          items:
+            $ref: '#/components/schemas/OfferTimeSliceModel'
+        services:
+          type:
+          - array
+          - 'null'
+          description: The list of the mandatory services for this offer. Such services will be automatically booked when booking this offer
+          items:
+            $ref: '#/components/schemas/ServiceOfferUnstableModel'
+        fees:
+          type:
+          - array
+          - 'null'
+          description: The details of the fees that will be added on top of the Apaleo.Api.Modules.Booking.Models.Offer.StayOffer.OfferUnstableModel.TotalGrossAmount when creating the booking
+          items:
+            $ref: '#/components/schemas/OfferFeeModel'
+        taxDetails:
+          type: array
+          description: Tax breakdown, displaying net and tax amount for each VAT type
+          items:
+            $ref: '#/components/schemas/TaxDetailModel'
+        validationMessages:
+          type:
+          - array
+          - 'null'
+          description: Validation rules that were applied to the offer and show the reason why the offer is not bookable
+          items:
+            $ref: '#/components/schemas/OfferValidationMessageModel'
+        companyId:
+          type:
+          - string
+          - 'null'
+          description: ID of the company the offer is created for
+        corporateCode:
+          type:
+          - string
+          - 'null'
+          description: The corporate rate code the offer is created for
+        isCorporate:
+          type: boolean
+          description: Whether the offer is for a corporate rate plan
+        prePaymentAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        cityTaxes:
+          type:
+          - array
+          - 'null'
+          description: Details of city taxes for this offer, if any
+          items:
+            $ref: '#/components/schemas/OfferCityTaxModel'
+      additionalProperties: false
+    OfferFeeModel:
+      type: object
+      required:
+      - code
+      - id
+      - name
+      - totalAmount
+      properties:
+        id:
+          type: string
+          description: The fee id
+        code:
+          type: string
+          description: The code for the fee
+        name:
+          type: string
+          description: The name for the fee
+          minLength: 1
+        totalAmount:
+          $ref: '#/components/schemas/AmountModel'
+      additionalProperties: false
+    ServiceOfferItemUnstableModel:
+      type: object
+      required:
+      - amount
+      - isDefaultDate
+      - isMandatory
+      - serviceDate
+      properties:
+        serviceDate:
+          type: string
+          description: The date this service is delivered
+          format: date
+          example: '2020-10-10'
+        amount:
+          $ref: '#/components/schemas/AmountModel'
+        isDefaultDate:
+          type: boolean
+          description: 'Depending on the postNextDay setting of the service it will by default be posted before or after midnight.
+
+            Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day
+
+            are default dates and will have this flag set to true. Those are also the dates the service will be booked for if
+
+            you do not specify dates in the book-service call. Still, you can override this and also book the dates set to IsDefaultDate = false.'
+        isMandatory:
+          type: boolean
+          description: 'Rate plans can have additional services. When booking an offer for such rate plans, those services are automatically booked.
+
+            They are marked as mandatory and they cannot be removed.'
+        availableCount:
+          type:
+          - integer
+          - 'null'
+          description: The number of services available.
+          format: int32
+        taxes:
+          type:
+          - array
+          - 'null'
+          description: The taxes applied to this service according to the tax definitions configured in the Taxes API.
+          items:
+            $ref: '#/components/schemas/AppliedTaxModel'
+      additionalProperties: false
+    TimeSliceListModel:
+      type: object
+      required:
+      - count
+      properties:
+        timeSlices:
+          type:
+          - array
+          - 'null'
+          description: List of time slices
+          items:
+            $ref: '#/components/schemas/TimeSliceItemModel'
+        count:
+          type: integer
+          description: Total count of items
+          format: int64
+      additionalProperties: false
+      example:
+        timeSlices:
+        - from: '2026-10-16T17:00:00+02:00'
+          to: '2026-10-17T11:00:00+02:00'
+          offers:
+          - unitGroup:
+              id: MUC-SGL
+              code: SGL
+              name: Single
+              description: Single
+              type: BedRoom
+            minGuaranteeType: PM6Hold
+            available: 4
+            availableUnits: 0
+            restrictions:
+              minLengthOfStay: 2
+              maxLengthOfStay: 30
+              closed: false
+              closedOnArrival: true
+              closedOnDeparture: true
+            prices:
+            - adults: 1
+              price:
+                grossAmount: 123.0
+                beforeTax: 111.81
+                afterTax: 133.0
+                taxes:
+                  tax: 11.19
+                  cityTax: 10.0
+                currency: EUR
+            - adults: 2
+              price:
+                grossAmount: 170.0
+                beforeTax: 154.54
+                afterTax: 180.0
+                taxes:
+                  tax: 15.46
+                  cityTax: 10.0
+                currency: EUR
+          - unitGroup:
+              id: MUC-DBL
+              code: DBL
+              name: Double
+              description: Double
+              type: BedRoom
+            minGuaranteeType: PM6Hold
+            available: 2
+            availableUnits: 0
+            restrictions:
+              minLengthOfStay: 2
+              maxLengthOfStay: 30
+              closed: false
+              closedOnArrival: true
+              closedOnDeparture: true
+            prices:
+            - adults: 1
+              price:
+                grossAmount: 456.0
+                beforeTax: 414.54
+                afterTax: 466.0
+                taxes:
+                  tax: 41.46
+                  cityTax: 10.0
+                currency: EUR
+            - adults: 2
+              price:
+                grossAmount: 630.0
+                beforeTax: 572.72
+                afterTax: 610.0
+                taxes:
+                  tax: 57.28
+                  cityTax: 10.0
+                currency: EUR
+        count: 1
+    OfferCityTaxItemModel:
+      type: object
+      required:
+      - amount
+      - serviceDate
+      properties:
+        serviceDate:
+          type: string
+          description: The date for this city tax
+          format: date
+          example: '2020-10-10'
+        amount:
+          $ref: '#/components/schemas/AmountModel'
+      additionalProperties: false
+    TaxesModel:
+      type: object
+      required:
+      - cityTax
+      - tax
+      properties:
+        tax:
+          type: number
+          description: The amount of taxes, which are VAT or Sales Taxes depending on the country of the property
+          format: double
+        cityTax:
+          type: number
+          description: The amount of City Tax including VAT
+          format: double
+      additionalProperties: false
+    BulkTimeSliceListModel:
+      type: object
+      required:
+      - ratePlans
+      properties:
+        ratePlans:
+          type: array
+          description: List of time slices per rate plan
+          items:
+            $ref: '#/components/schemas/RatePlanTimeSliceListModel'
+      additionalProperties: false
+    EmbeddedServiceModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The service id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the service
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the service
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the service
+      additionalProperties: false
+    OfferCancellationFeeModel:
+      type: object
+      required:
+      - code
+      - description
+      - dueDateTime
+      - fee
+      - name
+      properties:
+        code:
+          type: string
+          description: The code of the cancellation policy applied
+        name:
+          type: string
+          description: The name of the cancellation policy applied
+          minLength: 1
+        description:
+          type: string
+          description: The description of the cancellation policy applied
+          minLength: 1
+        dueDateTime:
+          type: string
+          description: 'The date and time the cancellation fee will be due. After that time this fee will
+
+            be charged in case of cancellation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+          format: date-time
+        fee:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    RateRestrictionsModel:
+      type: object
+      required:
+      - closed
+      - closedOnArrival
+      - closedOnDeparture
+      properties:
+        minLengthOfStay:
+          type:
+          - integer
+          - 'null'
+          description: 'The minimum length of stay in order to book the rate. If at least this number
+
+            of time slices are covered by the stay duration the rate will be offered.'
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+        maxLengthOfStay:
+          type:
+          - integer
+          - 'null'
+          description: 'The maximum length of stay in order to book the rate. If not more than this number
+
+            of time slices are covered by the stay duration the rate will be offered.'
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+        closed:
+          type: boolean
+          description: Whether the rate can be booked for a stay-through reservation
+        closedOnArrival:
+          type: boolean
+          description: Whether the rate can be booked on the reservation's arrival date
+        closedOnDeparture:
+          type: boolean
+          description: Whether the rate can be booked on the reservation's departure date
+      additionalProperties: false
+    AmountModel:
+      type: object
+      required:
+      - currency
+      - grossAmount
+      - netAmount
+      - vatPercent
+      - vatType
+      properties:
+        grossAmount:
+          type: number
+          format: double
+        netAmount:
+          type: number
+          format: double
+        vatType:
+          type: string
+          enum:
+          - 'Null'
+          - VeryReduced
+          - Reduced
+          - Normal
+          - Without
+          - Special
+          - Special1
+          - Special2
+          - ReducedCovid19
+          - NormalCovid19
+          - Mixed
+        vatPercent:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+      example:
+        grossAmount: 107.0
+        netAmount: 100.0
+        vatType: Reduced
+        vatPercent: 7.0
+        currency: USD
+    OfferCityTaxModel:
+      type: object
+      required:
+      - code
+      - dates
+      - id
+      - name
+      - totalGrossAmount
+      properties:
+        id:
+          type: string
+          description: The id of the city tax
+        code:
+          type: string
+          description: The code of the city tax
+        name:
+          type: string
+          description: The name for the city tax
+          minLength: 1
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        dates:
+          type: array
+          description: Split per day for the city tax
+          items:
+            $ref: '#/components/schemas/OfferCityTaxItemModel'
+      additionalProperties: false
+    ServiceModel:
+      type: object
+      required:
+      - code
+      - defaultGrossPrice
+      - description
+      - id
+      - name
+      - pricingUnit
+      properties:
+        id:
+          type: string
+          description: The service id
+        code:
+          type: string
+          description: The code for the service
+        name:
+          type: string
+          description: The name for the service
+          minLength: 1
+        description:
+          type: string
+          description: The description for the service
+          minLength: 1
+        pricingUnit:
+          type: string
+          description: Defines the granularity (room, person) for which this item is offered and priced
+          enum:
+          - Room
+          - Person
+        defaultGrossPrice:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    OfferServiceModel:
+      type: object
+      required:
+      - amount
+      - count
+      - pricingMode
+      - service
+      - serviceDate
+      properties:
+        service:
+          $ref: '#/components/schemas/EmbeddedServiceModel'
+        serviceDate:
+          type: string
+          description: The date this service is delivered
+          format: date
+          example: '2020-10-10'
+        count:
+          type: integer
+          description: The default count of offered services. For services whose pricing unit is 'Person' it will be based on the adults and children specified, otherwise 1.
+          format: int32
+        availableCount:
+          type:
+          - integer
+          - 'null'
+          description: 'If set - the number of services available (only for the limited service).
+
+            If not set - the service is unlimited.'
+          format: int32
+        amount:
+          $ref: '#/components/schemas/AmountModel'
+        pricingMode:
+          type: string
+          description: Whether the service price is included in or added to the base rate
+          enum:
+          - Included
+          - Additional
+        taxes:
+          type:
+          - array
+          - 'null'
+          description: The taxes applied to this service according to the tax definitions configured in the Taxes API
+          items:
+            $ref: '#/components/schemas/AppliedTaxModel'
+      additionalProperties: false
+    EmbeddedUnitGroupModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unit group id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the unit group that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the unit group
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the unit group
+        type:
+          type:
+          - string
+          - 'null'
+          description: The unit group type
+          enum:
+          - BedRoom
+          - MeetingRoom
+          - EventSpace
+          - ParkingLot
+          - Other
+      additionalProperties: false
+    PeriodModel:
+      type: object
+      properties:
+        hours:
+          type:
+          - integer
+          - 'null'
+          description: The number of hours within the period
+          format: int64
+        days:
+          type:
+          - integer
+          - 'null'
+          description: The number of days within the period
+          format: int32
+        months:
+          type:
+          - integer
+          - 'null'
+          description: The number of months within the period
+          format: int32
+      additionalProperties: false
+    ServiceOfferUnstableModel:
+      type: object
+      required:
+      - count
+      - dates
+      - prePaymentAmount
+      - service
+      - totalAmount
+      properties:
+        service:
+          $ref: '#/components/schemas/ServiceModel'
+        count:
+          type: integer
+          description: The default count of offered services. For services whose pricing unit is 'Person' it will be based on the adults and children specified, otherwise 1.
+          format: int32
+        availableCount:
+          type:
+          - integer
+          - 'null'
+          description: The number of services available.
+          format: int32
+        totalAmount:
+          $ref: '#/components/schemas/AmountModel'
+        prePaymentAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        fees:
+          type:
+          - array
+          - 'null'
+          description: The details of the fees that will be added on top of the Apaleo.Api.Modules.Booking.Models.Offer.ServiceOffer.ServiceOfferUnstableModel.TotalAmount when booking the service
+          items:
+            $ref: '#/components/schemas/OfferFeeModel'
+        dates:
+          type: array
+          description: The dates the service will be delivered with its price
+          items:
+            $ref: '#/components/schemas/ServiceOfferItemUnstableModel'
+        validationMessages:
+          type:
+          - array
+          - 'null'
+          description: Validation rules that were applied to the offer and show the reason why the offer is not bookable
+          items:
+            $ref: '#/components/schemas/OfferValidationMessageModel'
+      additionalProperties: false
+    OfferValidationMessageModel:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          description: The message Code
+          enum:
+          - UnitGroupFullyBooked
+          - UnitGroupCapacityExceeded
+          - RatePlanRestrictionsViolated
+          - RatePlanSurchargesNotSet
+          - RateRestrictionsViolated
+          - RatePlanChannelNotSet
+          - RatesNotSet
+          - BlockFullyBooked
+          - IncludedServicesAmountExceededRateAmount
+          - ServiceFullyBooked
+          - RateDoesNotSatifyHurdles
+        message:
+          type: string
+          description: The message description
+          minLength: 1
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

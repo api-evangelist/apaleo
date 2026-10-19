@@ -1,30 +1,30 @@
 {
   "provider": "apaleo",
   "sources": [
-    "_original/apaleo-openapi.yml"
+    "_original/apaleo-openapi.json"
   ],
   "outputs": [
-    "apaleo-availability-api-openapi.yml",
+    "apaleo-authorization-api-openapi.yml",
+    "apaleo-authorizationactions-api-openapi.yml",
+    "apaleo-block-api-openapi.yml",
+    "apaleo-blockactions-api-openapi.yml",
     "apaleo-booking-api-openapi.yml",
-    "apaleo-finance-api-openapi.yml",
-    "apaleo-inventory-api-openapi.yml",
-    "apaleo-rate-plan-api-openapi.yml",
-    "apaleo-settings-api-openapi.yml"
+    "apaleo-group-api-openapi.yml",
+    "apaleo-groupactions-api-openapi.yml",
+    "apaleo-offer-api-openapi.yml",
+    "apaleo-paymentaccount-api-openapi.yml",
+    "apaleo-paymentaccountactions-api-openapi.yml",
+    "apaleo-reservation-api-openapi.yml",
+    "apaleo-reservationactions-api-openapi.yml",
+    "apaleo-types-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "apaleo-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "apaleo-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0; renamed 12 component key(s) illegal in 3.x (e.g. ActionModel[AuthorizationAction,NotAllowedAuthorizationActionReason])",
+    "apis.yml register: written (+12 apis, 13 total)"
   ],
-  "skipped": [
-    "apaleo-availability-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apaleo-booking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apaleo-finance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apaleo-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apaleo-rate-plan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apaleo-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

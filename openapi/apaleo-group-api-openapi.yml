@@ -1,0 +1,2165 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Group API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: Group
+paths:
+  /booking/v0-nsfw/groups:
+    post:
+      tags:
+      - Group
+      summary: Creates a group booking
+      description: 'You must have at least one of these scopes: ''groups.create, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.create''.'
+      operationId: BookingGroupsPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: A new group booking was created.
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.create
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupModel'
+        description: The details of the group that should be created.
+        required: true
+    get:
+      tags:
+      - Group
+      summary: Returns a list of all group bookings, filtered by the specified parameters
+      description: 'Returns a list of all group bookings, filtered by the specified parameters.
+
+        If no parameters are set, returns the entire list
+
+        You must have at least one of these scopes: ''groups.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.read''.'
+      operationId: BookingGroupsGet
+      parameters:
+      - in: query
+        name: textSearch
+        description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname,
+
+          firstname, email or company name of the booker contains one of the provided values'
+        schema:
+          type: string
+      - in: query
+        name: propertyIds
+        description: Filter result by requested properties
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: from
+        description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: to
+        description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: statuses
+        description: Filter result by requested block status
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Tentative
+            - Definite
+            - Canceled
+            - Optional
+      - in: query
+        name: hasActivePaymentAccount
+        description: 'If set to `true`, returns only the groups with an active payment account.
+
+          If set to `false`, returns only the groups without an active payment account.'
+        schema:
+          type: boolean
+      - in: query
+        name: commercialStatuses
+        description: Filter result by requested commercial status
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: operationalStatuses
+        description: 'Filter result by requested operational status.
+
+          Ignored when group operational status is not exposed.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - NoReservations
+            - Upcoming
+            - PartiallyInHouse
+            - InHouse
+            - PartiallyCheckedOut
+            - Completed
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      - in: query
+        name: sort
+        description: 'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, modified:asc, modified:desc, from:asc, from:desc, to:asc, to:desc. All other values will be silently ignored.'
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - created:asc
+            - created:desc
+            - modified:asc
+            - modified:desc
+            - from:asc
+            - from:desc
+            - to:asc
+            - to:desc
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - blocks
+            - actions
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupListModel'
+        '204':
+          description: No group bookings found.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.read
+        - reservations.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/groups/{id}:
+    get:
+      tags:
+      - Group
+      summary: Returns a specific group booking
+      description: 'Retrieves a specific group booking with all its related blocks
+
+        You must have at least one of these scopes: ''groups.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.read''.'
+      operationId: BookingGroupsByIdGet
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group booking to be retrieved.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - blocks
+            - actions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.read
+        - reservations.read
+        - reservations.manage
+        - admin
+    patch:
+      tags:
+      - Group
+      summary: Allows to modify certain group booking properties
+      description: 'Here is the list of operations that are currently allowed:
+
+        - Add and replace Name
+
+        - Add, replace and remove Comment
+
+        - Add, replace and remove BookerComment
+
+        - Add, replace and remove PaymentAccount
+
+        - Add, replace and remove PropertyIds
+
+        - Replace Booker
+
+        You must have at least one of these scopes: ''groups.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.modify''.'
+      operationId: BookingGroupsByIdPatch
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group booking to be modified.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Operation'
+        description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
+        required: true
+    delete:
+      tags:
+      - Group
+      summary: Delete a certain group booking
+      description: 'Use this call to delete a group booking. This is only possible as long as no blocks exist that are linked to
+
+        this group booking
+
+        You must have at least one of these scopes: ''groups.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.delete''.'
+      operationId: BookingGroupsByIdDelete
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group booking to be deleted.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deletion of the group was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.manage
+        - reservations.manage
+        - admin
+    head:
+      tags:
+      - Group
+      summary: Check if a certain group booking exists
+      description: 'Check if a group booking exists by id
+
+        You must have at least one of these scopes: ''groups.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.read''.'
+      operationId: BookingGroupsByIdHead
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group booking to be checked for existence.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The group booking exists.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+      security:
+      - oauth2:
+        - groups.read
+        - reservations.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/groups/$count:
+    get:
+      tags:
+      - Group
+      summary: Returns number of group bookings
+      description: 'Returns number of group bookings matching the filter criteria
+
+        You must have at least one of these scopes: ''groups.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.read''.'
+      operationId: BookingGroups$countGet
+      parameters:
+      - in: query
+        name: textSearch
+        description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname,
+
+          firstname, email or company name of the booker contains one of the provided values'
+        schema:
+          type: string
+      - in: query
+        name: propertyIds
+        description: Filter result by requested properties
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: from
+        description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: to
+        description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: statuses
+        description: Filter result by requested block status
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Tentative
+            - Definite
+            - Canceled
+            - Optional
+      - in: query
+        name: hasActivePaymentAccount
+        description: 'If set to `true`, returns only the groups with an active payment account.
+
+          If set to `false`, returns only the groups without an active payment account.'
+        schema:
+          type: boolean
+      - in: query
+        name: commercialStatuses
+        description: Filter result by requested commercial status
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: operationalStatuses
+        description: 'Filter result by requested operational status.
+
+          Ignored when group operational status is not exposed.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - NoReservations
+            - Upcoming
+            - PartiallyInHouse
+            - InHouse
+            - PartiallyCheckedOut
+            - Completed
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.read
+        - reservations.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/groups/{id}/reservations:
+    post:
+      tags:
+      - Group
+      summary: Add one or multiple reservations to an existing group booking using blocked…
+      description: 'Creates new reservations and adds them to an existing group booking taking a list of reservations as input
+
+        You must have at least one of these scopes: ''groups.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.groups.modify''.'
+      operationId: BookingGroupsByIdReservationsPost
+      parameters:
+      - in: path
+        name: id
+        description: Id of the group booking the reservations should be attached to.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: All new reservations were created and added to the group booking.
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationsCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - groups.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickUpReservationsModel'
+        description: The list of reservations you want to create.
+        required: true
+components:
+  schemas:
+    GuestModel:
+      type: object
+      description: 'Guest on v0-nsfw booking endpoints. Sibling of Apaleo.Api.Modules.Booking.Models.Reservation.GuestModel (not a subclass):
+
+        Swagger schema ids strip "Unstable", so inheriting the stable type would collide on "GuestModel".'
+      required:
+      - lastName
+      properties:
+        title:
+          type:
+          - string
+          - 'null'
+          description: Title of the guest
+          enum:
+          - Mr
+          - Ms
+          - Dr
+          - Prof
+          - Mrs
+          - Other
+        gender:
+          type:
+          - string
+          - 'null'
+          description: 'Gender of the guest
+
+            Allowed values for this field depend on the country in which the property is located.
+
+            Use /booking/v0-nsfw/types/Gender/allowed-values to check what values are allowed.'
+          enum:
+          - Female
+          - Male
+          - Other
+          - Unknown
+        firstName:
+          type:
+          - string
+          - 'null'
+          description: First name of the guest
+        middleInitial:
+          type:
+          - string
+          - 'null'
+          description: Middle initial of the guest
+        lastName:
+          type: string
+          description: Last name of the guest
+          minLength: 1
+        secondLastName:
+          type:
+          - string
+          - 'null'
+          description: Second last name of the guest
+        email:
+          type:
+          - string
+          - 'null'
+          description: Email address of the guest
+        phone:
+          type:
+          - string
+          - 'null'
+          description: Phone number of the guest
+        address:
+          $ref: '#/components/schemas/PersonAddressModel'
+        nationalityCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The guest's nationality, in ISO 3166-1 alpha-2 code
+        identificationNumber:
+          type:
+          - string
+          - 'null'
+          description: The guest's identification number for the given identificationType.
+        identificationAdditionalNumber:
+          type:
+          - string
+          - 'null'
+          description: The guest's additional identification number for the given identificationType.
+        identificationIssueDate:
+          type:
+          - string
+          - 'null'
+          description: The issue date of the guest's identification document.
+          format: date
+          example: '2020-10-10'
+        identificationExpiryDate:
+          type:
+          - string
+          - 'null'
+          description: The expiry date of the guest's identification document.
+          format: date
+          example: '2020-10-10'
+        identificationIssuePlace:
+          type:
+          - string
+          - 'null'
+          description: The issue place of the guest's identification document.
+        identificationType:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the identificationNumber
+
+            Allowed values for this field depend on the country in which the property is located.
+
+            Use /booking/v0-nsfw/types/IdentificationType/allowed-values to check what values are allowed.'
+          enum:
+          - SocialInsuranceNumber
+          - PassportNumber
+          - IdNumber
+          - DriverLicenseNumber
+          - VisaNumber
+          - ForeignerIdentityNumber
+          - TaxIdentificationNumber
+          - Other
+        personalTaxId:
+          type:
+          - string
+          - 'null'
+          description: The personal tax id of the guest
+        company:
+          $ref: '#/components/schemas/PersonCompanyModel'
+        preferredLanguage:
+          type:
+          - string
+          - 'null'
+          description: 'ISO 639-1 language code (the language, not the country code):
+
+            e.g. vi not vn, ja not jp, cs not cz, zh not cn.'
+        birthDate:
+          type:
+          - string
+          - 'null'
+          description: Guest's birthdate
+          format: date
+          example: '2020-10-10'
+        birthPlace:
+          type:
+          - string
+          - 'null'
+          description: Guest's place of birth
+        birthFirstName:
+          type:
+          - string
+          - 'null'
+          description: Guest's first name right after birth
+        birthLastName:
+          type:
+          - string
+          - 'null'
+          description: Guest's last name right after birth
+        motherFirstName:
+          type:
+          - string
+          - 'null'
+          description: Guest's mother's first name
+        motherLastName:
+          type:
+          - string
+          - 'null'
+          description: Guest's mother's last name
+        borderCrossingPlace:
+          type:
+          - string
+          - 'null'
+          description: The place through which the guest crossed the border
+        borderCrossingDate:
+          type:
+          - string
+          - 'null'
+          description: Date on which the guest crossed the border
+          format: date
+          example: '2020-10-10'
+        nextDestination:
+          type:
+          - string
+          - 'null'
+          description: The guest's next destination address
+        relationshipToPrimaryGuest:
+          type:
+          - string
+          - 'null'
+          description: The relationship of the guest to the primary guest.
+          enum:
+          - Grandparent
+          - Grandchild
+          - GreatGrandparent
+          - GreatGrandchild
+          - Parent
+          - Child
+          - Sibling
+          - ParentInLaw
+          - ChildInLaw
+          - SiblingInLaw
+          - Spouse
+          - UncleOrAunt
+          - NephewOrNiece
+          - Guardian
+          - Other
+        vehicleRegistration:
+          $ref: '#/components/schemas/VehicleRegistrationModel'
+        loyaltyMemberships:
+          type:
+          - array
+          - 'null'
+          description: Loyalty program memberships of the guest. Stored as sent; program codes are not validated against a catalog.
+          items:
+            $ref: '#/components/schemas/LoyaltyMembershipModel'
+        isVip:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the guest is a VIP. Omitted on update leaves the stored value unchanged. Omitted on create means the guest is not a VIP.
+      additionalProperties: false
+    GroupCreatedModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Id of newly created group booking
+      additionalProperties: false
+      example:
+        id: XPGMSXGF
+    RegisteredCardModel:
+      type: object
+      description: 'Use registered card when you need to show details about a card you intend to add to
+
+        the booking/reservation in the future as a real payment account.
+
+        It is NOT a replacement of the deprecated PaymentAccount field.'
+      properties:
+        cardNumber:
+          type:
+          - string
+          - 'null'
+          description: The last 4 characters of the card number
+          maxLength: 4
+        cardHolder:
+          type:
+          - string
+          - 'null'
+          description: The account holder (e.g. cardholder)
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration month
+        expiryYear:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration year
+        paymentMethod:
+          type:
+          - string
+          - 'null'
+          description: The payment method (e.g. Visa)
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The email address of the shopper / customer
+        note:
+          type:
+          - string
+          - 'null'
+          description: Optional information, e.g. about card activation or failure to do so
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card.
+      additionalProperties: false
+    BookerModel:
+      type: object
+      required:
+      - lastName
+      properties:
+        title:
+          type:
+          - string
+          - 'null'
+          description: Title of the booker
+          enum:
+          - Mr
+          - Ms
+          - Dr
+          - Prof
+          - Mrs
+          - Other
+        gender:
+          type:
+          - string
+          - 'null'
+          description: Gender of the booker
+          enum:
+          - Female
+          - Male
+          - Other
+          - Unknown
+        firstName:
+          type:
+          - string
+          - 'null'
+          description: First name of the booker
+        middleInitial:
+          type:
+          - string
+          - 'null'
+          description: Middle initial of the booker
+        lastName:
+          type: string
+          description: Last name of the booker
+          minLength: 1
+        email:
+          type:
+          - string
+          - 'null'
+          description: Email address of the booker
+        phone:
+          type:
+          - string
+          - 'null'
+          description: Phone number of the booker
+        address:
+          $ref: '#/components/schemas/PersonAddressModel'
+        nationalityCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The booker's nationality, in ISO 3166-1 alpha-2 code
+        identificationNumber:
+          type:
+          - string
+          - 'null'
+          description: The booker's identification number for the given identificationType.
+        identificationIssueDate:
+          type:
+          - string
+          - 'null'
+          description: The issue date of the booker's identification document.
+          format: date
+          example: '2020-10-10'
+        identificationExpiryDate:
+          type:
+          - string
+          - 'null'
+          description: The expiry date of the booker's identification document.
+          format: date
+          example: '2020-10-10'
+        identificationType:
+          type:
+          - string
+          - 'null'
+          description: The type of the identificationNumber
+          enum:
+          - SocialInsuranceNumber
+          - PassportNumber
+          - IdNumber
+          - DriverLicenseNumber
+          - VisaNumber
+          - ForeignerIdentityNumber
+          - TaxIdentificationNumber
+          - Other
+        company:
+          $ref: '#/components/schemas/PersonCompanyModel'
+        preferredLanguage:
+          type:
+          - string
+          - 'null'
+          description: 'ISO 639-1 language code (the language, not the country code):
+
+            e.g. vi not vn, ja not jp, cs not cz, zh not cn.'
+        birthDate:
+          type:
+          - string
+          - 'null'
+          description: Birth date
+          format: date
+          example: '2020-10-10'
+        birthPlace:
+          type:
+          - string
+          - 'null'
+          description: The place of birth
+      additionalProperties: false
+    EmbeddedRatePlanModel:
+      type: object
+      required:
+      - id
+      - isSubjectToCityTax
+      properties:
+        id:
+          type: string
+          description: The rate plan id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the rate plan that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the rate plan
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the rate plan
+        isSubjectToCityTax:
+          type: boolean
+          description: Whether the rate plan is subject to city tax or not
+      additionalProperties: false
+    ReservationCreatedModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Id of the reservation
+      additionalProperties: false
+    EmbeddedPropertyModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The property id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the property that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the property
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the property
+          readOnly: true
+      additionalProperties: false
+    Date:
+      type: object
+      required:
+      - serviceDate
+      properties:
+        serviceDate:
+          type: string
+          description: The date the service is delivered
+          format: date
+          example: '2020-10-10'
+        count:
+          type:
+          - integer
+          - 'null'
+          description: The number of services to book for this date. It defaults to the service offer count when not specified.
+          format: int32
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    GroupCommercialStatusModel:
+      type: object
+      required:
+      - code
+      - label
+      properties:
+        code:
+          type: string
+          description: The code of the commercial status
+          minLength: 1
+        label:
+          type: string
+          description: The label of the commercial status, resolved from the current value
+          minLength: 1
+      additionalProperties: false
+    GroupListModel:
+      type: object
+      required:
+      - count
+      - groups
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupItemModel'
+        count:
+          type: integer
+          description: Total count of items
+          format: int64
+      additionalProperties: false
+      example:
+        groups:
+        - id: XPGMSXGF
+          name: apaleo Summer Festival 2027
+          booker:
+            title: Mr
+            gender: Male
+            firstName: Jon
+            middleInitial: D
+            lastName: Doe
+            email: john.d@doe.com
+            phone: '+4989123343'
+            address:
+              addressLine1: My Street 5
+              postalCode: '12453'
+              city: MyCity
+              countryCode: GB
+          paymentAccount:
+            accountNumber: '1111'
+            accountHolder: John Doe
+            expiryMonth: '8'
+            expiryYear: '2018'
+            paymentMethod: visa
+            payerEmail: s.hopper@test.com
+            isVirtual: false
+            isActive: false
+          hasActivePaymentAccount: true
+          created: '0001-01-01T00:00:00Z'
+          modified: '0001-01-01T00:00:00Z'
+          blocks:
+          - id: MUC-JAIULS
+            status: Definite
+            property:
+              id: MUC
+              code: MUC
+              name: Demo Hotel Munich
+              description: This is the demo hotel Munich
+            ratePlan:
+              id: MUC-NONREF_DBL
+              code: NONREF
+              name: Non Refundable
+              description: Non Refundable
+              isSubjectToCityTax: false
+            unitGroup:
+              id: MUC-DBL
+              code: DBL
+              name: Double
+              description: Double
+              type: BedRoom
+            marketSegment:
+              id: CORP
+              code: CORP
+              name: Corporate Groups
+            grossDailyRate:
+              amount: 190.0
+              currency: EUR
+            from: '2026-10-22T13:20:52.8772609+02:00'
+            to: '2026-10-28T13:20:52.8772609+02:00'
+            blockedUnits: 8
+            pickedReservations: 3
+            created: '2026-10-16T13:20:52.8772609+02:00'
+            modified: '2026-10-16T13:20:52.8772609+02:00'
+          propertyIds:
+          - MUC
+          commercialStatus:
+            code: TENTATIVE
+            label: Tentative
+          operationalStatus: Upcoming
+          reservationBreakdown:
+            upcoming: 3
+        count: 1
+    ReservationsCreatedModel:
+      type: object
+      required:
+      - reservationIds
+      properties:
+        reservationIds:
+          type: array
+          description: List of ids for newly created reservations
+          items:
+            $ref: '#/components/schemas/ReservationCreatedModel'
+      additionalProperties: false
+      example:
+        reservationIds:
+        - id: XPGMSXGF-1
+        - id: XPGMSXGF-2
+    EmbeddedMarketSegmentModel:
+      type: object
+      description: The market segment identifier to help categorize your bookings for revenue management and reporting purposes.
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The market segment id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The market segment code
+        name:
+          type:
+          - string
+          - 'null'
+          description: The market segment name
+      additionalProperties: false
+    BookReservationServiceModel:
+      type: object
+      required:
+      - serviceId
+      properties:
+        serviceId:
+          type: string
+          description: The id of the service you want to book
+        count:
+          type:
+          - integer
+          - 'null'
+          description: The number of services to book for each service date. It defaults to the service offer count when not specified.
+          format: int32
+        amount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        dates:
+          type:
+          - array
+          - 'null'
+          description: The optional dates you want to book the service for; if not specified the default service pattern will be used (e.g. whole stay).
+          items:
+            $ref: '#/components/schemas/Date'
+      additionalProperties: false
+      example:
+        serviceId: MUC-SPA
+        dates:
+        - serviceDate: '2026-10-16'
+          amount:
+            amount: 25.0
+            currency: EUR
+        - serviceDate: '2026-10-17'
+    PersonAddressModel:
+      type: object
+      properties:
+        addressLine1:
+          type:
+          - string
+          - 'null'
+        addressLine2:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        regionCode:
+          type:
+          - string
+          - 'null'
+          description: ISO 3166-2 region code including the country prefix (e.g. US-CA, DE-BY).
+        countryCode:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    VehicleRegistrationModel:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+          description: The number of a vehicle registration plate
+          maxLength: 30
+        countryCode:
+          type:
+          - string
+          - 'null'
+          description: Code of the country of vehicle registration
+      additionalProperties: false
+    ActionModel_GroupAction_NotAllowedGroupActionReason:
+      type: object
+      required:
+      - action
+      - isAllowed
+      properties:
+        action:
+          type: string
+          enum:
+          - Delete
+        isAllowed:
+          type: boolean
+        reasons:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ActionReasonModel_NotAllowedGroupActionReason'
+      additionalProperties: false
+    ActionReasonModel_NotAllowedGroupActionReason:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          enum:
+          - DeleteNotAllowedForGroupWithBlocks
+        message:
+          type: string
+          minLength: 1
+      additionalProperties: false
+    CreateGroupModel:
+      type: object
+      description: With this request you can create a group booking request
+      required:
+      - booker
+      - name
+      - propertyIds
+      properties:
+        name:
+          type: string
+          description: Name of the group
+          minLength: 1
+        booker:
+          $ref: '#/components/schemas/BookerModel'
+        comment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comments
+        bookerComment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comment by the booker
+        paymentAccount:
+          $ref: '#/components/schemas/CreatePaymentAccountModel'
+        registeredCard:
+          $ref: '#/components/schemas/RegisteredCardModel'
+        propertyIds:
+          type: array
+          description: List of property ids the group booking belongs to
+          items:
+            type: string
+      additionalProperties: false
+      example:
+        name: apaleo Summer Festival 2027
+        booker:
+          title: Mr
+          gender: Male
+          firstName: Jon
+          middleInitial: D
+          lastName: Doe
+          email: john.d@doe.com
+          phone: '+4989123343'
+          address:
+            addressLine1: My Street 1
+            postalCode: '12453'
+            city: MyCity
+            countryCode: GB
+        paymentAccount:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+          payerReference: 4ea6462b-cca3-4c17-a035-c7b5132db83c
+          isVirtual: false
+        registeredCard:
+          cardNumber: '1111'
+          cardHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+          note: Credit card will be available after 2025-06-23 10:00:00
+          isVirtual: false
+        propertyIds:
+        - MUC
+    GroupBlockModel:
+      type: object
+      required:
+      - blockedUnits
+      - created
+      - from
+      - grossDailyRate
+      - id
+      - modified
+      - pickedReservations
+      - property
+      - ratePlan
+      - status
+      - to
+      - unitGroup
+      properties:
+        id:
+          type: string
+          description: Block id
+        status:
+          type: string
+          description: Status of the block
+          enum:
+          - Tentative
+          - Definite
+          - Canceled
+          - Optional
+        property:
+          $ref: '#/components/schemas/EmbeddedPropertyModel'
+        ratePlan:
+          $ref: '#/components/schemas/EmbeddedRatePlanModel'
+        unitGroup:
+          $ref: '#/components/schemas/EmbeddedUnitGroupModel'
+        marketSegment:
+          $ref: '#/components/schemas/EmbeddedMarketSegmentModel'
+        grossDailyRate:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        from:
+          type: string
+          description: Start date and time from which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: End date and time until which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        blockedUnits:
+          type: integer
+          description: Number of units blocked
+          format: int32
+        pickedReservations:
+          type: integer
+          description: Number of reservations already picked from this block
+          format: int32
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        modified:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+      additionalProperties: false
+    CreatePaymentAccountModel:
+      type: object
+      properties:
+        accountNumber:
+          type:
+          - string
+          - 'null'
+          description: The account number (e.g. masked credit card number or last 4 digits)
+        accountHolder:
+          type:
+          - string
+          - 'null'
+          description: The account holder (e.g. card holder)
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration month
+        expiryYear:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration year
+        paymentMethod:
+          type:
+          - string
+          - 'null'
+          description: The payment method (e.g. visa)
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The email address of the shopper / customer
+        payerReference:
+          type:
+          - string
+          - 'null'
+          description: 'The reference used to uniquely identify the shopper (e.g. user ID or account ID). Used for recurring payments
+
+            This will become a mandatory field in the future, then it will not be possible to create an inactive payment account. Use RegisteredCard instead to add a not yet active payment account.'
+        storedPaymentMethodId:
+          type:
+          - string
+          - 'null'
+          description: 'Optional reference to uniquely identify the stored recurring authorization, omission means the latest stored payment method for the given payerReference will be used.
+
+            This is relevant when the payer has multiple stored payment methods and you want to specify which one to use for the recurring payment.'
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card. If not specified it defaults to 'false'
+        inactiveReason:
+          type:
+          - string
+          - 'null'
+          description: 'A reason why account is inactive when PayerReference was not provided - <b>DEPRECATED: InactiveReason is deprecated. To add a payment account that is not yet active, use a RegisteredCard instead</b>'
+      additionalProperties: false
+    Operation:
+      type: object
+      properties:
+        value: {}
+        path:
+          type:
+          - string
+          - 'null'
+        op:
+          type:
+          - string
+          - 'null'
+        from:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    GroupItemModel:
+      type: object
+      required:
+      - created
+      - id
+      - modified
+      - name
+      - propertyIds
+      properties:
+        id:
+          type: string
+          description: Group id
+        from:
+          type:
+          - string
+          - 'null'
+          description: Start date and time of the earliest block for this group<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type:
+          - string
+          - 'null'
+          description: End date and time of the latest block for this group<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        name:
+          type: string
+          description: Name of the group
+          minLength: 1
+        booker:
+          $ref: '#/components/schemas/BookerModel'
+        comment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comments
+        bookerComment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comment by the booker
+        paymentAccount:
+          $ref: '#/components/schemas/PaymentAccountModel'
+        hasActivePaymentAccount:
+          type: boolean
+          description: 'True if the booking has at least one active payment account, false otherwise. This is a read-only property and is not set by the client.
+
+            It is used to determine if the booking has an active payment account without having to retrieve the payment account details.'
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        modified:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        blocks:
+          type:
+          - array
+          - 'null'
+          description: Blocks within this group
+          items:
+            $ref: '#/components/schemas/GroupBlockModel'
+        actions:
+          type:
+          - array
+          - 'null'
+          description: The list of actions for this group
+          items:
+            $ref: '#/components/schemas/ActionModel_GroupAction_NotAllowedGroupActionReason'
+        propertyIds:
+          type: array
+          description: The list of property ids this group belongs to
+          items:
+            type: string
+        commercialStatus:
+          $ref: '#/components/schemas/GroupCommercialStatusModel'
+        operationalStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Operational status of the group''s reservations.
+
+            Null when not yet computed, or when group operational status is not exposed.'
+          enum:
+          - NoReservations
+          - Upcoming
+          - PartiallyInHouse
+          - InHouse
+          - PartiallyCheckedOut
+          - Completed
+        reservationBreakdown:
+          $ref: '#/components/schemas/GroupReservationBreakdownModel'
+      additionalProperties: false
+    PickUpReservationsModel:
+      type: object
+      description: With this request you can pick up reservations to an existing group booking
+      required:
+      - reservations
+      properties:
+        reservations:
+          type: array
+          description: List of reservations to pick up to the existing group booking
+          items:
+            $ref: '#/components/schemas/PickUpReservationModel'
+      additionalProperties: false
+      example:
+        reservations:
+        - blockId: MUC-QJNXJR
+          arrival: '2026-10-18'
+          departure: '2026-10-20'
+          adults: 1
+          comment: I need a wake up service
+          primaryGuest:
+            title: Mr
+            gender: Male
+            firstName: Jon
+            middleInitial: D
+            lastName: Doe
+            email: john.d@doe.com
+            phone: '+4989123343'
+            address:
+              addressLine1: My Street 1
+              postalCode: '12453'
+              city: MyCity
+              countryCode: GB
+            company:
+              name: Company GmbH
+              taxId: '1442'
+            vehicleRegistration:
+              number: APA322
+              countryCode: DE
+            loyaltyMemberships:
+            - program: MARRIOTT
+              membershipNumber: '123456789'
+              tier: Gold
+        - blockId: MUC-WKMCKT
+          arrival: '2026-10-19'
+          departure: '2026-10-21'
+          adults: 1
+          childrenAges:
+          - 6
+          primaryGuest:
+            title: Mr
+            gender: Male
+            firstName: Eric
+            middleInitial: E
+            lastName: Steinmetz
+            email: eric.e@steinmetz.com
+            phone: '+4989123343'
+            address:
+              addressLine1: My Street 1
+              postalCode: '12453'
+              city: MyCity
+              countryCode: GB
+            vehicleRegistration:
+              number: APA322
+              countryCode: DE
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    PersonCompanyModel:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          description: Name of the company
+        taxId:
+          type:
+          - string
+          - 'null'
+          description: Tax or Vat ID of the company
+      additionalProperties: false
+    CountModel:
+      type: object
+      required:
+      - count
+      properties:
+        count:
+          type: integer
+          format: int64
+      additionalProperties: false
+      example:
+        count: 50
+    GroupModel:
+      type: object
+      required:
+      - created
+      - id
+      - modified
+      - name
+      - propertyIds
+      properties:
+        id:
+          type: string
+          description: Group id
+        name:
+          type: string
+          description: Name of the group
+          minLength: 1
+        from:
+          type:
+          - string
+          - 'null'
+          description: Start date and time of the earliest block for this group<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type:
+          - string
+          - 'null'
+          description: End date and time of the latest block for this group<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        booker:
+          $ref: '#/components/schemas/BookerModel'
+        comment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comments
+        bookerComment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comment by the booker
+        paymentAccount:
+          $ref: '#/components/schemas/PaymentAccountModel'
+        hasActivePaymentAccount:
+          type: boolean
+          description: 'True if the booking has at least one active payment account, false otherwise. This is a read-only property and is not set by the client.
+
+            It is used to determine if the booking has an active payment account without having to retrieve the payment account details.'
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        modified:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        blocks:
+          type:
+          - array
+          - 'null'
+          description: Blocks within this group
+          items:
+            $ref: '#/components/schemas/GroupBlockModel'
+        actions:
+          type:
+          - array
+          - 'null'
+          description: The list of actions for this group
+          items:
+            $ref: '#/components/schemas/ActionModel_GroupAction_NotAllowedGroupActionReason'
+        propertyIds:
+          type: array
+          description: The list of property ids this group belongs to
+          items:
+            type: string
+        commercialStatus:
+          $ref: '#/components/schemas/GroupCommercialStatusModel'
+        operationalStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Operational status of the group''s reservations.
+
+            Null when not yet computed, or when group operational status is not exposed.'
+          enum:
+          - NoReservations
+          - Upcoming
+          - PartiallyInHouse
+          - InHouse
+          - PartiallyCheckedOut
+          - Completed
+        reservationBreakdown:
+          $ref: '#/components/schemas/GroupReservationBreakdownModel'
+      additionalProperties: false
+      example:
+        id: XPGMSXGF
+        name: apaleo Summer Festival 2027
+        from: '2026-10-21T13:20:52.8772609+02:00'
+        to: '2026-10-28T13:20:52.8772609+02:00'
+        booker:
+          title: Mr
+          gender: Male
+          firstName: Jon
+          middleInitial: D
+          lastName: Doe
+          email: john.d@doe.com
+          phone: '+4989123343'
+          address:
+            addressLine1: My Street 5
+            postalCode: '12453'
+            city: MyCity
+            countryCode: GB
+        paymentAccount:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+          isVirtual: false
+          isActive: false
+        hasActivePaymentAccount: false
+        created: '0001-01-01T00:00:00Z'
+        modified: '0001-01-01T00:00:00Z'
+        blocks:
+        - id: MUC-HSGTDG
+          status: Tentative
+          property:
+            id: MUC
+            code: MUC
+            name: Demo Hotel Munich
+            description: This is the demo hotel Munich
+          ratePlan:
+            id: MUC-NONREF_SGL
+            code: NONREF
+            name: Non Refundable
+            description: Non Refundable
+            isSubjectToCityTax: false
+          unitGroup:
+            id: MUC-SGL
+            code: SGL
+            name: Single
+            description: Single
+            type: BedRoom
+          grossDailyRate:
+            amount: 160.0
+            currency: EUR
+          from: '2026-10-21T13:20:52.8772609+02:00'
+          to: '2026-10-26T13:20:52.8772609+02:00'
+          blockedUnits: 10
+          pickedReservations: 0
+          created: '2026-10-16T13:20:52.8772609+02:00'
+          modified: '2026-10-16T13:20:52.8772609+02:00'
+        - id: MUC-JAIULS
+          status: Definite
+          property:
+            id: MUC
+            code: MUC
+            name: Demo Hotel Munich
+            description: This is the demo hotel Munich
+          ratePlan:
+            id: MUC-NONREF_DBL
+            code: NONREF
+            name: Non Refundable
+            description: Non Refundable
+            isSubjectToCityTax: false
+          unitGroup:
+            id: MUC-DBL
+            code: DBL
+            name: Double
+            description: Double
+            type: BedRoom
+          marketSegment:
+            id: CORP
+            code: CORP
+            name: Corporate Groups
+          grossDailyRate:
+            amount: 190.0
+            currency: EUR
+          from: '2026-10-22T13:20:52.8772609+02:00'
+          to: '2026-10-28T13:20:52.8772609+02:00'
+          blockedUnits: 8
+          pickedReservations: 3
+          created: '2026-10-16T13:20:52.8772609+02:00'
+          modified: '2026-10-16T13:20:52.8772609+02:00'
+        propertyIds:
+        - MUC
+        commercialStatus:
+          code: TENTATIVE
+          label: Tentative
+        operationalStatus: Upcoming
+        reservationBreakdown:
+          upcoming: 3
+    PaymentAccountModel:
+      type: object
+      description: 'DEPRECATED: PaymentAccountModel is deprecated, use `/booking/v1/payment-accounts` instead. This model will be removed on May 15, 2026.'
+      required:
+      - isActive
+      properties:
+        accountNumber:
+          type:
+          - string
+          - 'null'
+          description: The account number (e.g. masked credit card number or last 4 digits)
+        accountHolder:
+          type:
+          - string
+          - 'null'
+          description: The account holder (e.g. card holder)
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration month
+        expiryYear:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration year
+        paymentMethod:
+          type:
+          - string
+          - 'null'
+          description: The payment method (e.g. Visa)
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The email address of the shopper / customer
+        payerReference:
+          type:
+          - string
+          - 'null'
+          description: 'The payer reference. It is used to make recurring captures and its usage is allowed only in the scope of the booking.
+
+            For the reason above this is a write-only field.'
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card. If not specified it defaults to 'false'
+        isActive:
+          type: boolean
+          description: Indicates if the payment account can be used for capturing payments. A payment account is active, when it has a valid payer reference set
+        inactiveReason:
+          type:
+          - string
+          - 'null'
+          description: A reason why account is inactive
+      additionalProperties: false
+    EmbeddedUnitGroupModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unit group id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the unit group that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the unit group
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the unit group
+        type:
+          type:
+          - string
+          - 'null'
+          description: The unit group type
+          enum:
+          - BedRoom
+          - MeetingRoom
+          - EventSpace
+          - ParkingLot
+          - Other
+      additionalProperties: false
+    PickUpReservationModel:
+      type: object
+      description: With this request you can pick up a reservation
+      required:
+      - adults
+      - arrival
+      - blockId
+      - departure
+      properties:
+        blockId:
+          type: string
+          description: ID of the block
+        services:
+          type:
+          - array
+          - 'null'
+          description: Additional services (extras, add-ons) that should be added to the reservation
+          items:
+            $ref: '#/components/schemas/BookReservationServiceModel'
+        arrival:
+          type: string
+          description: Date of arrival and the optional time with UTC offset<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        departure:
+          type: string
+          description: Date of departure and the optional time with UTC offset<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        adults:
+          type: integer
+          description: Number of adults
+          format: int32
+        childrenAges:
+          type:
+          - array
+          - 'null'
+          description: The ages of the children
+          items:
+            type: integer
+            format: int32
+        comment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comments
+        guestComment:
+          type:
+          - string
+          - 'null'
+          description: Additional information and comment by the guest
+        primaryGuest:
+          $ref: '#/components/schemas/GuestModel'
+        additionalGuests:
+          type:
+          - array
+          - 'null'
+          description: Additional guests of the reservation.
+          items:
+            $ref: '#/components/schemas/GuestModel'
+        travelPurpose:
+          type:
+          - string
+          - 'null'
+          description: The purpose of the trip, leisure or business
+          enum:
+          - Business
+          - Leisure
+      additionalProperties: false
+    LoyaltyMembershipModel:
+      type: object
+      properties:
+        program:
+          type:
+          - string
+          - 'null'
+          description: Loyalty program code. Stored as sent; not validated against a catalog.
+        membershipNumber:
+          type:
+          - string
+          - 'null'
+          description: Membership number in the loyalty program.
+        tier:
+          type:
+          - string
+          - 'null'
+          description: Optional loyalty tier. Stored as sent.
+      additionalProperties: false
+    GroupReservationBreakdownModel:
+      type: object
+      properties:
+        upcoming:
+          type:
+          - integer
+          - 'null'
+          description: Number of upcoming reservations. Omitted when not yet computed.
+          format: int32
+        inHouse:
+          type:
+          - integer
+          - 'null'
+          description: Number of in-house reservations. Omitted when not yet computed.
+          format: int32
+        checkedOut:
+          type:
+          - integer
+          - 'null'
+          description: Number of checked-out reservations. Omitted when not yet computed.
+          format: int32
+        canceled:
+          type:
+          - integer
+          - 'null'
+          description: Number of canceled reservations. Omitted when not yet computed.
+          format: int32
+        noShow:
+          type:
+          - integer
+          - 'null'
+          description: Number of no-show reservations. Omitted when not yet computed.
+          format: int32
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

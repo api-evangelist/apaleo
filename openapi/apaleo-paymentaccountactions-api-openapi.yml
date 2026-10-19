@@ -1,0 +1,402 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Payment Account…
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: PaymentAccountActions
+paths:
+  /booking/v0-nsfw/payment-account-actions/{paymentAccountId}/commit:
+    put:
+      tags:
+      - PaymentAccountActions
+      summary: Sets payment account to success
+      description: 'You must have this scope: ''payments.admin''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.commit''.'
+      operationId: BookingPayment-account-actionsByPaymentAccountIdCommitPut
+      parameters:
+      - in: path
+        name: paymentAccountId
+        description: The identifier of the payment account
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payments.admin
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitPaymentAccountRequest'
+        description: The details related to the payment account to commit
+        required: true
+  /booking/v0-nsfw/payment-account-actions/{paymentAccountId}/set-details:
+    put:
+      tags:
+      - PaymentAccountActions
+      summary: Sets payment account details
+      description: 'You must have this scope: ''payments.admin''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.commit''.'
+      operationId: BookingPayment-account-actionsByPaymentAccountIdSet-detailsPut
+      parameters:
+      - in: path
+        name: paymentAccountId
+        description: The identifier of the payment account
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payments.admin
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetPaymentAccountDetailsRequest'
+        description: The details related to the payment account
+        required: true
+  /booking/v0-nsfw/payment-account-actions/{paymentAccountId}/fail:
+    put:
+      tags:
+      - PaymentAccountActions
+      summary: Sets payment account to failed
+      description: 'You must have this scope: ''payments.admin''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.fail''.'
+      operationId: BookingPayment-account-actionsByPaymentAccountIdFailPut
+      parameters:
+      - in: path
+        name: paymentAccountId
+        description: The identifier of the payment account
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payments.admin
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FailPaymentAccountRequest'
+        description: The details related to the payment account to fail
+        required: true
+  /booking/v0-nsfw/payment-account-actions/{paymentAccountId}/cancel:
+    put:
+      tags:
+      - PaymentAccountActions
+      summary: Sets payment account status to Canceled
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.cancel''.'
+      operationId: BookingPayment-account-actionsByPaymentAccountIdCancelPut
+      parameters:
+      - in: path
+        name: paymentAccountId
+        description: The identifier of the payment account to cancel
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+  /booking/v0-nsfw/payment-account-actions/{paymentAccountId}/expire-payment-link:
+    put:
+      tags:
+      - PaymentAccountActions
+      summary: Expires the pending payment link with the payment provider and updates the…
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.expire_payment_link''.'
+      operationId: BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut
+      parameters:
+      - in: path
+        name: paymentAccountId
+        description: The identifier of the payment account with the payment link to expire
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+components:
+  schemas:
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    FailPaymentAccountRequest:
+      type: object
+      properties:
+        paymentTransactionId:
+          type:
+          - string
+          - 'null'
+          description: Transaction Id of payment account in the payment service payment transaction log
+        accountDetails:
+          $ref: '#/components/schemas/PaymentAccountDetailsModel'
+        failureReason:
+          type:
+          - string
+          - 'null'
+          description: Textual description of the failure reason.
+      additionalProperties: false
+      example:
+        paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        accountDetails:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+        failureReason: Card is expired
+    CommitPaymentAccountRequest:
+      type: object
+      required:
+      - payerReference
+      properties:
+        paymentTransactionId:
+          type:
+          - string
+          - 'null'
+          description: Transaction Id of payment account in the payment service payment transaction log
+        accountDetails:
+          $ref: '#/components/schemas/PaymentAccountDetailsModel'
+        payerReference:
+          type: string
+          description: The reference used to uniquely identify the shopper (e.g. user ID or account ID).
+          minLength: 1
+        storedPaymentMethodId:
+          type:
+          - string
+          - 'null'
+          description: The stored payment method id
+      additionalProperties: false
+      example:
+        paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        accountDetails:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+        payerReference: E2419238-4E0F-4AFF-954B-FF2B7935452F
+        storedPaymentMethodId: K9DTTJQD4HNG5S82
+    SetPaymentAccountDetailsRequest:
+      type: object
+      required:
+      - payerReference
+      - storedPaymentMethodId
+      properties:
+        paymentTransactionId:
+          type:
+          - string
+          - 'null'
+          description: 'Transaction Id of payment account in the payment service payment transaction log
+
+            Should match payment account Transaction Id if it has been already set, otherwise it will be used to set the Transaction Id of the payment account'
+        accountDetails:
+          $ref: '#/components/schemas/PaymentAccountDetailsModel'
+        payerReference:
+          type: string
+          description: The reference used to uniquely identify the shopper (e.g. user ID or account ID).
+          minLength: 1
+        storedPaymentMethodId:
+          type: string
+          description: The stored payment method id
+          minLength: 1
+      additionalProperties: false
+      example:
+        paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        accountDetails:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+        payerReference: E2419238-4E0F-4AFF-954B-FF2B7935452F
+        storedPaymentMethodId: K9DTTJQD4HNG5S82
+    PaymentAccountDetailsModel:
+      type: object
+      properties:
+        accountNumber:
+          type:
+          - string
+          - 'null'
+          description: The last 4 characters of the card or account number
+          maxLength: 4
+        accountHolder:
+          type:
+          - string
+          - 'null'
+          description: The account or card holder
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration month
+        expiryYear:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration year
+        paymentMethod:
+          type:
+          - string
+          - 'null'
+          description: The payment method (e.g. visa)
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The email address of the shopper / customer
+          format: email
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

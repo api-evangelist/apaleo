@@ -1,0 +1,588 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Block Actions API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: BlockActions
+paths:
+  /booking/v0-nsfw/block-actions/{id}/confirm:
+    put:
+      tags:
+      - BlockActions
+      summary: Confirm a block
+      description: 'Confirm a specific block which is in status ''Tentative''.
+
+        This changes the status to ''Definite''.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.confirm''.'
+      operationId: BookingBlock-actionsByIdConfirmPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Confirmation of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/block-actions/{id}/set-to-optional:
+    put:
+      tags:
+      - BlockActions
+      summary: Set a block to optional
+      description: 'Set a specific block which is in status ''Tentative'' to ''Optional''.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.set_to_optional''.'
+      operationId: BookingBlock-actionsByIdSet-to-optionalPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Setting the block to optional was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetBlockToOptionalModel'
+        description: The optional block settings.
+        required: true
+  /booking/v0-nsfw/block-actions/{id}/cutoff-optional:
+    put:
+      tags:
+      - BlockActions
+      summary: Apply the optional cutoff behavior for a block whose cutoff has been reached
+      description: 'Internal callback the scheduler invokes when an ''Optional'' block''s cutoff timer fires. Depending on
+
+        the block''s stored cutoff behavior, this either releases the block (''Optional'' to ''Tentative'') or
+
+        leaves it untouched. A stale fire - the block already left ''Optional'', or its stored cutoff no longer
+
+        matches the payload - is a no-op.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.'
+      operationId: BookingBlock-actionsByIdCutoff-optionalPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The callback was applied, or was a no-op for a stale fire.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CutoffOptionalBlockModel'
+        description: The cutoff the scheduler fired for.
+        required: true
+  /booking/v0-nsfw/block-actions/{id}/start-optional:
+    put:
+      tags:
+      - BlockActions
+      summary: Convert an optional block to tentative when its booking window opens
+      description: 'Internal callback the scheduler invokes when an ''Optional'' block''s start timer fires. It releases the
+
+        block (''Optional'' to ''Tentative''). A stale fire - the block already left ''Optional'', or its stored
+
+        start no longer matches the payload - is a no-op.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.'
+      operationId: BookingBlock-actionsByIdStart-optionalPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The callback was applied, or was a no-op for a stale fire.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartOptionalBlockModel'
+        description: The block start the scheduler fired for.
+        required: true
+  /booking/v0-nsfw/block-actions/{id}/release:
+    put:
+      tags:
+      - BlockActions
+      summary: Release a block
+      description: 'Release a specific block which is in status ''Definite''.
+
+        This changes the status to ''Tentative''.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.release''.'
+      operationId: BookingBlock-actionsByIdReleasePut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Release of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/block-actions/{id}/cancel:
+    put:
+      tags:
+      - BlockActions
+      summary: Cancel a block
+      description: 'Cancel a specific block which is in status ''Definite'' or ''Tentative''.
+
+        This changes the status to ''Canceled''.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.cancel''.'
+      operationId: BookingBlock-actionsByIdCancelPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Cancellation of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/block-actions/{id}/wash:
+    put:
+      tags:
+      - BlockActions
+      summary: Wash a block
+      description: 'Wash a specific block which is in status ''Definite''.
+
+        This releases all unpicked units.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.wash''.'
+      operationId: BookingBlock-actionsByIdWashPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block that should be processed.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Wash of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/block-actions/{id}/amend:
+    put:
+      tags:
+      - BlockActions
+      summary: Allow to modify a block
+      description: 'Use this call to modify a block.
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.amend''.'
+      operationId: BookingBlock-actionsByIdAmendPut
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block to be modified.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Replace of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplaceBlockModel'
+        description: The definition of the block.
+        required: true
+components:
+  schemas:
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    CutoffOptionalBlockModel:
+      type: object
+      required:
+      - expectedOptionalCutoffUtc
+      properties:
+        expectedOptionalCutoffUtc:
+          type: string
+          description: 'The optional cutoff timestamp the scheduler fired for. It is compared against the block''s stored
+
+            optional cutoff so a stale or replayed callback (the cutoff was moved, or the block already left
+
+            ''Optional'') is ignored.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+          format: date-time
+      additionalProperties: false
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    StartOptionalBlockModel:
+      type: object
+      required:
+      - expectedStartDateUtc
+      properties:
+        expectedStartDateUtc:
+          type: string
+          description: 'The block start timestamp the scheduler fired for. It is compared against the block''s stored start so a
+
+            stale or replayed callback (the start was moved, or the block already left ''Optional'') is ignored.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+          format: date-time
+      additionalProperties: false
+    ReplaceBlockModel:
+      type: object
+      required:
+      - from
+      - grossDailyRate
+      - timeSlices
+      - to
+      properties:
+        from:
+          type: string
+          description: Start date and time from which the inventory will be blocked<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        to:
+          type: string
+          description: End date and time until which the inventory will be blocked. Cannot be more than 5 years after the start date.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        grossDailyRate:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        timeSlices:
+          type: array
+          description: The list of time slices
+          items:
+            $ref: '#/components/schemas/CreateBlockTimeSliceModel'
+        status:
+          type:
+          - string
+          - 'null'
+          description: 'The status to transition the block to as part of this edit. When omitted, the block keeps its current
+
+            status and the amend is a plain update. ''Canceled'' is not supported here; use the cancel action.
+
+            Changing the status to Optional requires OptionalCutoff, IsOptionalDeductingInventory and OptionalCutoffBehavior.'
+          enum:
+          - Tentative
+          - Definite
+          - Canceled
+          - Optional
+        optionalCutoff:
+          type:
+          - string
+          - 'null'
+          description: 'The date and time by which a decision should be made on this optional block.
+
+            Required when changing the block''s status to Optional.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        isOptionalDeductingInventory:
+          type:
+          - boolean
+          - 'null'
+          description: 'Whether this optional block reduces availability like a definite block.
+
+            Required when changing the block''s status to Optional.'
+        optionalCutoffBehavior:
+          type:
+          - string
+          - 'null'
+          description: 'What happens when the optional cutoff date is reached.
+
+            Required when changing the block''s status to Optional.'
+          enum:
+          - DoNothing
+          - AutoRelease
+      additionalProperties: false
+      example:
+        from: '2026-10-21'
+        to: '2026-10-24'
+        grossDailyRate:
+          amount: 160.0
+          currency: EUR
+        timeSlices:
+        - blockedUnits: 3
+        - blockedUnits: 0
+        - blockedUnits: 7
+    SetBlockToOptionalModel:
+      type: object
+      required:
+      - isOptionalDeductingInventory
+      - optionalCutoff
+      - optionalCutoffBehavior
+      properties:
+        optionalCutoff:
+          type: string
+          description: 'The date (or date and time) by which a decision must be made on this optional block. A bare date is
+
+            interpreted as the end of that day in the property''s time zone.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        isOptionalDeductingInventory:
+          type: boolean
+          description: Whether this optional block reduces availability like a definite block
+        optionalCutoffBehavior:
+          type: string
+          description: What happens when the optional cutoff date is reached
+          enum:
+          - DoNothing
+          - AutoRelease
+      additionalProperties: false
+    CreateBlockTimeSliceModel:
+      type: object
+      required:
+      - blockedUnits
+      properties:
+        blockedUnits:
+          type: integer
+          description: Number of units blocked for the time slice
+          format: int32
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

@@ -1,0 +1,1590 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Block API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: Block
+paths:
+  /booking/v0-nsfw/blocks:
+    post:
+      tags:
+      - Block
+      summary: Creates a block
+      description: 'You must have at least one of these scopes: ''blocks.create, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.create''.'
+      operationId: BookingBlocksPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: The block was created successfully.
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.create
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBlockModel'
+        description: The details for the block you want to create.
+        required: true
+    get:
+      tags:
+      - Block
+      summary: Returns a list of blocks
+      description: 'Returns a list of all blocks, filtered by the specified parameters. If no parameters are set, returns the entire list.
+
+        You must have at least one of these scopes: ''blocks.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.read''.'
+      operationId: BookingBlocksGet
+      parameters:
+      - in: query
+        name: groupId
+        description: Return blocks for the specific group
+        schema:
+          type: string
+      - in: query
+        name: propertyIds
+        description: Return blocks filtered by properties
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: status
+        description: Return blocks filtered by statuses
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Tentative
+            - Definite
+            - Canceled
+            - Optional
+      - in: query
+        name: unitGroupIds
+        description: Return blocks with any of the specified unit groups
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: ratePlanIds
+        description: Return blocks with any of the specified rate plans
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: timeSliceDefinitionIds
+        description: Return blocks with any of the specified time slice definitions
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: unitGroupTypes
+        description: Return blocks with any of the specified unit group types
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - BedRoom
+            - MeetingRoom
+            - EventSpace
+            - ParkingLot
+            - Other
+      - in: query
+        name: timeSliceTemplate
+        description: The time slice template, defaults to 'over night'
+        schema:
+          type: string
+          enum:
+          - DayUse
+          - OverNight
+      - in: query
+        name: from
+        description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: to
+        description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: dateFilter
+        description: 'Filter by date and time attributes of block. Use in combination with the ''To'' and ''From'' attributes.
+
+          All filters will check if the date specified by the filter type is between from (included) and to (excluded).'
+        schema:
+          type: string
+          enum:
+          - BlockDate
+          - Modified
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - actions
+            - timeSlices
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockListModel'
+        '204':
+          description: No blocks found.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.read
+        - reservations.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/blocks/$count:
+    get:
+      tags:
+      - Block
+      summary: Returns number of blocks
+      description: 'Returns number of blocks matching the filter criteria
+
+        You must have at least one of these scopes: ''blocks.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.read''.'
+      operationId: BookingBlocks$countGet
+      parameters:
+      - in: query
+        name: groupId
+        description: Return blocks for the specific group
+        schema:
+          type: string
+      - in: query
+        name: propertyIds
+        description: Return blocks filtered by properties
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: status
+        description: Return blocks filtered by statuses
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Tentative
+            - Definite
+            - Canceled
+            - Optional
+      - in: query
+        name: unitGroupIds
+        description: Return blocks with any of the specified unit groups
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: ratePlanIds
+        description: Return blocks with any of the specified rate plans
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: timeSliceDefinitionIds
+        description: Return blocks with any of the specified time slice definitions
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: unitGroupTypes
+        description: Return blocks with any of the specified unit group types
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - BedRoom
+            - MeetingRoom
+            - EventSpace
+            - ParkingLot
+            - Other
+      - in: query
+        name: timeSliceTemplate
+        description: The time slice template, defaults to 'over night'
+        schema:
+          type: string
+          enum:
+          - DayUse
+          - OverNight
+      - in: query
+        name: from
+        description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: to
+        description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to
+
+          will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.read
+        - reservations.read
+        - reservations.manage
+        - admin
+  /booking/v0-nsfw/blocks/{id}:
+    get:
+      tags:
+      - Block
+      summary: Returns a specific block
+      description: 'Retrieves a block, specified by its ID.
+
+        You must have at least one of these scopes: ''blocks.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.read''.'
+      operationId: BookingBlocksByIdGet
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block to be retrieved.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - actions
+            - timeSlices
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockModel'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.read
+        - reservations.read
+        - reservations.manage
+        - admin
+    delete:
+      tags:
+      - Block
+      summary: Delete a specific block
+      description: 'Use this call to delete a block. This is only possible as long as no reservation was picked up yet even if all of
+
+        them are canceled
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.delete''.'
+      operationId: BookingBlocksByIdDelete
+      parameters:
+      - in: path
+        name: id
+        description: The id of the block.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deletion of the block was successful.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+    head:
+      tags:
+      - Block
+      summary: Check if a block exists
+      description: 'Check if a block exists by id
+
+        You must have at least one of these scopes: ''blocks.read, reservations.read, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.read''.'
+      operationId: BookingBlocksByIdHead
+      parameters:
+      - in: path
+        name: id
+        description: The id of the block.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The block exists.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+      security:
+      - oauth2:
+        - blocks.read
+        - reservations.read
+        - reservations.manage
+        - admin
+    patch:
+      tags:
+      - Block
+      summary: Allows to modify certain block properties
+      description: 'Here is the list of operations that are currently allowed:
+
+        - Add, replace and remove MarketSegment
+
+        You must have at least one of these scopes: ''blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.modify''.'
+      operationId: BookingBlocksByIdPatch
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block to be modified.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - blocks.manage
+        - reservations.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Operation'
+        description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
+        required: true
+  /booking/v0-nsfw/blocks/{id}/offers:
+    get:
+      tags:
+      - Block
+      summary: Returns offers for one specific block
+      description: 'Calculates and returns offers for amending a specific block.
+
+        You must have at least one of these scopes: ''offers.read, blocks.manage, reservations.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.blocks.read''.'
+      operationId: BookingBlocksByIdOffersGet
+      parameters:
+      - in: path
+        name: id
+        description: Id of the block to be amended.
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: arrival
+        description: Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: departure
+        description: Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: includeUnavailable
+        description: Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockOffersModel'
+        '204':
+          description: There are no available offers for the specified parameters.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - offers.read
+        - blocks.manage
+        - reservations.manage
+        - admin
+components:
+  schemas:
+    BlockTimeSliceModel:
+      type: object
+      required:
+      - baseAmount
+      - blockedUnits
+      - from
+      - pickedUnits
+      - to
+      - totalGrossAmount
+      properties:
+        from:
+          type: string
+          description: Start date and time from which units will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: End date and time until which units will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        blockedUnits:
+          type: integer
+          description: Number of units blocked for this time slice
+          format: int32
+        pickedUnits:
+          type: integer
+          description: Number of units which have picked reservations for this time slice
+          format: int32
+        baseAmount:
+          $ref: '#/components/schemas/AmountModel'
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    EmbeddedGroupModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Group booking id
+        name:
+          type:
+          - string
+          - 'null'
+          description: Name of the group
+      additionalProperties: false
+    BlockOfferTimeSliceModel:
+      type: object
+      required:
+      - availableUnits
+      - blockedUnits
+      - from
+      - to
+      - totalGrossAmount
+      properties:
+        from:
+          type: string
+          description: The start date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: The end date and time for this time slice<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        availableUnits:
+          type: integer
+          description: The number of available units for that time slice
+          format: int32
+        blockedUnits:
+          type: integer
+          description: The number of blocked units for that time slice
+          format: int32
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        includedServicesAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+      additionalProperties: false
+    EmbeddedRatePlanModel:
+      type: object
+      required:
+      - id
+      - isSubjectToCityTax
+      properties:
+        id:
+          type: string
+          description: The rate plan id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the rate plan that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the rate plan
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the rate plan
+        isSubjectToCityTax:
+          type: boolean
+          description: Whether the rate plan is subject to city tax or not
+      additionalProperties: false
+    EmbeddedPropertyModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The property id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the property that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the property
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the property
+          readOnly: true
+      additionalProperties: false
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    ActionModel_BlockAction_NotAllowedBlockActionReason:
+      type: object
+      required:
+      - action
+      - isAllowed
+      properties:
+        action:
+          type: string
+          enum:
+          - Delete
+          - Confirm
+          - Release
+          - Cancel
+          - Pickup
+          - Modify
+          - Wash
+          - SetToOptional
+        isAllowed:
+          type: boolean
+        reasons:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ActionReasonModel_NotAllowedBlockActionReason'
+      additionalProperties: false
+    EmbeddedMarketSegmentModel:
+      type: object
+      description: The market segment identifier to help categorize your bookings for revenue management and reporting purposes.
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The market segment id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The market segment code
+        name:
+          type:
+          - string
+          - 'null'
+          description: The market segment name
+      additionalProperties: false
+    BlockOfferModel:
+      type: object
+      required:
+      - arrival
+      - departure
+      - timeSlices
+      properties:
+        arrival:
+          type: string
+          description: The earliest arrival date and time for this offer<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        departure:
+          type: string
+          description: The latest departure date and time for this offer<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        timeSlices:
+          type: array
+          description: The breakdown for each time slice for this offer
+          items:
+            $ref: '#/components/schemas/BlockOfferTimeSliceModel'
+        validationMessages:
+          type:
+          - array
+          - 'null'
+          description: Validation rules that were applied to the offer and show the reason why the offer is not bookable
+          items:
+            $ref: '#/components/schemas/OfferValidationMessageModel'
+        cityTaxes:
+          type:
+          - array
+          - 'null'
+          description: Details of city taxes for this offer, if any
+          items:
+            $ref: '#/components/schemas/OfferCityTaxModel'
+      additionalProperties: false
+    CreateBlockTimeSliceModel:
+      type: object
+      required:
+      - blockedUnits
+      properties:
+        blockedUnits:
+          type: integer
+          description: Number of units blocked for the time slice
+          format: int32
+      additionalProperties: false
+    BlockModel:
+      type: object
+      required:
+      - created
+      - from
+      - grossDailyRate
+      - group
+      - id
+      - modified
+      - pickedReservations
+      - property
+      - ratePlan
+      - status
+      - to
+      - unitGroup
+      properties:
+        id:
+          type: string
+          description: Block id
+        group:
+          $ref: '#/components/schemas/EmbeddedGroupModel'
+        status:
+          type: string
+          description: 'Status of the block. Tentative will just mark inventory as requested, but still allows to sell it
+
+            through other channels. Definite will block the inventory for selling through other channels'
+          enum:
+          - Tentative
+          - Definite
+          - Canceled
+          - Optional
+        property:
+          $ref: '#/components/schemas/EmbeddedPropertyModel'
+        ratePlan:
+          $ref: '#/components/schemas/EmbeddedRatePlanModel'
+        unitGroup:
+          $ref: '#/components/schemas/EmbeddedUnitGroupModel'
+        grossDailyRate:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        from:
+          type: string
+          description: Start date and time from which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: End date and time until which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        pickedReservations:
+          type: integer
+          description: Number of reservations already picked from this block
+          format: int32
+        marketSegment:
+          $ref: '#/components/schemas/EmbeddedMarketSegmentModel'
+        promoCode:
+          type:
+          - string
+          - 'null'
+          description: The promo code associated with a certain special offer used to create the block
+        corporateCode:
+          type:
+          - string
+          - 'null'
+          description: The corporate code associated with a certain special offer used to create the block
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        modified:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        timeSlices:
+          type:
+          - array
+          - 'null'
+          description: The list of time slices for this block
+          items:
+            $ref: '#/components/schemas/BlockTimeSliceModel'
+        actions:
+          type:
+          - array
+          - 'null'
+          description: The list of actions for this block
+          items:
+            $ref: '#/components/schemas/ActionModel_BlockAction_NotAllowedBlockActionReason'
+        optionalCutoff:
+          type:
+          - string
+          - 'null'
+          description: Optional cutoff date, populated only when the block is in status Optional<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        optionalCutoffBehavior:
+          type:
+          - string
+          - 'null'
+          description: Optional cutoff behavior, populated only when the block is in status Optional
+          enum:
+          - DoNothing
+          - AutoRelease
+        isOptionalDeductingInventory:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this optional block reduces availability, populated only when the block is in status Optional
+      additionalProperties: false
+      example:
+        id: MUC-HSGTDG
+        group:
+          id: XPGMSXGF
+          name: apaleo Summer Festival 2027
+        status: Tentative
+        property:
+          id: MUC
+          code: MUC
+          name: Demo Hotel Munich
+          description: This is the demo hotel Munich
+        ratePlan:
+          id: MUC-NONREF_SGL
+          code: NONREF
+          name: Non Refundable
+          description: Non Refundable
+          isSubjectToCityTax: false
+        unitGroup:
+          id: MUC-SGL
+          code: SGL
+          name: Single
+          description: Single
+          type: BedRoom
+        grossDailyRate:
+          amount: 160.0
+          currency: EUR
+        from: '2026-10-21T17:00:00+02:00'
+        to: '2026-10-23T11:00:00+02:00'
+        pickedReservations: 0
+        marketSegment:
+          id: CORP
+          code: CORP
+          name: Corporate Groups
+        created: '0001-01-01T00:00:00Z'
+        modified: '0001-01-01T00:00:00Z'
+        timeSlices:
+        - from: '2026-10-21T17:00:00+02:00'
+          to: '2026-10-22T11:00:00+02:00'
+          blockedUnits: 2
+          pickedUnits: 0
+          baseAmount:
+            grossAmount: 115.0
+            netAmount: 100.0
+            vatType: Special
+            vatPercent: 15.0
+            currency: EUR
+          totalGrossAmount:
+            amount: 120.0
+            currency: EUR
+        - from: '2026-10-22T17:00:00+02:00'
+          to: '2026-10-23T11:00:00+02:00'
+          blockedUnits: 3
+          pickedUnits: 0
+          baseAmount:
+            grossAmount: 1071.0
+            netAmount: 900.0
+            vatType: Special
+            vatPercent: 19.0
+            currency: EUR
+          totalGrossAmount:
+            amount: 120.0
+            currency: EUR
+    OfferCityTaxItemModel:
+      type: object
+      required:
+      - amount
+      - serviceDate
+      properties:
+        serviceDate:
+          type: string
+          description: The date for this city tax
+          format: date
+          example: '2020-10-10'
+        amount:
+          $ref: '#/components/schemas/AmountModel'
+      additionalProperties: false
+    BlockListModel:
+      type: object
+      required:
+      - blocks
+      - count
+      properties:
+        blocks:
+          type: array
+          description: List of blocks
+          items:
+            $ref: '#/components/schemas/BlockItemModel'
+        count:
+          type: integer
+          description: Total count of items
+          format: int64
+      additionalProperties: false
+      example:
+        blocks:
+        - id: MUC-HSGTDG
+          group:
+            id: XPGMSXGF
+            name: apaleo Summer Festival 2027
+          status: Tentative
+          property:
+            id: MUC
+            code: MUC
+            name: Demo Hotel Munich
+            description: This is the demo hotel Munich
+          ratePlan:
+            id: MUC-NONREF_SGL
+            code: NONREF
+            name: Non Refundable
+            description: Non Refundable
+            isSubjectToCityTax: false
+          unitGroup:
+            id: MUC-SGL
+            code: SGL
+            name: Single
+            description: Single
+            type: BedRoom
+          grossDailyRate:
+            amount: 160.0
+            currency: EUR
+          from: '2026-10-21T17:00:00+02:00'
+          to: '2026-10-22T11:00:00+02:00'
+          pickedReservations: 0
+          created: '0001-01-01T00:00:00Z'
+          modified: '0001-01-01T00:00:00Z'
+          timeSlices:
+          - from: '2026-10-21T17:00:00+02:00'
+            to: '2026-10-22T11:00:00+02:00'
+            blockedUnits: 2
+            pickedUnits: 0
+            baseAmount:
+              grossAmount: 115.0
+              netAmount: 100.0
+              vatType: Special
+              vatPercent: 15.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 120.0
+              currency: EUR
+        - id: MUC-JAIULS
+          group:
+            id: XPGMSXGF
+            name: apaleo Summer Festival 2027
+          status: Definite
+          property:
+            id: MUC
+            code: MUC
+            name: Demo Hotel Munich
+            description: This is the demo hotel Munich
+          ratePlan:
+            id: MUC-NONREF_DBL
+            code: NONREF
+            name: Non Refundable
+            description: Non Refundable
+            isSubjectToCityTax: false
+          unitGroup:
+            id: MUC-DBL
+            code: DBL
+            name: Double
+            description: Double
+            type: BedRoom
+          marketSegment:
+            id: CORP
+            code: CORP
+            name: Corporate Groups
+          grossDailyRate:
+            amount: 190.0
+            currency: EUR
+          from: '2026-10-21T17:00:00+02:00'
+          to: '2026-10-23T11:00:00+02:00'
+          pickedReservations: 1
+          created: '0001-01-01T00:00:00Z'
+          modified: '0001-01-01T00:00:00Z'
+          timeSlices:
+          - from: '2026-10-21T17:00:00+02:00'
+            to: '2026-10-22T11:00:00+02:00'
+            blockedUnits: 2
+            pickedUnits: 1
+            baseAmount:
+              grossAmount: 115.0
+              netAmount: 100.0
+              vatType: Special
+              vatPercent: 15.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 120.0
+              currency: EUR
+          - from: '2026-10-22T17:00:00+02:00'
+            to: '2026-10-23T11:00:00+02:00'
+            blockedUnits: 3
+            pickedUnits: 1
+            baseAmount:
+              grossAmount: 115.0
+              netAmount: 100.0
+              vatType: Special
+              vatPercent: 15.0
+              currency: EUR
+            totalGrossAmount:
+              amount: 120.0
+              currency: EUR
+        count: 2
+    BlockItemModel:
+      type: object
+      required:
+      - created
+      - from
+      - grossDailyRate
+      - group
+      - id
+      - modified
+      - pickedReservations
+      - property
+      - ratePlan
+      - status
+      - to
+      - unitGroup
+      properties:
+        id:
+          type: string
+          description: Block id
+        group:
+          $ref: '#/components/schemas/EmbeddedGroupModel'
+        status:
+          type: string
+          description: Status of the block
+          enum:
+          - Tentative
+          - Definite
+          - Canceled
+          - Optional
+        property:
+          $ref: '#/components/schemas/EmbeddedPropertyModel'
+        ratePlan:
+          $ref: '#/components/schemas/EmbeddedRatePlanModel'
+        unitGroup:
+          $ref: '#/components/schemas/EmbeddedUnitGroupModel'
+        marketSegment:
+          $ref: '#/components/schemas/EmbeddedMarketSegmentModel'
+        grossDailyRate:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        from:
+          type: string
+          description: Start date and time from which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        to:
+          type: string
+          description: End date and time until which the inventory will be blocked<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        pickedReservations:
+          type: integer
+          description: Number of reservations already picked from this block
+          format: int32
+        promoCode:
+          type:
+          - string
+          - 'null'
+          description: The promo code associated with a certain special offer used to create the block
+        corporateCode:
+          type:
+          - string
+          - 'null'
+          description: The corporate code associated with a certain special offer used to create the block
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        modified:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        timeSlices:
+          type:
+          - array
+          - 'null'
+          description: The list of blocked units for each time slice
+          items:
+            $ref: '#/components/schemas/BlockTimeSliceModel'
+        actions:
+          type:
+          - array
+          - 'null'
+          description: The list of actions for this block
+          items:
+            $ref: '#/components/schemas/ActionModel_BlockAction_NotAllowedBlockActionReason'
+        optionalCutoff:
+          type:
+          - string
+          - 'null'
+          description: Optional cutoff date, populated only when the block is in status Optional<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        optionalCutoffBehavior:
+          type:
+          - string
+          - 'null'
+          description: Optional cutoff behavior, populated only when the block is in status Optional
+          enum:
+          - DoNothing
+          - AutoRelease
+        isOptionalDeductingInventory:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this optional block reduces availability, populated only when the block is in status Optional
+      additionalProperties: false
+    Operation:
+      type: object
+      properties:
+        value: {}
+        path:
+          type:
+          - string
+          - 'null'
+        op:
+          type:
+          - string
+          - 'null'
+        from:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ActionReasonModel_NotAllowedBlockActionReason:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          enum:
+          - DeleteNotAllowedForBlockWithReservations
+          - ReleaseNotAllowedForBlockWithReservations
+          - ReleaseNotAllowedForBlockInThePast
+          - ReleaseNotAllowedForBlockNotInStatusDefinite
+          - ConfirmNotAllowedForBlockNotInStatusTentative
+          - ConfirmNotAllowedForBlockInThePast
+          - CancelNotAllowedForBlockWithNotCancelledReservations
+          - CancelNotAllowedForBlockNotInStatusDefiniteOrTentative
+          - PickupNotAllowedForBlockNotInStatusDefinite
+          - PickupNotAllowedForBlockInThePast
+          - PickupNotAllowedForFullyPickedBlock
+          - ModifyNotAllowedForBlockInThePast
+          - ModifyNotAllowedForBlockInStatusCanceled
+          - WashNotAllowedForBlockNotInStatusDefinite
+          - WashNotAllowedForBlockWithoutReservations
+          - SetToOptionalNotAllowedForBlockNotInStatusTentative
+          - SetToOptionalNotAllowedForBlockInThePast
+        message:
+          type: string
+          minLength: 1
+      additionalProperties: false
+    BlockCreatedModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Block id
+      additionalProperties: false
+      example:
+        id: MUC-HSGTDG
+    MonetaryValueModel:
+      type: object
+      required:
+      - amount
+      - currency
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+    CreateBlockModel:
+      type: object
+      required:
+      - from
+      - grossDailyRate
+      - groupId
+      - ratePlanId
+      - to
+      properties:
+        groupId:
+          type: string
+          description: ID of the group that reserved the block
+        ratePlanId:
+          type: string
+          description: The rate plan
+        from:
+          type: string
+          description: Start date and time from which the inventory will be blocked<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        to:
+          type: string
+          description: End date and time until which the inventory will be blocked. Cannot be more than 5 years after the start date.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        grossDailyRate:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        timeSlices:
+          type:
+          - array
+          - 'null'
+          description: The list of blocked units for each time slice
+          items:
+            $ref: '#/components/schemas/CreateBlockTimeSliceModel'
+        blockedUnits:
+          type:
+          - integer
+          - 'null'
+          description: Number of units to block for the defined time period
+          format: int32
+        promoCode:
+          type:
+          - string
+          - 'null'
+          description: The promo code associated with a certain special offer
+        corporateCode:
+          type:
+          - string
+          - 'null'
+          description: The corporate code associated with a certain special offer
+        marketSegmentId:
+          type:
+          - string
+          - 'null'
+          description: 'The market segment Id for this block.
+
+            Must be a valid market segment ID defined at the property level.
+
+            Picked-up reservations will inherit this value by default'
+      additionalProperties: false
+      example:
+        groupId: XPGMSXGF
+        ratePlanId: MUC-NONREF-SGL
+        from: '2026-10-21'
+        to: '2026-10-24'
+        grossDailyRate:
+          amount: 160.0
+          currency: EUR
+        timeSlices:
+        - blockedUnits: 3
+        - blockedUnits: 0
+        - blockedUnits: 7
+        marketSegmentId: BUSR
+    CountModel:
+      type: object
+      required:
+      - count
+      properties:
+        count:
+          type: integer
+          format: int64
+      additionalProperties: false
+      example:
+        count: 50
+    AmountModel:
+      type: object
+      required:
+      - currency
+      - grossAmount
+      - netAmount
+      - vatPercent
+      - vatType
+      properties:
+        grossAmount:
+          type: number
+          format: double
+        netAmount:
+          type: number
+          format: double
+        vatType:
+          type: string
+          enum:
+          - 'Null'
+          - VeryReduced
+          - Reduced
+          - Normal
+          - Without
+          - Special
+          - Special1
+          - Special2
+          - ReducedCovid19
+          - NormalCovid19
+          - Mixed
+        vatPercent:
+          type: number
+          format: double
+        currency:
+          type: string
+      additionalProperties: false
+      example:
+        grossAmount: 107.0
+        netAmount: 100.0
+        vatType: Reduced
+        vatPercent: 7.0
+        currency: USD
+    OfferCityTaxModel:
+      type: object
+      required:
+      - code
+      - dates
+      - id
+      - name
+      - totalGrossAmount
+      properties:
+        id:
+          type: string
+          description: The id of the city tax
+        code:
+          type: string
+          description: The code of the city tax
+        name:
+          type: string
+          description: The name for the city tax
+          minLength: 1
+        totalGrossAmount:
+          $ref: '#/components/schemas/MonetaryValueModel'
+        dates:
+          type: array
+          description: Split per day for the city tax
+          items:
+            $ref: '#/components/schemas/OfferCityTaxItemModel'
+      additionalProperties: false
+    EmbeddedUnitGroupModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unit group id
+        code:
+          type:
+          - string
+          - 'null'
+          description: The code for the unit group that can be shown in reports and table views
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name for the unit group
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description for the unit group
+        type:
+          type:
+          - string
+          - 'null'
+          description: The unit group type
+          enum:
+          - BedRoom
+          - MeetingRoom
+          - EventSpace
+          - ParkingLot
+          - Other
+      additionalProperties: false
+    BlockOffersModel:
+      type: object
+      required:
+      - offers
+      properties:
+        offers:
+          type: array
+          description: List of block offers
+          items:
+            $ref: '#/components/schemas/BlockOfferModel'
+      additionalProperties: false
+      example:
+        offers:
+        - arrival: '2026-10-18T17:00:00+02:00'
+          departure: '2026-10-20T11:00:00+02:00'
+          timeSlices:
+          - from: '2026-10-18T17:00:00+02:00'
+            to: '2026-10-19T11:00:00+02:00'
+            availableUnits: 4
+            blockedUnits: 2
+            totalGrossAmount:
+              amount: 100.0
+              currency: EUR
+          - from: '2026-10-19T11:00:00+02:00'
+            to: '2026-10-20T11:00:00+02:00'
+            availableUnits: 4
+            blockedUnits: 2
+            totalGrossAmount:
+              amount: 114.0
+              currency: EUR
+    OfferValidationMessageModel:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          description: The message Code
+          enum:
+          - UnitGroupFullyBooked
+          - UnitGroupCapacityExceeded
+          - RatePlanRestrictionsViolated
+          - RatePlanSurchargesNotSet
+          - RateRestrictionsViolated
+          - RatePlanChannelNotSet
+          - RatesNotSet
+          - BlockFullyBooked
+          - IncludedServicesAmountExceededRateAmount
+          - ServiceFullyBooked
+          - RateDoesNotSatifyHurdles
+        message:
+          type: string
+          description: The message description
+          minLength: 1
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize

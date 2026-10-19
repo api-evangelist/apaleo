@@ -1,0 +1,1148 @@
+openapi: 3.2.0
+info:
+  title: apaleo Booking API - not safe for work Payment Account API
+  description: Continuously evolving version - use at your own risk! Resources and methods to manage guest journeys.
+  version: v0-nsfw
+tags:
+- name: Payment Account
+paths:
+  /booking/v0-nsfw/payment-accounts/by-terminal:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates payment account by using the terminal
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-terminalPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTerminalPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+  /booking/v0-nsfw/payment-accounts/by-link:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates a link to a payment form that allows guests to complete the payment…
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-linkPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePaymentLinkPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+  /booking/v0-nsfw/payment-accounts/by-authorization:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates payment account based on an existing authorization created prior…
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-authorizationPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAuthorizationPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+  /booking/v0-nsfw/payment-accounts/by-stored-payment-method:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates payment account based on an existing authorization created prior…
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-stored-payment-methodPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStoredPaymentMethodAuthorizationPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+  /booking/v0-nsfw/payment-accounts/{id}:
+    get:
+      tags:
+      - Payment Account
+      summary: Returns a single payment account by ID
+      description: 'You must have at least one of these scopes: ''payment-accounts.read, payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.read''.'
+      operationId: BookingPayment-accountsByIdGet
+      parameters:
+      - in: path
+        name: id
+        description: The identifier of the payment account
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - actions
+      responses:
+        '200':
+          description: Successfully returned payment account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountV2Model'
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.read
+        - payment-accounts.manage
+        - admin
+  /booking/v0-nsfw/payment-accounts:
+    get:
+      tags:
+      - Payment Account
+      summary: Returns a list of payment accounts based on the query parameters
+      description: 'You must have at least one of these scopes: ''payment-accounts.read, payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.read''.'
+      operationId: BookingPayment-accountsGet
+      parameters:
+      - in: query
+        name: paymentAccountIds
+        description: Filter result by requested payment account Ids
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: propertyIds
+        description: Filter result by requested properties
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: bookingIds
+        description: 'Filter result by requested booking ids. Returns payment accounts that are related to the specified booking or booking reservations.
+
+          Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.TargetTypes to get payment accounts related only to bookings or to reservations.'
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: reservationIds
+        description: Filter result by requested reservation ids
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: payerInteractions
+        description: Filter result by payment account payer interactions
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - PciToken
+            - Terminal
+            - Authorization
+            - PaymentLink
+      - in: query
+        name: status
+        description: Filter result by payment account status
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Pending
+            - Success
+            - Failure
+            - Canceled
+            - Expired
+      - in: query
+        name: targetTypes
+        description: Filter by target types
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Booking
+            - Reservation
+      - in: query
+        name: dateField
+        description: 'Filter result by date and time attributes of payment account. Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To attributes.
+
+          All filters will check if the date specified by the filter type is between Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From (included) and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To (excluded).'
+        schema:
+          type: string
+          enum:
+          - Creation
+          - Modification
+      - in: query
+        name: from
+        description: The start of the time interval. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: to
+        description: The end of the time interval, must be larger than Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: paymentLinkUrls
+        description: Filter by payment link urls
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: pageNumber
+        description: 'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.'
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: pageSize
+        description: 'Items per page. Default: 500. Maximum: 500.'
+        schema:
+          type: integer
+          default: 500
+      - in: query
+        name: sort
+        description: 'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, updated:asc, updated:desc, expiresat:asc, expiresat:desc. All other values will be silently ignored.'
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - created:asc
+            - created:desc
+            - updated:asc
+            - updated:desc
+            - expiresat:asc
+            - expiresat:desc
+      - in: query
+        name: expand
+        description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.'
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - actions
+      responses:
+        '200':
+          description: Successfully returned payment account list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountV2ListModel'
+        '204':
+          description: No payment accounts found.
+        '404':
+          description: The Request-URI could not be found.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.read
+        - payment-accounts.manage
+        - admin
+  /booking/v0-nsfw/payment-accounts/by-pci-transaction-id-token:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates payment account by using a PCI proxy transaction ID token
+      description: 'You must have this scope: ''captcha-protection''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-pci-transaction-id-tokenPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      - in: header
+        name: Apaleo-Captcha-Token
+        description: Captcha token value, must be valid and can only be used once
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - captcha-protection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePciTransactionIdPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+  /booking/v0-nsfw/payment-accounts/by-pci-credit-card-token:
+    post:
+      tags:
+      - Payment Account
+      summary: Creates payment account by using a PCI proxy credit card token
+      description: 'You must have this scope: ''payment-accounts.manage''.
+
+        For fine-grained clients, you must have this permission: ''core.payment_accounts.create''.'
+      operationId: BookingPayment-accountsBy-pci-credit-card-tokenPost
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        description: "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours."
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: The location of the created resource.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentAccountCreatedModel'
+        '404':
+          description: The Request-URI could not be found.
+        '415':
+          description: Unsupported media type.
+        '400':
+          description: Bad request.
+        '401':
+          description: You are unauthorized.
+        '403':
+          description: Forbidden.
+        '499':
+          description: Client closed request.
+        '500':
+          description: An unexpected error occurred.
+        '503':
+          description: The server is currently unavailable. Please try later.
+        '422':
+          description: Validation errors in the request body or query params.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageItemCollection'
+      security:
+      - oauth2:
+        - payment-accounts.manage
+        - admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePciCreditCardTokenPaymentAccountRequest'
+        description: The definition of the payment account to be created
+        required: true
+components:
+  schemas:
+    PaymentAccountPaymentLinkModel:
+      type: object
+      properties:
+        expiresAt:
+          type: string
+          description: The date and time the payment link expires<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        url:
+          type:
+          - string
+          - 'null'
+          description: The URL to the payment link
+      additionalProperties: false
+    CreatePciTransactionIdPaymentAccountRequest:
+      type: object
+      required:
+      - cardHolder
+      - expiryMonth
+      - expiryYear
+      - propertyId
+      - target
+      - transactionId
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        propertyId:
+          type: string
+          description: 'The id of the property which configuration (e.g. currency) is used to create payment account.
+
+            For reservation payment accounts should match the reservation property.'
+        transactionId:
+          type: string
+          description: Pci Transaction Id to be used to authorize the payment account
+          minLength: 1
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The payer e-mail address
+          format: email
+        cardHolder:
+          type: string
+          description: The credit card holder name
+          minLength: 1
+        expiryMonth:
+          type: string
+          description: The credit card expiry month
+          minLength: 1
+          pattern: ^(0?[1-9]|1[012])$
+        expiryYear:
+          type: string
+          description: The credit card expiry year
+          minLength: 1
+          pattern: ^\d{4}$
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        propertyId: MUC
+        transactionId: '411111967831111885'
+        payerEmail: mr.king@test.com
+        cardHolder: Douglas King
+        expiryMonth: '03'
+        expiryYear: '2030'
+    PaymentAccountTargetModel:
+      type: object
+      required:
+      - id
+      - type
+      properties:
+        type:
+          type: string
+          description: Payment account target type
+          enum:
+          - Booking
+          - Reservation
+        id:
+          type: string
+          description: Booking or reservation id
+      additionalProperties: false
+    MessageItemCollection:
+      type: object
+      properties:
+        messages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+      additionalProperties: false
+    PaymentAccountV2ListModel:
+      type: object
+      required:
+      - count
+      - paymentAccounts
+      properties:
+        paymentAccounts:
+          type: array
+          description: List of payment accounts
+          items:
+            $ref: '#/components/schemas/PaymentAccountV2Model'
+        count:
+          type: integer
+          description: Total count of items
+          format: int64
+      additionalProperties: false
+      example:
+        paymentAccounts:
+        - id: QWERTYUI
+          target:
+            type: Booking
+            id: ASDFGHJK
+          created: '2026-10-19T19:18:15.347357Z'
+          updated: '2026-10-19T20:18:15.3473571Z'
+          externalReference:
+            paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+          status: Pending
+          payerInteraction: PaymentLink
+          paymentLink:
+            expiresAt: '2026-10-20T19:18:15.3473572Z'
+            url: https://test.adyen.link/PL0E1BC57CAEE63F2F0
+          accountDetails:
+            accountNumber: '1111'
+            accountHolder: John Doe
+            expiryMonth: '8'
+            expiryYear: '2018'
+            paymentMethod: visa
+            payerEmail: s.hopper@test.com
+          isVirtual: false
+          actions:
+          - action: Cancel
+            isAllowed: false
+            reasons:
+            - code: OnlySuccessfulPaymentAccountCanBeCanceled
+              message: Only a successful payment account can be canceled.
+        count: 1
+    CreateAuthorizationPaymentAccountRequest:
+      type: object
+      required:
+      - target
+      - transactionReference
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        transactionReference:
+          type: string
+          description: Reference to the original authorization transaction
+          minLength: 1
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        transactionReference: K9DTTJQD4HNG5S82
+    ActionModel_PaymentAccountAction_NotAllowedPaymentAccountActionReason:
+      type: object
+      required:
+      - action
+      - isAllowed
+      properties:
+        action:
+          type: string
+          enum:
+          - Cancel
+          - ExpirePaymentLink
+        isAllowed:
+          type: boolean
+        reasons:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ActionReasonModel_NotAllowedPaymentAccountActionReason'
+      additionalProperties: false
+    PaymentAccountCreatedModel:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Created payment account id
+      additionalProperties: false
+      example:
+        id: UBMFXUFH
+    CreateStoredPaymentMethodAuthorizationPaymentAccountRequest:
+      type: object
+      required:
+      - payerReference
+      - storedPaymentMethodId
+      - target
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        payerReference:
+          type: string
+          description: Reference to uniquely identify the payer
+          minLength: 1
+        storedPaymentMethodId:
+          type: string
+          description: 'Reference to uniquely identify the stored recurring authorization, or LATEST to use the latest stored payment method
+
+            for the given payerReference'
+          minLength: 1
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card
+        accountDetails:
+          $ref: '#/components/schemas/PaymentAccountDetailsModel'
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        payerReference: 4c5b0e9d-819e-481f-bc32-85068267e641
+        storedPaymentMethodId: K9DTTJQD4HNG5S82
+        isVirtual: false
+        accountDetails:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: john@example.com
+    CreatePciCreditCardTokenPaymentAccountRequest:
+      type: object
+      required:
+      - cardHolder
+      - creditCardToken
+      - expiryMonth
+      - expiryYear
+      - propertyId
+      - target
+      - tokenType
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        propertyId:
+          type: string
+          description: 'The id of the property which configuration (e.g. currency) is used to create payment account.
+
+            For reservation payment accounts should match the reservation property.'
+        tokenType:
+          type: string
+          description: The type of the token and the token provider
+          enum:
+          - PciProxy
+          - Payrails
+        creditCardToken:
+          type: string
+          description: PCI credit card token to be used to authorize the payment account
+          minLength: 1
+        cvcToken:
+          type:
+          - string
+          - 'null'
+          description: PCI CVC token to be used to authorize the payment account
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The payer e-mail address
+          format: email
+        cardHolder:
+          type: string
+          description: The credit card holder name
+          minLength: 1
+        expiryMonth:
+          type: string
+          description: The credit card expiry month
+          minLength: 1
+          pattern: ^(0?[1-9]|1[012])$
+        expiryYear:
+          type: string
+          description: The credit card expiry year
+          minLength: 1
+          pattern: ^\d{4}$
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card
+        retryWithoutCvcOnCvcError:
+          type: boolean
+          description: 'Retry payment account creation without CVC if cvc error happened.
+
+            Retry happens only if CvcToken is passed.'
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        propertyId: MUC
+        tokenType: PciProxy
+        creditCardToken: 411111GGCMUJ1111
+        cvcToken: 1t28whJOQBSlqhUX26QjYjSO
+        payerEmail: mr.king@test.com
+        cardHolder: Douglas King
+        expiryMonth: '03'
+        expiryYear: '2030'
+        isVirtual: false
+        retryWithoutCvcOnCvcError: false
+    ExternalPaymentAccountReferenceModel:
+      type: object
+      required:
+      - paymentTransactionId
+      properties:
+        paymentTransactionId:
+          type: string
+          description: Identifies the payment authorization in the Payment Transaction API
+          minLength: 1
+      additionalProperties: false
+    ActionReasonModel_NotAllowedPaymentAccountActionReason:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          enum:
+          - OnlySuccessfulPaymentAccountCanBeCanceled
+          - OnlyPendingPaymentLinkPaymentAccountCanBeExpired
+        message:
+          type: string
+          minLength: 1
+      additionalProperties: false
+    CreateTerminalPaymentAccountRequest:
+      type: object
+      required:
+      - propertyId
+      - target
+      - terminalId
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        propertyId:
+          type: string
+          description: 'The id of the property which configuration (e.g. currency) is used to create payment account.
+
+            For reservation payment accounts should match the reservation property.'
+        terminalId:
+          type: string
+          description: Terminal to be used for the payment account
+          minLength: 1
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        propertyId: MUC
+        terminalId: V400m-324689704
+    PaymentAccountV2Model:
+      type: object
+      required:
+      - created
+      - id
+      - payerInteraction
+      - status
+      - target
+      - updated
+      properties:
+        id:
+          type: string
+          description: Payment account id
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        created:
+          type: string
+          description: Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        updated:
+          type: string
+          description: Date of last modification<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        externalReference:
+          $ref: '#/components/schemas/ExternalPaymentAccountReferenceModel'
+        status:
+          type: string
+          description: Status of the payment account
+          enum:
+          - Pending
+          - Success
+          - Failure
+          - Canceled
+          - Expired
+        failureReason:
+          type:
+          - string
+          - 'null'
+          description: Human-readable failure reason
+        payerInteraction:
+          type: string
+          description: Payer interaction of the payment account
+          enum:
+          - PciToken
+          - Terminal
+          - Authorization
+          - PaymentLink
+        paymentLink:
+          $ref: '#/components/schemas/PaymentAccountPaymentLinkModel'
+        accountDetails:
+          $ref: '#/components/schemas/PaymentAccountDetailsModel'
+        isVirtual:
+          type: boolean
+          description: Indicates if the payment account is a virtual credit card. If not specified it defaults to 'false'
+        actions:
+          type:
+          - array
+          - 'null'
+          description: The list of actions for payment account
+          items:
+            $ref: '#/components/schemas/ActionModel_PaymentAccountAction_NotAllowedPaymentAccountActionReason'
+      additionalProperties: false
+      example:
+        id: QWERTYUI
+        target:
+          type: Booking
+          id: ASDFGHJK
+        created: '2026-10-19T19:18:15.3416653Z'
+        updated: '2026-10-19T20:18:15.3416674Z'
+        externalReference:
+          paymentTransactionId: VT6G6BFUR6XE5MHZARAX2ODK7Y
+        status: Pending
+        payerInteraction: PaymentLink
+        paymentLink:
+          expiresAt: '2026-10-20T19:18:15.3416679Z'
+          url: https://test.adyen.link/PL0E1BC57CAEE63F2F0
+        accountDetails:
+          accountNumber: '1111'
+          accountHolder: John Doe
+          expiryMonth: '8'
+          expiryYear: '2018'
+          paymentMethod: visa
+          payerEmail: s.hopper@test.com
+        isVirtual: false
+        actions:
+        - action: Cancel
+          isAllowed: false
+          reasons:
+          - code: OnlySuccessfulPaymentAccountCanBeCanceled
+            message: Only a successful payment account can be canceled.
+    CreatePaymentLinkPaymentAccountRequest:
+      type: object
+      required:
+      - countryCode
+      - expiresAt
+      - propertyId
+      - target
+      properties:
+        target:
+          $ref: '#/components/schemas/PaymentAccountTargetModel'
+        propertyId:
+          type: string
+          description: 'The id of the property which configuration (e.g. currency) is used to create payment account.
+
+            For reservation payment accounts should match the reservation property.'
+        expiresAt:
+          type: string
+          description: The date that the link expires<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>
+          format: date-time
+        countryCode:
+          type: string
+          description: The payer's country code
+        description:
+          type:
+          - string
+          - 'null'
+          description: Payment account description. It will be shown on the payment form of the link
+          maxLength: 280
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: 'The email address of the payer or cardholder. It can be used to verify the identity of the payer and
+
+            allow to catch a fraudulent usage of the payment account if the email address does not match the one
+
+            on file at the bank'
+        returnUrl:
+          type:
+          - string
+          - 'null'
+          description: Website URL used for redirection after payment is completed using the payment link.
+          maxLength: 8000
+          pattern: ^https?:\/\/[^\s/$.?#].[^\s]*$
+      additionalProperties: false
+      example:
+        target:
+          type: Booking
+          id: KYKXKLWL
+        propertyId: MUC
+        expiresAt: '2026-10-21T20:18:15.3349676Z'
+        countryCode: DE
+        description: Payment information for the booking
+        payerEmail: user@email.com
+        returnUrl: https://example.com/return
+    PaymentAccountDetailsModel:
+      type: object
+      properties:
+        accountNumber:
+          type:
+          - string
+          - 'null'
+          description: The last 4 characters of the card or account number
+          maxLength: 4
+        accountHolder:
+          type:
+          - string
+          - 'null'
+          description: The account or card holder
+        expiryMonth:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration month
+        expiryYear:
+          type:
+          - string
+          - 'null'
+          description: The credit card's expiration year
+        paymentMethod:
+          type:
+          - string
+          - 'null'
+          description: The payment method (e.g. visa)
+        payerEmail:
+          type:
+          - string
+          - 'null'
+          description: The email address of the shopper / customer
+          format: email
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            admin: Full access
+            reservations.import: Import reservations
+          authorizationUrl: https://identity.apaleo.com/connect/authorize
