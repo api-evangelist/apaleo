@@ -1146,3 +1146,9 @@ components:
             admin: Full access
             reservations.import: Import reservations
           authorizationUrl: https://identity.apaleo.com/connect/authorize
+x-provenance:
+  method: harvested
+  publisher: apaleo
+  source: https://api.apaleo.com/swagger/booking-v0-nsfw/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
