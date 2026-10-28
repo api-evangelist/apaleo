@@ -1,4 +1,4 @@
-# apaleo (apaleo)
+# apaleo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,181 +66,140 @@
 
 apaleo is an API-first cloud hotel property-management system (PMS) and platform. Every capability - reservations, bookings, blocks, inventory, rate plans, availability, and finance - is exposed through documented REST APIs secured with OAuth 2.0, published as OpenAPI, with webhooks for real-time events, enabling an open marketplace of integrations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apaleo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apaleo/refs/heads/main/apis.yml)
+**Areas:** Hospitality · PMS · Property Management · Hotels · API-First
 
-## Tags
+## apaleo on APIs.io
 
-- Hospitality
-- PMS
-- Property Management
-- Hotels
-- API-First
+Everything profiled for apaleo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apaleo/](https://apis.io/providers/apaleo/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (6)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [apaleo Availability API](https://apis.io/apis/apaleo/apaleo-availability-api/) — Real-time availability for units, unit groups, and services.
+- [apaleo Booking API](https://apis.io/apis/apaleo/apaleo-booking-api/) — Bookings, reservations, blocks, groups, and offers.
+- [apaleo Finance API](https://apis.io/apis/apaleo/apaleo-finance-api/) — Folios, payments, refunds, invoices, and accounts.
+- [apaleo Inventory API](https://apis.io/apis/apaleo/apaleo-inventory-api/) — Properties, units, unit groups, and unit attributes.
+- [apaleo Rate Plan API](https://apis.io/apis/apaleo/apaleo-rate-plan-api/) — Rate plans, rates, services, and policies.
+- [apaleo Settings API](https://apis.io/apis/apaleo/apaleo-settings-api/) — Account- and property-level configuration.
 
-## APIs
+### Published properties
 
-### apaleo Booking API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-End-to-end reservation lifecycle - create bookings and reservations, fetch offers, manage groups and blocks, and run reservation actions such as check-in, check-out, amend, assign-unit, and cancel.
+#### MCP servers (1)
 
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1)
-- **Base URL:** `https://api.apaleo.com/booking/v1`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [apaleo](https://apis.io/servers/apaleo/apaleo/)
 
-- Bookings
-- Reservations
-- Blocks
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://apaleo.dev/guides/api/overview.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Booking+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Apaleo Agentic Access](https://apis.io/agentic-access/apaleo/apaleo-agentic-access/)
 
-### apaleo Inventory API
+#### Collections (7)
 
-Manage the physical inventory of properties, units, unit groups, and unit attributes - including property rollout actions such as clone, archive, and set-live.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1)
-- **Base URL:** `https://api.apaleo.com/inventory/v1`
+- [apaleo Platform API](https://apis.io/collections/apaleo/open-apaleo/)
+- [apaleo Platform Availability API](https://apis.io/collections/apaleo/open-apaleo-availability-api/)
+- [apaleo Platform Availability Booking API](https://apis.io/collections/apaleo/open-apaleo-booking-api/)
+- [apaleo Platform Availability Finance API](https://apis.io/collections/apaleo/open-apaleo-finance-api/)
+- [apaleo Platform Availability Inventory API](https://apis.io/collections/apaleo/open-apaleo-inventory-api/)
+- [apaleo Platform Availability Rate Plan API](https://apis.io/collections/apaleo/open-apaleo-rate-plan-api/)
+- [apaleo Platform Availability Settings API](https://apis.io/collections/apaleo/open-apaleo-settings-api/)
 
-#### Tags
+#### Security (2)
 
-- Inventory
-- Properties
-- Units
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Apaleo Authentication](https://apis.io/security/apaleo/apaleo-authentication/)
+- [Apaleo Domain Security](https://apis.io/security/apaleo/apaleo-domain-security/)
 
-- [Documentation](https://apaleo.dev/guides/api/overview.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Inventory+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### OAuth scopes (1)
 
-### apaleo Rate Plan API
+The permissions the API asks for.
 
-Set up and update rate plans, rates, services, companies, and cancellation / no-show policies in real time, plus corporate and promo code lookups.
+- [Apaleo Scopes](https://apis.io/scopes/apaleo/apaleo-scopes/)
 
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1)
-- **Base URL:** `https://api.apaleo.com/rateplan/v1`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Rate Plans
-- Rates
-- Policies
+- [Apaleo Plans Pricing](https://apis.io/plans/apaleo/apaleo-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Rate+Plan+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### apaleo Availability API
+- [Apaleo Rate Limits](https://apis.io/rate-limits/apaleo/apaleo-rate-limits/)
 
-Query real-time availability for units, unit groups, services, and properties, and adjust per-unit-group availability.
+#### FinOps (1)
 
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1)
-- **Base URL:** `https://api.apaleo.com/availability/v1`
+What the API costs to run, by operation.
 
-#### Tags
+- [Apaleo Finops](https://apis.io/finops/apaleo/apaleo-finops/)
 
-- Availability
-- ARI
-- Units
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://apaleo.dev/guides/business-cases/revenue-management/inventory-rates.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Availability+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### apaleo Finance API
-
-Folios, charges, payments, refunds, invoices, routings, and the chart of accounts - covering the full accounting and ledger surface of the platform.
-
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1)
-- **Base URL:** `https://api.apaleo.com/finance/v1`
-
-#### Tags
-
-- Finance
-- Folios
-- Invoices
-
-#### Properties
-
-- [Documentation](https://apaleo.dev/guides/api/overview.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Finance+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### apaleo Settings API
-
-Account- and property-level configuration - city tax, capture policies, market segments, languages, sub-accounts, features, and time-slice definitions.
-
-- **Human URL:** [https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1](https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1)
-- **Base URL:** `https://api.apaleo.com/settings/v1`
-
-#### Tags
-
-- Settings
-- Configuration
-- Tax
-
-#### Properties
-
-- [Documentation](https://apaleo.dev/guides/api/overview.html)
-- [API Reference](https://api.apaleo.com/swagger/index.html?urls.primaryName=Settings+V1)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### apaleo Webhook API
-
-Create and manage webhook subscriptions for real-time events across topics such as Reservation, Folio, Invoice, RatePlan, Block, Unit, and Property, with per-topic event filters and wildcards.
-
-- **Human URL:** [https://webhook.apaleo.com/swagger/index.html](https://webhook.apaleo.com/swagger/index.html)
-- **Base URL:** `https://webhook.apaleo.com/v1`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://apaleo.dev/guides/api/overview.html)
-- [API Reference](https://webhook.apaleo.com/swagger/index.html)
-- [OpenAPI](openapi/apaleo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apaleo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apaleo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/apaleo)
-- [LinkedIn](https://www.linkedin.com/company/apaleo)
 - [Website](https://www.apaleo.com)
 - [Documentation](https://apaleo.dev)
-- [Plans](plans/apaleo-plans-pricing.yml)
-- [Rate Limits](rate-limits/apaleo-rate-limits.yml)
-- [Fin Ops](finops/apaleo-finops.yml)
+- [Blog](https://apaleo.com/blog/home)
+- [GitHub](https://github.com/apaleo)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.4** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 43.9** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apaleo/](https://apis.io/providers/apaleo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for apaleo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apaleo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
